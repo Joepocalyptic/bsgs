@@ -1,4 +1,5 @@
 import NextLink from 'next/link'
+import React from "react";
 
 export const Link: React.FC<React.AnchorHTMLAttributes<any>> = ({
   href,
