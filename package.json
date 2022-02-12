@@ -2,7 +2,7 @@
   "name": "nextjs-builder-io-landing-page",
   "version": "1.0.0",
   "scripts": {
-    "dev": "C:/Users/jpereira24/Desktop/node/node C:/Users/jpereira24/WebstormProjects/bsgs/node_modules/next/dist/bin/next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "analyze": "BUNDLE_ANALYZE=both yarn build",
@@ -46,6 +46,7 @@
   "dependencies": {
     "@builder.io/react": "^1.1.47",
     "@builder.io/widgets": "^1.2.21",
+    "@react-icons/all-files": "^4.1.0",
     "@vercel/fetch": "^6.1.0",
     "atob": "^2.1.2",
     "jest": "^26.6.3",
