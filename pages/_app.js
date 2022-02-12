@@ -18,7 +18,7 @@ const MyApp = ({Component, pageProps}) => {
             <title>Bay State Girls Softball</title>
         </Head>
 
-        <BSGSHeader />
+        <BSGSHeader navigation={builder.get('navigation').promise().then(({ data }) => data)}/>
         <Component {...pageProps} />
         <BSGSFooter />
     </>
