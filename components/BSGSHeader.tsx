@@ -8,16 +8,12 @@ import { HiHome } from "@react-icons/all-files/hi/HiHome"
 import {Link} from "@components/Link/Link";
 import { BuilderContent } from "@builder.io/react";
 
-type HeaderProps = {
-    navigation: any
-}
-
 type HeaderState = {
     expanded: boolean,
     submenusExpanded: number[]
 }
 
-export default class BSGSHeader extends React.Component<HeaderProps, HeaderState> {
+export default class BSGSHeader extends React.Component<any, HeaderState> {
     state = {
         expanded: false,
         submenusExpanded: [] as number[]
@@ -82,7 +78,7 @@ export default class BSGSHeader extends React.Component<HeaderProps, HeaderState
                                                                 if(this.state.submenusExpanded.includes(index)) {
                                                                     return <>
                                                                         {item.multipleLinks.map((link: any, index_: number) => (
-                                                                            <Link href={link.link} key={index_} className="pl-16 flex gap-4 py-4">
+                                                                            <Link href={link.link} key={index_} className="pl-8 flex gap-4 py-4">
                                                                                 <HiChevronRight className="w-16 grid place-items-center text-3xl" />
                                                                                 {link.displayName}
                                                                             </Link>
