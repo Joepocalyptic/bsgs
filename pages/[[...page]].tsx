@@ -22,7 +22,7 @@ export async function getStaticProps({params}: GetStaticPropsContext<{ page: str
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
         // - At most once every 5 seconds
-        revalidate: 5,
+        revalidate: 30,
     }
 }
 
@@ -34,7 +34,7 @@ export async function getStaticPaths() {
 
     return {
         paths: pages.map((page) => `${page.data?.url}`),
-        fallback: true,
+        fallback: true
     }
 }
 
