@@ -68,7 +68,7 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
                                                 {(() => {
                                                     return item.singleLink === "" ? (
                                                         <>
-                                                            <button onClick={() => this.toggleExpandedSubmenu(index)} className={"rounded-2xl w-full flex gap-4 py-4 uppercase transition-colors duration-400 ease-in-out" +
+                                                            <button onClick={() => this.toggleExpandedSubmenu(index)} className={"rounded-2xl w-full flex gap-4 py-4 uppercase transition-all duration-400 ease-in-out" +
                                                             (this.state.submenusExpanded.includes(index) ? " bg-blue-normal shadow-lg" : "")}>
                                                                 <HiPlus className={"w-16 place-items-center transition-colors duration-400 ease-in-out" +
                                                                     (this.state.submenusExpanded.includes(index) ? " text-yellow" : "")} />

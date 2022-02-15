@@ -11,7 +11,7 @@ export default class BSGSFooter extends React.Component<{}, {}> {
     render() {
         return (
             <footer className="text-white border-t-2 border-yellow bg-blue-light">
-                <div className="flex flex-col lg:flex-row lg:justify-between text-center gap-4 lg:gap-0 mx-auto p-4 font-content container mx-auto">
+                <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-0 mx-auto p-4 font-content container mx-auto">
                     <div className="flex flex-col items-center lg:order-2 lg:justify-center lg:w-1/4 gap-4 bg-blue-normal rounded-2xl p-4 shadow-lg">
                         <Link href="/home">
                             <img className="w-24" src="/img/bsgs_logo_border.png" alt="BSGS Logo"/>
@@ -19,7 +19,7 @@ export default class BSGSFooter extends React.Component<{}, {}> {
                         <h4 className="font-heading text-2xl uppercase">
                             Bay State Girls Softball
                         </h4>
-                        <p>
+                        <p className="text-center">
                             P.O. Box 30162<br/>
                             Acushnet, MA<br/>
                             02743
@@ -28,7 +28,7 @@ export default class BSGSFooter extends React.Component<{}, {}> {
                     <div className="h-0.5 bg-yellow lg:w-0.5 lg:order-2 lg:h-auto"/>
                     <div className="flex flex-col items-center lg:order-first lg:justify-center lg:w-1/4 gap-4 bg-blue-normal rounded-2xl p-4 shadow-lg">
                         <h4 className="font-heading text-2xl uppercase">Contact Us</h4>
-                        <ul className="-ml-1 flex flex-col gap-4">
+                        <ul className=" flex flex-col gap-4">
                             <li>
                                 <Link href="mailto:bsgs@bsgs.org" className="inline-flex items-center gap-2">
                                     <HiMail className="text-3xl text-yellow" />
@@ -46,7 +46,7 @@ export default class BSGSFooter extends React.Component<{}, {}> {
                     <div className="h-0.5 bg-yellow lg:w-0.5 lg:h-auto"/>
                     <div className="flex flex-col items-center lg:order-last lg:justify-center lg:w-1/4 gap-4 bg-blue-normal rounded-2xl p-4 shadow-lg">
                         <h4 className="font-heading text-2xl uppercase">Quick Links</h4>
-                        <ul className="-ml-1">
+                        <ul className="">
                             <li>
                                 <Link href="/about-us" className="inline-flex items-center gap-0.5">
                                     <HiChevronRight/>
@@ -60,7 +60,7 @@ export default class BSGSFooter extends React.Component<{}, {}> {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="https://www.usasoftballma.com/" className="inline-flex items-center gap-0.5">
+                                <Link href="https://www.usasoftballma.com/" target="_blank" className="inline-flex items-center gap-0.5">
                                     <HiChevronRight/>
                                     USA Softball
                                 </Link>
