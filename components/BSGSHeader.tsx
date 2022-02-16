@@ -47,7 +47,7 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
                 <nav className={"block lg:hidden pt-2 text-2xl container px-4 mx-auto" + (this.state.expanded ? "" : " pb-2")}>
                     <div className="flex items-center gap-4">
                         <button onClick={() => this.toggleExpanded()}
-                                className="w-16 h-16 bg-blue-normal text-5xl grid place-items-center rounded-2xl">
+                                className="w-16 h-16 bg-blue-normal text-5xl grid place-items-center rounded-2xl shadow-lg">
                             <HiMenu/>
                         </button>
                         <span className="block flex-1 lg:hidden text-center whitespace-normal">Bay State Girls Softball</span>
