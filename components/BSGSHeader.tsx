@@ -141,7 +141,7 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
                         </BuilderContent>
                     </div>
 
-                    <Link href="/home" className="py-2 mx-16 w-40">
+                    <Link href="/home" className="z-[2] py-2 mx-16 w-40">
                         <img className="w-full z-[2]" src="/img/bsgs_logo_border.png" alt="BSGS Logo"/>
                     </Link>
 
