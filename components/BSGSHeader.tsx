@@ -42,7 +42,7 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
     render() {
         return (
             <header className="bg-blue-light font-heading uppercase whitespace-nowrap
-                               lg:h-24 w-full text-white border-b-2 border-yellow shadow-xl">
+                               lg:h-24 w-full text-white border-b-2 border-yellow shadow-2xl">
                 {/* Mobile header */}
                 <nav className={"block lg:hidden pt-2 text-2xl container px-4 mx-auto" + (this.state.expanded ? "" : " pb-2")}>
                     <div className="flex items-center gap-4">

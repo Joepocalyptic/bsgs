@@ -9,6 +9,7 @@ import BSGSHeader from "@components/BSGSHeader";
 import BSGSFooter from "@components/BSGSFooter";
 
 import "@components/components/BlockSlideshow/BlockSlideshow.builder"
+import "@components/components/BlockContent/BlockContent.builder"
 
 
 builder.init(builderConfig.apiKey)
@@ -18,7 +19,8 @@ Builder.set({customInsertMenu: true})
 Builder.register('insertMenu', {
     name: "Blocks",
     items: [
-        { name: "Slideshow" }
+        { name: "Slideshow" },
+        { name: "Content" }
     ]
 })
 
