@@ -20,7 +20,8 @@ Builder.registerComponent(BlockSlideshow, {
                 allowedFileTypes: ['png', 'jpeg', 'jpg']
             }],
             required: true,
-            friendlyName: "Image"
+            friendlyName: "Image",
+            defaultValue: [{image: ""}]
         },
         {
             name: "imageDuration",
