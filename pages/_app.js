@@ -1,15 +1,26 @@
 import "styles/globals.css"
 import React from "react"
+import Head from "next/head";
 
 import {Builder, builder} from '@builder.io/react'
 import builderConfig from '@config/builder'
+
 import BSGSHeader from "@components/BSGSHeader";
 import BSGSFooter from "@components/BSGSFooter";
-import Head from "next/head";
+
+import "@components/components/BlockSlideshow/BlockSlideshow.builder"
+
 
 builder.init(builderConfig.apiKey)
 
-// Builder.set({customInsertMenu: true})
+Builder.set({customInsertMenu: true})
+
+Builder.register('insertMenu', {
+    name: "Blocks",
+    items: [
+        { name: "Slideshow" }
+    ]
+})
 
 const MyApp = ({Component, pageProps}) => {
     return <>

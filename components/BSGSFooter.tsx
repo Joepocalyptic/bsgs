@@ -10,11 +10,6 @@ import {BuilderContent} from "@builder.io/react";
 
 export default class BSGSFooter extends React.Component<{}, {}> {
     render() {
-        function groupByThree<type>([a,b,c,...rest]: type[]): type[][] {
-            if (rest.length === 0) return [[a,b,c].filter(x => x!==undefined)]
-            return [[a,b,c]].concat(groupByThree(rest))
-        }
-
         return (
             <footer className="text-white border-t-2 border-yellow bg-blue-light text-center">
                 <BuilderContent modelName="footer">
@@ -22,14 +17,14 @@ export default class BSGSFooter extends React.Component<{}, {}> {
                         <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-0 mx-auto p-4 font-content container mx-auto">
                             <div className="flex flex-col items-center lg:order-2 lg:justify-center lg:w-1/4 gap-4 bg-blue-normal rounded-2xl p-4 shadow-lg">
                                 <Link href="/home">
-                                    <img className="w-24" src="/img/bsgs_logo_border.png" alt="BSGS Logo"/>
+                                    <img className="w-24" src="/img/bsgs_logo_border.png" alt="BSGS Logo" />
                                 </Link>
                                 <h4 className="font-heading text-2xl uppercase">
                                     Bay State Girls Softball
                                 </h4>
                                 <div dangerouslySetInnerHTML={{__html: data?.address}} />
                             </div>
-                            <div className="h-0.5 bg-yellow lg:w-0.5 lg:order-2 lg:h-auto"/>
+                            <div className="h-0.5 bg-yellow lg:w-0.5 lg:order-2 lg:h-auto" />
                             <div className="flex flex-col items-center lg:order-first lg:justify-center lg:w-1/4 gap-4 bg-blue-normal rounded-2xl p-4 shadow-lg">
                                 <h4 className="font-heading text-2xl uppercase">Contact Us</h4>
                                 <ul className="flex flex-col gap-4">
@@ -51,8 +46,8 @@ export default class BSGSFooter extends React.Component<{}, {}> {
                             <div className="flex flex-col items-center lg:order-last lg:justify-center lg:w-1/4 gap-4 bg-blue-normal rounded-2xl p-4 shadow-lg">
                                 <h4 className="font-heading text-2xl uppercase">Quick Links</h4>
                                 <ul className="text-left">
-                                    {data?.quickLinks.map((item: any) => (
-                                        <li>
+                                    {data?.quickLinks.map((item: any, index: number) => (
+                                        <li key={index}>
                                             <Link href={item.url} className="inline-flex items-center gap-0.5">
                                                 <HiChevronRight/>
                                                 {item.displayText}

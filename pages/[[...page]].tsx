@@ -29,7 +29,7 @@ export async function getStaticProps({params}: GetStaticPropsContext<{ page: str
 export async function getStaticPaths() {
     const pages = await builder.getAll('page', {
         options: {noTargeting: true},
-        omit: 'data.blocks',
+        omit: 'data.components',
     })
 
     return {

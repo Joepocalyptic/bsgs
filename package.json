@@ -54,7 +54,8 @@
     "next-seo": "^4.11.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-merge-refs": "^1.1.0"
+    "react-merge-refs": "^1.1.0",
+    "react-responsive-carousel": "^3.2.22"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^10.0.1",
