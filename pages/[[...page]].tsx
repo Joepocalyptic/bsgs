@@ -56,9 +56,9 @@ export default function Page({page}: InferGetStaticPropsType<typeof getStaticPro
         <>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <meta name="description" content={page.data.description} />
+                <meta name="description" content={page?.data.description} />
 
-                <title>{page.data.title} | Bay State Girls Softball</title>
+                <title>{page?.data.title} | Bay State Girls Softball</title>
             </Head>
             <BuilderComponent model="page" content={page}/>
         </>
