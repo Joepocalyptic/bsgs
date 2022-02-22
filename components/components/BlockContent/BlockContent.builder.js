@@ -33,21 +33,8 @@ Builder.registerComponent(BlockContent, {
                 required: false,
                 allowedFileTypes: ["jpeg", "jpg", "png"],
                 friendlyName: "Image",
-            }, {
-                name: "leftBorder",
-                type: "boolean",
-                required: true,
-                defaultValue: true,
-                friendlyName: "Display left border"
-            }, {
-                    name: "rightBorder",
-                    type: "boolean",
-                    required: true,
-                    defaultValue: true,
-                    friendlyName: "Display right border"
             }],
-            friendlyName: "Content blocks",
-            defaultValue: []
+            friendlyName: "Content blocks"
         },
         {
             name: "button",

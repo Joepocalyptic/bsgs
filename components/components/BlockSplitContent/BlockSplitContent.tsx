@@ -34,20 +34,20 @@ export default class BlockSplitContent extends React.Component<ContentProps, {}>
 
                     {this.props.blocks?.map((block: any, index: number) => (
                         <div key={index} className="flex gap-8 justify-stretch flex-col lg:flex-row">
-                            <Content
+                            {block.block1 && <Content
                                 darkBackground={this.props.darkBackground}
                                 image={block.block1.image}
                                 heading={block.block1.heading}
                                 content={block.block1.content}
                                 split={SplitType.Left}
-                            />
-                            <Content
+                            />}
+                            {block.block2 && <Content
                                 darkBackground={this.props.darkBackground}
                                 image={block.block2.image}
                                 heading={block.block2.heading}
                                 content={block.block2.content}
                                 split={SplitType.Right}
-                            />
+                            />}
                         </div>
                     ))}
 

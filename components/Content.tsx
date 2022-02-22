@@ -34,7 +34,7 @@ export default class Content extends React.Component<ContentProps> {
                     <h3 className={"font-heading uppercase text-center text-3xl " + (this.props.split !== SplitType.None ? "" : "lg:text-left")}>{this.props.heading}</h3>}
                     {this.props.image && (<img src={this.props.image} alt=""
                                                className={"block rounded-xl self-center w-full max-w-[20rem] " + (this.props.split !== SplitType.None ? "" : "lg:hidden")}/>)}
-                    <div className="leading-8 text-lg font-content flex flex-col gap-4"
+                    <div className="leading-8 text-lg break-words font-content flex flex-col gap-4"
                          dangerouslySetInnerHTML={{__html: this.props.content}}/>
 
                     <div className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Right ? "block lg:hidden" : "")}/>

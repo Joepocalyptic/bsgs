@@ -45,7 +45,7 @@ Builder.registerComponent(BlockSplitContent, {
                     name: "heading",
                     type: "text",
                     required: false,
-                    defaultValue: "Paragraph 1",
+                    defaultValue: "Paragraph 2",
                     friendlyName: "Header"
                 }, {
                     name: "content",
@@ -64,7 +64,16 @@ Builder.registerComponent(BlockSplitContent, {
                 friendlyName: "Block Two"
             }],
             friendlyName: "Content blocks",
-            defaultValue: []
+            defaultValue: [{
+                block1: {
+                    heading: "Paragraph 1",
+                    content: "<p>Paragraphs here</p><p>Hello, world!</p>"
+                },
+                block2: {
+                    heading: "Paragraph 2",
+                    content: "<p>Paragraphs here</p><p>Hello, world!</p>"
+                }
+            }]
         }, {
             name: "button",
             type: "object",
