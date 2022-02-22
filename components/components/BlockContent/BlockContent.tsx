@@ -37,7 +37,7 @@ export default class BlockContent extends React.Component<ContentProps, {}> {
                             split={SplitType.None}
                         />
                     ))}
-                    {(this.props.button && this.props.button.text !== "") &&
+                    {(this.props.button && this.props.button.text != "") &&
                     <LinkButton text={this.props.button.text} url={this.props.button.url} darkBackground={this.props.darkBackground}/>}
                 </section>
             </div>
