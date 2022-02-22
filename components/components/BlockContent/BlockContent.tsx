@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import React from "react"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 
@@ -22,7 +24,6 @@ type ContentProps = {
 
 export default class BlockContent extends React.Component<ContentProps, {}> {
     render() {
-        // @ts-ignore
         return (
             <div className={this.props.darkBackground ? "bg-blue-dark" : "bg-blue-normal"}>
                 <section className={"container mx-auto px-4 py-8 flex flex-col gap-8"}>
