@@ -48,7 +48,15 @@ export default class BlockSlideshow extends React.Component<SlideshowProps, {}> 
                           infiniteLoop={true}>
                     {this.props.images?.map((image: any, index: number) => (
                         <div key={index} className="h-[50vw] max-h-[30rem]">
-                            <img className="h-full object-cover select-none filter brightness-[70%]" src={image.image} alt=""/>
+                            <img className="h-full object-cover select-none filter brightness-[70%]"
+                                 srcSet={`
+                                     ${image.image}?width=1920 1920w,
+                                     ${image.image}?width=720 720w,
+                                     ${image.image}?width=500 500w,
+                                     ${image.image}?width=300 300w,
+                                     ${image.image}?width=100 100w
+                                 `}
+                                 alt=""/>
                         </div>
                     ))}
                 </Carousel>

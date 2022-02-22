@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"
 
 export enum SplitType {
     None,
@@ -32,16 +33,27 @@ export default class Content extends React.Component<ContentProps> {
                 <div className="flex flex-1 flex-col gap-4">
                     {this.props.heading &&
                     <h3 className={"font-heading uppercase text-center text-3xl " + (this.props.split !== SplitType.None ? "" : "lg:text-left")}>{this.props.heading}</h3>}
-                    {this.props.image && (<img src={this.props.image} alt=""
-                                               className={"block rounded-xl self-center w-full max-w-[20rem] " + (this.props.split !== SplitType.None ? "" : "lg:hidden")}/>)}
+                    {this.props.image && (
+                        <img srcSet={`
+                                     ${this.props.image}?width=1920 1920w,
+                                     ${this.props.image}?width=720 720w,
+                                     ${this.props.image}?width=500 500w,
+                                     ${this.props.image}?width=300 300w,
+                                     ${this.props.image}?width=100 100w
+                                 `}
+                             alt=""
+                             className={"block rounded-xl self-center w-full max-w-[20rem] " + (this.props.split !== SplitType.None ? "" : "lg:hidden")}/>)}
                     <div className="leading-8 text-lg break-words font-content flex flex-col gap-4"
                          dangerouslySetInnerHTML={{__html: this.props.content}}/>
 
-                    <div className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Right ? "block lg:hidden" : "")}/>
-                    <div className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Left ? "block lg:hidden" : "")}/>
+                    <div
+                        className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Right ? "block lg:hidden" : "")}/>
+                    <div
+                        className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Left ? "block lg:hidden" : "")}/>
                 </div>
-                {(this.props.image && this.props.split === SplitType.None) && (<img src={this.props.image} alt=""
-                                                                        className="hidden lg:block rounded-xl self-center max-w-[20rem] max-h-[20rem]"/>)}
+                {(this.props.image && this.props.split === SplitType.None) && (
+                    <img src={this.props.image + "?width=320"} alt=""
+                         className="hidden lg:block rounded-xl self-center max-w-[20rem] max-h-[20rem]"/>)}
             </section>
         )
     }
