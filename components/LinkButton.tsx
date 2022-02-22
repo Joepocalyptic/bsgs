@@ -3,7 +3,7 @@ import {HiArrowRight} from "@react-icons/all-files/hi/HiArrowRight";
 
 type ContentProps = {
     darkBackground: boolean,
-    text: string,
+    text: any,
     url: string
 
 }

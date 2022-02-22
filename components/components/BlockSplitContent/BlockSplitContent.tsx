@@ -16,7 +16,7 @@ type ContentProps = {
         block2: SplitContentBlock
     }[],
     button: {
-        text: string,
+        text: any,
         url: string
     },
     darkBackground: boolean
@@ -49,7 +49,7 @@ export default class BlockSplitContent extends React.Component<ContentProps, {}>
                         </div>
                     ))}
 
-                    {(this.props.button && this.props.button.text !== "") &&
+                    {(this.props.button && this.props.button.text instanceof String && this.props.button.text !== "") &&
                     <LinkButton text={this.props.button.text} url={this.props.button.url} darkBackground={this.props.darkBackground}/>}
                 </section>
             </div>
