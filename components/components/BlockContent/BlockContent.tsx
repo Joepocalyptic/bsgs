@@ -22,6 +22,7 @@ type ContentProps = {
 
 export default class BlockContent extends React.Component<ContentProps, {}> {
     render() {
+        // @ts-ignore
         return (
             <div className={this.props.darkBackground ? "bg-blue-dark" : "bg-blue-normal"}>
                 <section className={"container mx-auto px-4 py-8 flex flex-col gap-8"}>
@@ -37,7 +38,7 @@ export default class BlockContent extends React.Component<ContentProps, {}> {
                             split={SplitType.None}
                         />
                     ))}
-                    {(this.props.button && this.props.button.text instanceof String && this.props.button.text !== "") &&
+                    {(this.props.button && this.props.button !== 5 && this.props.button.text !== "") &&
                     <LinkButton text={this.props.button.text} url={this.props.button.url} darkBackground={this.props.darkBackground}/>}
                 </section>
             </div>
