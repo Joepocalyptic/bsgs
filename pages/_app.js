@@ -8,19 +8,26 @@ import builderConfig from '@config/builder'
 import BSGSHeader from "@components/BSGSHeader";
 import BSGSFooter from "@components/BSGSFooter";
 
-import "@components/components/BlockSlideshow/BlockSlideshow.builder"
 import "@components/components/BlockContent/BlockContent.builder"
-
+import "@components/components/BlockSplitContent/BlockSplitContent.builder"
+import "@components/components/BlockSlideshow/BlockSlideshow.builder"
 
 builder.init(builderConfig.apiKey)
 
 Builder.set({customInsertMenu: true})
 
 Builder.register('insertMenu', {
-    name: "Blocks",
+    name: "Content",
+    items: [
+        { name: "Content" },
+        { name: "Split Content" }
+    ]
+})
+
+Builder.register('insertMenu', {
+    name: "Special",
     items: [
         { name: "Slideshow" },
-        { name: "Content" }
     ]
 })
 
