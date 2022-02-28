@@ -10,6 +10,8 @@ import BSGSFooter from "@components/BSGSFooter";
 
 import "@components/components/BlockContent/BlockContent.builder"
 import "@components/components/BlockSplitContent/BlockSplitContent.builder"
+
+import "@components/components/BlockHeader/BlockHeader.builder"
 import "@components/components/BlockSlideshow/BlockSlideshow.builder"
 
 builder.init(builderConfig.apiKey)
@@ -25,9 +27,10 @@ Builder.register('insertMenu', {
 })
 
 Builder.register('insertMenu', {
-    name: "Special",
+    name: "Headers",
     items: [
-        { name: "Slideshow" },
+        { name: "Simple Header" },
+        { name: "Slideshow Header" },
     ]
 })
 

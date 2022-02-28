@@ -2,7 +2,7 @@ import { Builder } from '@builder.io/react'
 import BlockSlideshow from './BlockSlideshow'
 
 Builder.registerComponent(BlockSlideshow, {
-    name: 'Slideshow',
+    name: 'Slideshow Header',
     inputs: [
         {
             name: 'title',
