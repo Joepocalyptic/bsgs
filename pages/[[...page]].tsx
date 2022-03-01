@@ -4,7 +4,6 @@ import DefaultErrorPage from 'next/error'
 import Head from 'next/head'
 import '@builder.io/widgets'
 import React from "react"
-import BlockHeader from '@components/components/BlockHeader/BlockHeader'
 
 export async function getStaticProps({params}: GetStaticPropsContext<{ page: string[] }>) {
     const page =

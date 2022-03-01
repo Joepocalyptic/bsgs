@@ -14,9 +14,19 @@ import "@components/components/BlockSplitContent/BlockSplitContent.builder"
 import "@components/components/BlockHeader/BlockHeader.builder"
 import "@components/components/BlockSlideshow/BlockSlideshow.builder"
 
+import "@components/components/BlockTwitterEvents/BlockTwitterNews.builder"
+
 builder.init(builderConfig.apiKey)
 
 Builder.set({customInsertMenu: true})
+
+Builder.register('insertMenu', {
+    name: "Headers",
+    items: [
+        { name: "Simple Header" },
+        { name: "Slideshow Header" },
+    ]
+})
 
 Builder.register('insertMenu', {
     name: "Content",
@@ -27,10 +37,9 @@ Builder.register('insertMenu', {
 })
 
 Builder.register('insertMenu', {
-    name: "Headers",
+    name: "Special",
     items: [
-        { name: "Simple Header" },
-        { name: "Slideshow Header" },
+        { name: "Twitter & News" }
     ]
 })
 
@@ -46,4 +55,5 @@ const MyApp = ({Component, pageProps}) => {
         <BSGSFooter />
     </>
 }
+
 export default MyApp

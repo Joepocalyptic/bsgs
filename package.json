@@ -55,7 +55,9 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-merge-refs": "^1.1.0",
-    "react-responsive-carousel": "^3.2.22"
+    "react-responsive-carousel": "^3.2.22",
+    "react-twitter-widgets": "^1.10.0",
+    "styled-jsx-plugin-postcss": "^4.0.1"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^10.0.1",

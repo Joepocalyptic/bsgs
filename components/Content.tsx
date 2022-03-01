@@ -42,7 +42,7 @@ export default class Content extends React.Component<ContentProps> {
                                      ${this.props.image}?width=100 100w
                                  `}
                              alt=""
-                             className={"block rounded-xl self-center w-full max-w-[20rem] " + (this.props.split !== SplitType.None ? "" : "lg:hidden")}/>)}
+                             className={"block rounded-lg self-center w-full max-w-[20rem] " + (this.props.split !== SplitType.None ? "" : "lg:hidden")}/>)}
                     <div className="leading-8 text-lg break-words font-content flex flex-col gap-4"
                          dangerouslySetInnerHTML={{__html: this.props.content}}/>
 
@@ -53,7 +53,7 @@ export default class Content extends React.Component<ContentProps> {
                 </div>
                 {(this.props.image && this.props.split === SplitType.None) && (
                     <img src={this.props.image + "?width=320"} alt=""
-                         className="hidden lg:block rounded-xl self-center max-w-[20rem] max-h-[20rem]"/>)}
+                         className="hidden lg:block rounded-lg self-center max-w-[20rem] max-h-[20rem]"/>)}
             </section>
         )
     }

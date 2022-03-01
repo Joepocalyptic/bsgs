@@ -63,7 +63,7 @@ Builder.registerComponent(BlockSplitContent, {
                 required: true,
                 friendlyName: "Block Two"
             }],
-            friendlyName: "Content blocks",
+            friendlyName: "Content Blocks",
             defaultValue: [{
                 block1: {
                     heading: "Paragraph 1",

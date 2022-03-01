@@ -34,7 +34,7 @@ Builder.registerComponent(BlockContent, {
                 allowedFileTypes: ["jpeg", "jpg", "png"],
                 friendlyName: "Image",
             }],
-            friendlyName: "Content blocks"
+            friendlyName: "Content Blocks"
         },
         {
             name: "button",

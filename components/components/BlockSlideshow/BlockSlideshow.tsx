@@ -60,8 +60,8 @@ export default class BlockSlideshow extends React.Component<SlideshowProps, {}> 
                         </div>
                     ))}
                 </Carousel>
-                <div className="hidden lg:grid absolute px-4 top-0 left-0 h-full w-full place-items-center">
-                    <h1 className="text-white font-heading uppercase text-7xl text-center">{this.props.title}</h1>
+                <div className="grid absolute px-4 top-0 left-0 h-full w-full place-items-center">
+                    <h1 className="text-white font-heading uppercase text-4xl sm:text-6xl lg:text-7xl text-center">{this.props.title}</h1>
                 </div>
             </section>
         )

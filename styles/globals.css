@@ -5,3 +5,7 @@
 body {
     background-color: theme('colors.blue.dark');
 }
+
+.twitter-timeline {
+    @apply rounded-lg shadow-lg
+}

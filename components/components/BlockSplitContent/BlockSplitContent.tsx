@@ -1,7 +1,6 @@
 // @ts-nocheck
 
 import React from "react"
-import "react-responsive-carousel/lib/styles/carousel.min.css"
 import LinkButton from "@components/LinkButton";
 import Content, {SplitType} from "@components/Content";
 
@@ -11,7 +10,7 @@ type SplitContentBlock = {
     image: string
 }
 
-type ContentProps = {
+type SplitContentProps = {
     heading: string,
     blocks: {
         block1: SplitContentBlock
@@ -24,7 +23,7 @@ type ContentProps = {
     darkBackground: boolean
 }
 
-export default class BlockSplitContent extends React.Component<ContentProps, {}> {
+export default class BlockSplitContent extends React.Component<SplitContentProps, {}> {
     render() {
         return (
             <div className={this.props.darkBackground ? "bg-blue-dark" : "bg-blue-normal"}>
@@ -50,7 +49,6 @@ export default class BlockSplitContent extends React.Component<ContentProps, {}>
                             />}
                         </div>
                     ))}
-
 
                     {(this.props.button && this.props.button !== 5 && this.props.button.text !== "") &&
                     <LinkButton text={this.props.button.text} url={this.props.button.url} darkBackground={this.props.darkBackground}/>}

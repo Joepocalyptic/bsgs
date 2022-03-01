@@ -50,7 +50,7 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
                                 className="w-16 h-16 bg-blue-normal text-5xl grid place-items-center rounded-2xl shadow-lg">
                             <HiMenu/>
                         </button>
-                        <span className="block flex-1 lg:hidden text-center whitespace-normal">Bay State Girls Softball</span>
+                        <span className="block flex-1 lg:hidden text-center whitespace-normal">BSGS</span>
                         <Link href="/home">
                             <img className="w-16" src="/img/bsgs_logo.png" alt="BSGS Logo"/>
                         </Link>
