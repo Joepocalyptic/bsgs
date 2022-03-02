@@ -17,7 +17,7 @@ export default class BSGSFooter extends React.Component<{}, {}> {
                         <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-0 mx-auto px-4 py-8 font-content container mx-auto">
                             <div className="flex flex-col items-center lg:order-2 lg:justify-center lg:w-1/4 gap-4 bg-blue-normal rounded-2xl p-4 shadow-xl">
                                 <Link href="/home">
-                                    <img className="w-24" src="/img/bsgs_logo_border.png" alt="BSGS Logo" />
+                                    <img className="w-24" src="/img/bsgs_logo_border.webp" alt="BSGS Logo" />
                                 </Link>
                                 <h4 className="font-heading text-2xl uppercase">
                                     Bay State Girls Softball

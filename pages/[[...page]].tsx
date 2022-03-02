@@ -46,7 +46,7 @@ export default function Page({page}: InferGetStaticPropsType<typeof getStaticPro
         return (
             <>
                 <Head>
-                    <meta name="robots" content="noindex"/>
+                    <meta name="robots" content="noindex" />
                     <title>404 | Bay State Girls Softball</title>
                 </Head>
                 <DefaultErrorPage statusCode={404}/>
