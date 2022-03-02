@@ -59,9 +59,9 @@ export default function NewsPost({post}: InferGetStaticPropsType<typeof getStati
         <>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                *<meta name="description" content={post?.data.description} />*
+                <meta name="description" content={post?.data.description} />
 
-                <title>{post?.data.title} | Bay State Girls Softball</title>*
+                <title>{post?.data.title} | Bay State Girls Softball</title>
             </Head>
             <BlockHeader title={post?.data.title} image={post?.data.image} />
             <BuilderComponent model="news-post" content={post}/>

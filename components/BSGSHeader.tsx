@@ -52,7 +52,7 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
                         </button>
                         <span className="block flex-1 lg:hidden text-center whitespace-normal">BSGS</span>
                         <Link href="/home">
-                            <img className="w-16" src="/img/bsgs_logo.png" alt="BSGS Logo"/>
+                            <img className="w-16" src="/img/bsgs_logo.webp" alt="BSGS Logo"/>
                         </Link>
                     </div>
                     <div className={"flex-col pt-2 hidden" + (this.state.expanded ? "flex" : "")}>
@@ -144,7 +144,7 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
                     </div>
 
                     <Link href="/home" className="z-[2] py-2 mx-16 w-40">
-                        <img className="w-full z-[2]" src="/img/bsgs_logo_border.png" alt="BSGS Logo"/>
+                        <img className="w-full z-[2]" src="/img/bsgs_logo_border.webp" alt="BSGS Logo"/>
                     </Link>
 
                     <div className="flex-1">

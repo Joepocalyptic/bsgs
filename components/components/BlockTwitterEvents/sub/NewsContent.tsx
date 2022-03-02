@@ -21,7 +21,7 @@ class NewsContentPost extends React.Component<NewsPostProps> {
         return (
             <li>
                 <a href={this.props.post.url}
-                   className={"overflow-hidden flex rounded-lg shadow-lg group transform hover:-translate-y-4 " +
+                   className={"overflow-hidden flex rounded-lg shadow-lg group transform hover:-translate-y-1 " +
                        "transition hover:shadow-xl ease-in-out underline-offset-2 cursor-pointer" + calculateColor(this.props.darkBackground)}>
                     <div className="w-1/3">
                         <img className="w-full h-full object-cover" src={`${this.props.post.image}?width=250`} alt=""/>
