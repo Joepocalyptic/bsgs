@@ -5,20 +5,21 @@ import Head from 'next/head'
 import '@builder.io/widgets'
 import React from "react"
 import {useRouter} from "next/router";
+import BlockHeader from "@components/components/BlockHeader/BlockHeader";
 
-export async function getStaticProps({params}: GetStaticPropsContext<{ page: string[] }>) {
-    const page =
+export async function getStaticProps({params}: GetStaticPropsContext<{ post: string[] }>) {
+    const post =
         (await builder
-            .get('page', {
+            .get('news-post', {
                 userAttributes: {
-                    urlPath: '/' + (params?.page?.join('/') || ''),
+                    urlPath: '/news/' + (params?.post),
                 },
             })
             .toPromise()) || null
 
     return {
         props: {
-            page,
+            post,
         },
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
@@ -28,21 +29,21 @@ export async function getStaticProps({params}: GetStaticPropsContext<{ page: str
 }
 
 export async function getStaticPaths() {
-    const pages = await builder.getAll('page', {
+    const posts = await builder.getAll('news-post', {
         options: {noTargeting: true},
         omit: 'data.components',
     })
 
     return {
-        paths: pages.map((page) => `${page.data?.url}`),
+        paths: posts.map((post) => `${post.data?.url}`),
         fallback: true
     }
 }
 
-export default function Page({page}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function NewsPost({post}: InferGetStaticPropsType<typeof getStaticProps>) {
     const router = useRouter()
     const isLive = !Builder.isEditing && !Builder.isPreviewing
-    if (!router.isFallback && !page && isLive) {
+    if (!router.isFallback && !post && isLive) {
         return (
             <>
                 <Head>
@@ -58,11 +59,12 @@ export default function Page({page}: InferGetStaticPropsType<typeof getStaticPro
         <>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <meta name="description" content={page?.data.description} />
+                *<meta name="description" content={post?.data.description} />*
 
-                <title>{page?.data.title} | Bay State Girls Softball</title>
+                <title>{post?.data.title} | Bay State Girls Softball</title>*
             </Head>
-            <BuilderComponent model="page" content={page}/>
+            <BlockHeader title={post?.data.title} image={post?.data.image} />
+            <BuilderComponent model="news-post" content={post}/>
         </>
     )
 }

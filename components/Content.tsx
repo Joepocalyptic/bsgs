@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image"
+import {calculateColor} from "@lib/utils";
 
 export enum SplitType {
     None,
@@ -27,8 +27,8 @@ export default class Content extends React.Component<ContentProps> {
     render() {
         return (
             <section className={
-                "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl "
-                + (this.props.darkBackground ? "bg-blue-normal " : "bg-blue-dark ")
+                "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl"
+                + calculateColor(this.props.darkBackground, true)
             }>
                 <div className="flex flex-1 flex-col gap-4">
                     {this.props.heading &&
@@ -43,7 +43,7 @@ export default class Content extends React.Component<ContentProps> {
                                  `}
                              alt=""
                              className={"block rounded-lg self-center w-full max-w-[20rem] " + (this.props.split !== SplitType.None ? "" : "lg:hidden")}/>)}
-                    <div className="leading-8 text-lg break-words font-content flex flex-col gap-4"
+                    <div className="leading-8 break-words font-content flex flex-col gap-4"
                          dangerouslySetInnerHTML={{__html: this.props.content}}/>
 
                     <div

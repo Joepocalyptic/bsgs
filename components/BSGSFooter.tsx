@@ -58,19 +58,19 @@ export default class BSGSFooter extends React.Component<{}, {}> {
                                 <p className="font-heading text-2xl uppercase">Socials</p>
                                 <ul className="text-left">
                                     <li>
-                                        <Link href={data?.socials?.facebook || ""} target="_blank" className="inline-flex items-center gap-2">
+                                        <Link href={data?.socials?.facebook || "#"} target="_blank" className="inline-flex items-center gap-2">
                                             <FaFacebook/>
                                             Facebook
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href={data?.socials?.instagram || ""} target="_blank" className="inline-flex items-center gap-2">
+                                        <Link href={data?.socials?.instagram || "#"} target="_blank" className="inline-flex items-center gap-2">
                                             <FaInstagram/>
                                             Instagram
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href={data?.socials.twitter || ""} target="_blank" className="inline-flex items-center gap-2">
+                                        <Link href={data?.socials.twitter || "#"} target="_blank" className="inline-flex items-center gap-2">
                                             <FaTwitter/>
                                             Twitter
                                         </Link>

@@ -4,6 +4,7 @@ import React from "react"
 
 import Content, {SplitType} from "@components/Content";
 import LinkButton from "@components/LinkButton";
+import {calculateColor} from "@lib/utils";
 
 type ContentProps = {
     heading: string,
@@ -24,7 +25,7 @@ type ContentProps = {
 export default class BlockContent extends React.Component<ContentProps, {}> {
     render() {
         return (
-            <div className={this.props.darkBackground ? "bg-blue-dark" : "bg-blue-normal"}>
+            <div className={calculateColor(this.props.darkBackground)}>
                 <section className={"container mx-auto px-4 py-8 flex flex-col gap-8"}>
                     {(this.props.heading) &&
                     <h2 className="text-4xl font-heading uppercase text-center text-white">{this.props.heading}</h2>}

@@ -3,6 +3,7 @@
 import React from "react"
 import LinkButton from "@components/LinkButton";
 import Content, {SplitType} from "@components/Content";
+import {calculateColor} from "@lib/utils";
 
 type SplitContentBlock = {
     heading: string,
@@ -26,7 +27,7 @@ type SplitContentProps = {
 export default class BlockSplitContent extends React.Component<SplitContentProps, {}> {
     render() {
         return (
-            <div className={this.props.darkBackground ? "bg-blue-dark" : "bg-blue-normal"}>
+            <div className={calculateColor(this.props.darkBackground)}>
                 <section className={"container mx-auto px-4 py-8 flex flex-col gap-8"}>
                     {(this.props.heading) &&
                     <h2 className="text-4xl font-heading uppercase text-center text-white">{this.props.heading}</h2>}

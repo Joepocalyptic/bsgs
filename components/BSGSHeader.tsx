@@ -117,15 +117,17 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
                                                         <div className="group relative cursor-pointer flex items-center">
                                                             {item.displayName}
                                                             <HiChevronDown className="group-hover:text-yellow transition-colors duration-300 ease-in-out absolute left-1/2 right-1/2 transform -translate-x-1/2 bottom-1"/>
-                                                            <div
+                                                            <ul
                                                                 className="rounded-b-2xl border-x-2 border-b-2 border-yellow shadow-lg text-xl text-center overflow-hidden bg-blue-normal flex flex-col items-center overflow-hidden
                                                                        absolute left-1/2 right-1/2 transform -translate-x-1/2 top-[5.4rem] z-[1] min-w-[12rem] leading-[0] group-hover:leading-normal opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
                                                                 {item.multipleLinks.map((link: any, index_: number) => (
-                                                                    <Link href={link.link} key={index_} className="group-hover:py-2 w-full hover:bg-blue-dark transition-colors duration-300 ease-in-out">
-                                                                        {link.displayName}
-                                                                    </Link>
+                                                                    <li key={index_} className="group-hover:py-2 w-full hover:bg-blue-dark transition-colors duration-300 ease-in-out">
+                                                                        <Link href={link.link}>
+                                                                            {link.displayName}
+                                                                        </Link>
+                                                                    </li>
                                                                 ))}
-                                                            </div>
+                                                            </ul>
                                                         </div>
                                                     </>
                                                 ) : (
@@ -157,15 +159,17 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
                                                         <div className="group relative cursor-pointer flex items-center">
                                                             {item.displayName}
                                                             <HiChevronDown className="group-hover:text-yellow transition-colors duration-300 ease-in-out absolute left-1/2 right-1/2 transform -translate-x-1/2 bottom-1"/>
-                                                            <div
+                                                            <ul
                                                                 className="rounded-b-2xl border-x-2 border-b-2 border-yellow shadow-lg text-xl text-center overflow-hidden bg-blue-normal flex flex-col items-center overflow-hidden
                                                                        absolute left-1/2 right-1/2 transform -translate-x-1/2 top-[5.4rem] z-[1] min-w-[12rem] leading-[0] group-hover:leading-normal opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
                                                                 {item.multipleLinks.map((link: any, index_: number) => (
-                                                                    <Link href={link.link} key={index_} className="group-hover:py-2 w-full hover:bg-blue-dark transition-colors duration-300 ease-in-out">
-                                                                        {link.displayName}
-                                                                    </Link>
+                                                                    <li key={index_} className="group-hover:py-2 w-full hover:bg-blue-dark transition-colors duration-300 ease-in-out">
+                                                                        <Link href={link.link}>
+                                                                            {link.displayName}
+                                                                        </Link>
+                                                                    </li>
                                                                 ))}
-                                                            </div>
+                                                            </ul>
                                                         </div>
                                                     </>
                                                 ) : (
