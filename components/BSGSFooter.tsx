@@ -8,12 +8,14 @@ import {HiPhone} from "@react-icons/all-files/hi/HiPhone";
 import {HiMail} from "@react-icons/all-files/hi/HiMail";
 import {BuilderContent} from "@builder.io/react";
 
-export default class BSGSFooter extends React.Component<{}, {}> {
+
+
+export default class BSGSFooter extends React.Component<any, any> {
     render() {
         return (
             <footer className="text-white border-t-2 border-yellow bg-blue-light text-center">
                 <BuilderContent modelName="footer">
-                    {(data, loading) => (
+                    {(data) => (
                         <div className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-0 mx-auto px-4 py-8 font-content container mx-auto">
                             <div className="flex flex-col items-center lg:order-2 lg:justify-center lg:w-1/4 gap-4 bg-blue-normal rounded-2xl p-4 shadow-xl">
                                 <Link href="/home">
@@ -50,7 +52,7 @@ export default class BSGSFooter extends React.Component<{}, {}> {
                                         <li key={index}>
                                             <Link href={item.url} className="inline-flex items-center gap-0.5">
                                                 <HiChevronRight/>
-                                                {item.displayText}
+                                                {item.displayName}
                                             </Link>
                                         </li>
                                     ))}
@@ -58,13 +60,13 @@ export default class BSGSFooter extends React.Component<{}, {}> {
                                 <p className="font-heading text-2xl uppercase">Socials</p>
                                 <ul className="text-left">
                                     <li>
-                                        <Link href={data?.socials?.facebook || "#"} target="_blank" className="inline-flex items-center gap-2">
+                                        <Link href={data?.socials.facebook || "#"} target="_blank" className="inline-flex items-center gap-2">
                                             <FaFacebook/>
                                             Facebook
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href={data?.socials?.instagram || "#"} target="_blank" className="inline-flex items-center gap-2">
+                                        <Link href={data?.socials.instagram || "#"} target="_blank" className="inline-flex items-center gap-2">
                                             <FaInstagram/>
                                             Instagram
                                         </Link>
