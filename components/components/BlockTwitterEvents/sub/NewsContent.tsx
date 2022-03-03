@@ -23,9 +23,9 @@ class NewsContentPost extends React.Component<NewsPostProps> {
                 <a href={this.props.post.url}
                    className={"overflow-hidden flex rounded-lg shadow-lg group transform hover:-translate-y-1 " +
                        "transition hover:shadow-xl ease-in-out underline-offset-2 cursor-pointer" + calculateColor(this.props.darkBackground)}>
-                    <div className="w-1/3">
+                    {this.props.post.image && <div className="w-1/3">
                         <img className="w-full h-full object-cover" src={`${this.props.post.image}?width=250`} alt=""/>
-                    </div>
+                    </div>}
                     <div className="flex-1 p-4 flex flex-col gap-2">
                         <h4 className="group-hover:underline font-heading uppercase text-xl">{this.props.post.title}</h4>
                         <p className="font-content">{this.props.post.blurb}</p>
