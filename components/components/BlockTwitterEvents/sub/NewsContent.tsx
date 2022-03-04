@@ -1,9 +1,9 @@
 import {SplitType} from "@components/Content";
 import React from "react";
+import { Link } from "@components/Link/Link";
 import LinkButton from "@components/LinkButton";
 import {Post} from "../BlockTwitterNews";
-import {calculateColor} from "@lib/utils";
-import {DateTime} from "luxon"
+import {calculateColor, formatDateFromConstructorString} from "@lib/utils";
 
 type NewsPostProps = {
     darkBackground: boolean
@@ -20,7 +20,7 @@ class NewsContentPost extends React.Component<NewsPostProps> {
     render() {
         return (
             <li>
-                <a href={this.props.post.url}
+                <Link href={this.props.post.url}
                    className={"overflow-hidden flex rounded-lg shadow-lg group transform hover:-translate-y-1 " +
                        "transition hover:shadow-xl ease-in-out underline-offset-2 cursor-pointer" + calculateColor(this.props.darkBackground)}>
                     {this.props.post.image && <div className="w-1/3">
@@ -37,11 +37,11 @@ class NewsContentPost extends React.Component<NewsPostProps> {
                                 <span className="mx-1 hidden lg:inline"> | </span>
                             </div>
                             <span className="block text-right lg:inline lg:text-left">
-                                {DateTime.fromJSDate(new Date(this.props.post.date)).toLocaleString(DateTime.DATE_MED)}
+                                {formatDateFromConstructorString(this.props.post.date)}
                             </span>
                         </div>
                     </div>
-                </a>
+                </Link>
             </li>
         )
     }
@@ -57,7 +57,7 @@ export default class NewsContent extends React.Component<NewsProps> {
     render() {
         return (
             <section className={
-                "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl "
+                "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl"
                 + calculateColor(this.props.darkBackground, true)
             }>
                 <div className="flex flex-1 flex-col gap-4">
@@ -74,7 +74,7 @@ export default class NewsContent extends React.Component<NewsProps> {
                     <div
                         className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Left ? "block lg:hidden" : "")}/>
 
-                    <LinkButton darkBackground={!this.props.darkBackground} text="Calendar" url="/calendar"
+                    <LinkButton darkBackground={!this.props.darkBackground} text="All News" url="/news/"
                                 alwaysCenter={true}/>
                 </div>
             </section>

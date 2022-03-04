@@ -22,7 +22,7 @@ export default class TwitterContent extends React.Component<TwitterProps> {
                 "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl "
                 + calculateColor(this.props.darkBackground, true)
             }>
-                <div className="flex flex-1 flex-col gap-4">
+                <div className="flex flex-1 flex-col gap-4 min-h-[452px]">
                     <h3 className="font-heading uppercase text-center text-3xl">Twitter</h3>
 
                     {this.props.darkBackground ? <style jsx global>{`

@@ -34,7 +34,10 @@ export default class BlockTwitterNews extends React.Component<TwitterEventsProps
         super(props)
         builder.getAll('news-post', {
             options: { noTargeting: true },
-            limit: 3,
+            limit: 2,
+            query: {
+                "data.event": false
+            },
             omit: "data.blocks"
         }).then(posts => {
             this.setState({
