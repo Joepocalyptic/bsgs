@@ -1,8 +1,8 @@
 import {Builder} from '@builder.io/react'
-import BlockTwitterNews from './BlockTwitterNews'
+import BlockSocialMedia from './BlockSocialMedia'
 
-Builder.registerComponent(BlockTwitterNews, {
-    name: 'Twitter & News',
+Builder.registerComponent(BlockSocialMedia, {
+    name: 'Social media',
     inputs: [
         {
             name: "darkBackground",
@@ -26,6 +26,22 @@ Builder.registerComponent(BlockTwitterNews, {
                 screenName: "google"
             },
             friendlyName: "Twitter Settings"
+        },
+        {
+            name: "facebook",
+            type: "object",
+            required: true,
+            subFields: [{
+                name: "screenName",
+                type: "text",
+                required: true,
+                defaultValue: "google",
+                friendlyName: "Screen Name"
+            }],
+            defaultValue: {
+                screenName: "google"
+            },
+            friendlyName: "Facebook Settings"
         }
     ],
 });

@@ -27,6 +27,6 @@ Builder.register('insertMenu', {
 Builder.register('insertMenu', {
   name: "Special",
   items: [
-    { name: "Twitter & News" }
+    { name: "News & Events" }
   ]
 })

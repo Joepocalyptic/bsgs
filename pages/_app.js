@@ -13,7 +13,9 @@ import "@components/components/BlockSplitContent/BlockSplitContent.builder"
 import "@components/components/BlockHeader/BlockHeader.builder"
 import "@components/components/BlockSlideshow/BlockSlideshow.builder"
 
-import "@components/components/BlockTwitterEvents/BlockTwitterNews.builder"
+import "@components/components/BlockNewsEvents/BlockNewsEvents.builder"
+
+import 'styles/CalendarStyle.scss';
 
 const MyApp = ({Component, pageProps}) => {
     return <>

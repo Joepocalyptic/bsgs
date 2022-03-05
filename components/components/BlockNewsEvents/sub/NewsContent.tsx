@@ -2,7 +2,7 @@ import {SplitType} from "@components/Content";
 import React from "react";
 import { Link } from "@components/Link/Link";
 import LinkButton from "@components/LinkButton";
-import {Post} from "../BlockTwitterNews";
+import {Post} from "../BlockNewsEvents";
 import {calculateColor, formatDateFromConstructorString} from "@lib/utils";
 
 type NewsPostProps = {
@@ -13,7 +13,7 @@ type NewsPostProps = {
 type NewsProps = {
     darkBackground: boolean,
     split: SplitType
-    posts: Post[]
+    news: Post[]
 }
 
 class NewsContentPost extends React.Component<NewsPostProps> {
@@ -50,7 +50,7 @@ class NewsContentPost extends React.Component<NewsPostProps> {
 export default class NewsContent extends React.Component<NewsProps> {
     static defaultProps = {
         darkBackground: false,
-        screenName: "google",
+        news: [],
         split: SplitType.Left
     }
 
@@ -64,7 +64,7 @@ export default class NewsContent extends React.Component<NewsProps> {
                     <h3 className="font-heading uppercase text-center text-3xl">News</h3>
 
                     <ul className="flex-1 flex flex-col gap-4">
-                        {this.props.posts?.map((post, index) =>
+                        {this.props.news?.map((post, index) =>
                             <NewsContentPost post={post} darkBackground={this.props.darkBackground} key={index}/>
                         )}
                     </ul>
@@ -74,8 +74,8 @@ export default class NewsContent extends React.Component<NewsProps> {
                     <div
                         className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Left ? "block lg:hidden" : "")}/>
 
-                    <LinkButton darkBackground={!this.props.darkBackground} text="All News" url="/news/"
-                                alwaysCenter={true}/>
+                    <LinkButton darkBackground={!this.props.darkBackground} text="All News" url="/news"
+                                nested={true}/>
                 </div>
             </section>
         )
