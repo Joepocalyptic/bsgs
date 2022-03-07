@@ -1,4 +1,4 @@
-import {SplitType} from "@components/Content";
+import {BorderType} from "@components/Content";
 import React from "react";
 import LinkButton from "@components/LinkButton";
 import {Post} from "../BlockNewsEvents";
@@ -8,7 +8,7 @@ import { DateTime } from "luxon"
 
 type EventsProps = {
     darkBackground: boolean,
-    split: SplitType
+    split: BorderType
     events: Post[]
 }
 
@@ -16,7 +16,7 @@ export default class EventsContent extends React.Component<EventsProps> {
     static defaultProps = {
         darkBackground: false,
         screenName: "google",
-        split: SplitType.Left
+        split: BorderType.Left
     }
 
     render() {
@@ -33,9 +33,9 @@ export default class EventsContent extends React.Component<EventsProps> {
                     </div>}
 
                     <div
-                        className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Right ? "block lg:hidden" : "")}/>
+                        className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === BorderType.Right ? "block lg:hidden" : "")}/>
                     <div
-                        className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Left ? "block lg:hidden" : "")}/>
+                        className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === BorderType.Left ? "block lg:hidden" : "")}/>
 
                     <LinkButton darkBackground={!this.props.darkBackground} text="Calendar" url="/calendar"
                                 nested={true}/>

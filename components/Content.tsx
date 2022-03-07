@@ -1,10 +1,11 @@
 import React from "react";
 import {calculateColor} from "@lib/utils";
 
-export enum SplitType {
-    None,
+export enum BorderType {
+    Both,
     Left,
-    Right
+    Right,
+    None
 }
 
 type ContentProps = {
@@ -12,7 +13,7 @@ type ContentProps = {
     heading: string,
     content: string,
     image: string,
-    split: SplitType
+    border: BorderType
 }
 
 export default class Content extends React.Component<ContentProps> {
@@ -21,7 +22,7 @@ export default class Content extends React.Component<ContentProps> {
         heading: null,
         content: "",
         image: null,
-        split: SplitType.None
+        border: BorderType.Both
     }
 
     render() {
@@ -32,7 +33,7 @@ export default class Content extends React.Component<ContentProps> {
             }>
                 <div className="flex flex-1 flex-col gap-4">
                     {this.props.heading &&
-                    <h3 className={"font-heading uppercase text-center text-3xl " + (this.props.split !== SplitType.None ? "" : "lg:text-left")}>{this.props.heading}</h3>}
+                        <h3 className={"font-heading uppercase text-center text-3xl " + ((this.props.border !== BorderType.Both && this.props.border !== BorderType.None) ? "" : "lg:text-left")}>{this.props.heading}</h3>}
                     {this.props.image && (
                         <img srcSet={`
                                      ${this.props.image}?width=1920 1920w,
@@ -42,16 +43,20 @@ export default class Content extends React.Component<ContentProps> {
                                      ${this.props.image}?width=100 100w
                                  `}
                              alt=""
-                             className={"block rounded-lg shadow-lg self-center w-full max-w-[20rem] " + (this.props.split !== SplitType.None ? "" : "lg:hidden")}/>)}
+                             className={"block rounded-lg shadow-lg self-center w-full max-w-[20rem] " + ((this.props.border !== BorderType.Both && this.props.border !== BorderType.None) ? "" : "lg:hidden")}/>)}
                     <div className="leading-8 break-words font-content flex flex-col gap-4"
                          dangerouslySetInnerHTML={{__html: this.props.content}}/>
 
                     <div
-                        className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Right ? "block lg:hidden" : "")}/>
+                        className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full "
+                            + (this.props.border === BorderType.None ? "hidden" : "")
+                            + (this.props.border === BorderType.Right ? "block lg:hidden" : "")}/>
                     <div
-                        className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Left ? "block lg:hidden" : "")}/>
+                        className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full "
+                            + (this.props.border === BorderType.None ? "hidden" : "")
+                            + (this.props.border === BorderType.Left ? "block lg:hidden" : "")}/>
                 </div>
-                {(this.props.image && this.props.split === SplitType.None) && (
+                {(this.props.image && (this.props.border === BorderType.Both || this.props.border === BorderType.None)) && (
                     <img src={this.props.image + "?width=320"} alt=""
                          className="hidden lg:block rounded-lg shadow-lg self-center max-w-[20rem] max-h-[20rem]"/>)}
             </section>

@@ -7,14 +7,6 @@ import '@config/builder'
 import BSGSHeader from "@components/BSGSHeader";
 import BSGSFooter from "@components/BSGSFooter";
 
-import "@components/components/BlockContent/BlockContent.builder"
-import "@components/components/BlockSplitContent/BlockSplitContent.builder"
-
-import "@components/components/BlockHeader/BlockHeader.builder"
-import "@components/components/BlockSlideshow/BlockSlideshow.builder"
-
-import "@components/components/BlockNewsEvents/BlockNewsEvents.builder"
-
 import 'styles/CalendarStyle.scss';
 
 const MyApp = ({Component, pageProps}) => {

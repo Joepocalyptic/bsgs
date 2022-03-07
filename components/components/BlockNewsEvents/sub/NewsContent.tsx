@@ -1,4 +1,4 @@
-import {SplitType} from "@components/Content";
+import {BorderType} from "@components/Content";
 import React from "react";
 import { Link } from "@components/Link/Link";
 import LinkButton from "@components/LinkButton";
@@ -12,7 +12,7 @@ type NewsPostProps = {
 
 type NewsProps = {
     darkBackground: boolean,
-    split: SplitType
+    split: BorderType
     news: Post[]
 }
 
@@ -51,7 +51,7 @@ export default class NewsContent extends React.Component<NewsProps> {
     static defaultProps = {
         darkBackground: false,
         news: [],
-        split: SplitType.Left
+        split: BorderType.Left
     }
 
     render() {
@@ -70,9 +70,9 @@ export default class NewsContent extends React.Component<NewsProps> {
                     </ul>
 
                     <div
-                        className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Right ? "block lg:hidden" : "")}/>
+                        className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === BorderType.Right ? "block lg:hidden" : "")}/>
                     <div
-                        className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === SplitType.Left ? "block lg:hidden" : "")}/>
+                        className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === BorderType.Left ? "block lg:hidden" : "")}/>
 
                     <LinkButton darkBackground={!this.props.darkBackground} text="All News" url="/news"
                                 nested={true}/>

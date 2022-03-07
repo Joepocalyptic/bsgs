@@ -15,7 +15,8 @@ type SplitContentProps = {
     heading: string,
     blocks: {
         block1: SplitContentBlock
-        block2: SplitContentBlock
+        block2: SplitContentBlock,
+        block3: SplitContentBlock
     }[],
     button: {
         text: any,
@@ -24,7 +25,7 @@ type SplitContentProps = {
     darkBackground: boolean
 }
 
-export default class BlockSplitContent extends React.Component<SplitContentProps, {}> {
+export default class BlockTripleContent extends React.Component<SplitContentProps, {}> {
     render() {
         return (
             <div className={calculateColor(this.props.darkBackground)}>
@@ -46,6 +47,13 @@ export default class BlockSplitContent extends React.Component<SplitContentProps
                                 image={block.block2.image}
                                 heading={block.block2.heading}
                                 content={block.block2.content}
+                                border={BorderType.None}
+                            />}
+                            {block.block3 && <Content
+                                darkBackground={this.props.darkBackground}
+                                image={block.block3.image}
+                                heading={block.block3.heading}
+                                content={block.block3.content}
                                 border={BorderType.Right}
                             />}
                         </div>

@@ -6,6 +6,7 @@ import '@builder.io/widgets'
 import React from "react"
 import {useRouter} from "next/router";
 import BlockHeader from "@components/components/BlockHeader/BlockHeader";
+import Custom404 from "../404";
 
 export async function getStaticProps({params}: GetStaticPropsContext<{ post: string[] }>) {
     const post =
@@ -24,7 +25,7 @@ export async function getStaticProps({params}: GetStaticPropsContext<{ post: str
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
         // - At most once every 5 seconds
-        revalidate: 30,
+        revalidate: 5,
     }
 }
 
@@ -50,7 +51,7 @@ export default function NewsPost({post}: InferGetStaticPropsType<typeof getStati
                     <meta name="robots" content="noindex"/>
                     <title>404 | Bay State Girls Softball</title>
                 </Head>
-                <DefaultErrorPage statusCode={404}/>
+                <Custom404 />
             </>
         )
     }

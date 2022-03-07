@@ -8,6 +8,15 @@ builder.init(process.env.BUILDER_PUBLIC_KEY)
 
 Builder.set({customInsertMenu: true})
 
+import "@components/components/BlockContent/BlockContent.builder"
+import "@components/components/BlockSplitContent/BlockSplitContent.builder"
+import "@components/components/BlockTripleContent/BlockTripleContent.builder"
+
+import "@components/components/BlockHeader/BlockHeader.builder"
+import "@components/components/BlockSlideshow/BlockSlideshow.builder"
+
+import "@components/components/BlockNewsEvents/BlockNewsEvents.builder"
+
 Builder.register('insertMenu', {
   name: "Headers",
   items: [
@@ -20,7 +29,8 @@ Builder.register('insertMenu', {
   name: "Content",
   items: [
     { name: "Content" },
-    { name: "Split Content" }
+    { name: "Split Content" },
+    { name: "Triple Content" }
   ]
 })
 

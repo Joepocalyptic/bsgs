@@ -1,4 +1,4 @@
-import {SplitType} from "@components/Content";
+import {BorderType} from "@components/Content";
 import React from "react";
 import {Timeline} from "react-twitter-widgets"
 import {calculateColor} from "@lib/utils";
@@ -6,14 +6,14 @@ import {calculateColor} from "@lib/utils";
 type FacebookProps = {
     darkBackground: boolean,
     screenName: string,
-    split: SplitType
+    split: BorderType
 }
 
 export default class FacebookContent extends React.Component<FacebookProps> {
     static defaultProps = {
         darkBackground: false,
         screenName: "google",
-        split: SplitType.Left
+        split: BorderType.Left
     }
 
     render() {
@@ -45,10 +45,10 @@ export default class FacebookContent extends React.Component<FacebookProps> {
 
                     <div
                         className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full "
-                            + (this.props.split === SplitType.Right ? "block lg:hidden" : "")}/>
+                            + (this.props.split === BorderType.Right ? "block lg:hidden" : "")}/>
                     <div
                         className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full "
-                            + (this.props.split === SplitType.Left ? "block lg:hidden" : "")}/>
+                            + (this.props.split === BorderType.Left ? "block lg:hidden" : "")}/>
                 </div>
             </section>
         )

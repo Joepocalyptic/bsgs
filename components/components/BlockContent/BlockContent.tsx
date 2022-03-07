@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import Content, {SplitType} from "@components/Content";
+import Content, {BorderType} from "@components/Content";
 import LinkButton from "@components/LinkButton";
 import {calculateColor} from "@lib/utils";
 
@@ -36,7 +36,7 @@ export default class BlockContent extends React.Component<ContentProps, {}> {
                             image={block.image}
                             heading={block.heading}
                             content={block.content}
-                            split={SplitType.None}
+                            border={BorderType.Both}
                         />
                     ))}
                     {(this.props.button && this.props.button !== 5 && this.props.button.text !== "") &&
