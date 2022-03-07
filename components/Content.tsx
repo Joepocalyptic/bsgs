@@ -49,12 +49,10 @@ export default class Content extends React.Component<ContentProps> {
 
                     <div
                         className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full "
-                            + (this.props.border === BorderType.None ? "hidden" : "")
-                            + (this.props.border === BorderType.Right ? "block lg:hidden" : "")}/>
+                            + (this.props.border === BorderType.Right || this.props.border === BorderType.None ? "block lg:hidden" : "")}/>
                     <div
                         className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full "
-                            + (this.props.border === BorderType.None ? "hidden" : "")
-                            + (this.props.border === BorderType.Left ? "block lg:hidden" : "")}/>
+                            + (this.props.border === BorderType.Left || this.props.border === BorderType.None ? "block lg:hidden" : "")}/>
                 </div>
                 {(this.props.image && (this.props.border === BorderType.Both || this.props.border === BorderType.None)) && (
                     <img src={this.props.image + "?width=320"} alt=""
