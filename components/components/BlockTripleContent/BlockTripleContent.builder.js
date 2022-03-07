@@ -41,6 +41,12 @@ Builder.registerComponent(BlockTripleContent, {
                     required: false,
                     allowedFileTypes: ["jpeg", "jpg", "png"],
                     friendlyName: "Image",
+                }, {
+                    name: "centerText",
+                    type: "boolean",
+                    required: true,
+                    friendlyName: "Center text",
+                    defaultValue: false
                 }],
                 required: true,
                 friendlyName: "Block One"
@@ -65,6 +71,12 @@ Builder.registerComponent(BlockTripleContent, {
                     required: false,
                     allowedFileTypes: ["jpeg", "jpg", "png"],
                     friendlyName: "Image",
+                }, {
+                    name: "centerText",
+                    type: "boolean",
+                    required: true,
+                    friendlyName: "Center text",
+                    defaultValue: false
                 }],
                 required: true,
                 friendlyName: "Block Two"
@@ -95,9 +107,15 @@ Builder.registerComponent(BlockTripleContent, {
                     required: false,
                     allowedFileTypes: ["jpeg", "jpg", "png"],
                     friendlyName: "Image",
+                }, {
+                    name: "centerText",
+                    type: "boolean",
+                    required: true,
+                    friendlyName: "Center text",
+                    defaultValue: false
                 }],
                 required: true,
-                friendlyName: "Block One"
+                friendlyName: "Block Three"
             }],
             friendlyName: "Content Blocks",
             defaultValue: [{

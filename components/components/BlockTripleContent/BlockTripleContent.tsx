@@ -4,19 +4,15 @@ import React from "react"
 import LinkButton from "@components/LinkButton";
 import Content, {BorderType} from "@components/Content";
 import {calculateColor} from "@lib/utils";
-
-type SplitContentBlock = {
-    heading: string,
-    content: string, // Preformatted HTML
-    image: string
-}
+import {SplitContentBlock} from "@components/components/BlockSplitContent/BlockSplitContent";
+import {ContentBlock} from "@components/components/BlockContent/BlockContent";
 
 type SplitContentProps = {
     heading: string,
     blocks: {
-        block1: SplitContentBlock
-        block2: SplitContentBlock,
-        block3: SplitContentBlock
+        block1: ContentBlock,
+        block2: ContentBlock,
+        block3: ContentBlock
     }[],
     button: {
         text: any,
@@ -41,6 +37,7 @@ export default class BlockTripleContent extends React.Component<SplitContentProp
                                 heading={block.block1.heading}
                                 content={block.block1.content}
                                 border={BorderType.Left}
+                                centerText={block.block1.centerText}
                             />}
                             {block.block2 && <Content
                                 darkBackground={this.props.darkBackground}
@@ -48,6 +45,7 @@ export default class BlockTripleContent extends React.Component<SplitContentProp
                                 heading={block.block2.heading}
                                 content={block.block2.content}
                                 border={BorderType.None}
+                                centerText={block.block2.centerText}
                             />}
                             {block.block3 && <Content
                                 darkBackground={this.props.darkBackground}
@@ -55,6 +53,7 @@ export default class BlockTripleContent extends React.Component<SplitContentProp
                                 heading={block.block3.heading}
                                 content={block.block3.content}
                                 border={BorderType.Right}
+                                centerText={block.block3.centerText}
                             />}
                         </div>
                     ))}

@@ -1,7 +1,7 @@
 import {BorderType} from "@components/Content";
 import React from "react";
 import LinkButton from "@components/LinkButton";
-import {Post} from "../BlockNewsEvents";
+import {FormattedEvent, Post} from "../BlockNewsEvents";
 import {calculateColor} from "@lib/utils";
 import { Calendar, luxonLocalizer } from "react-big-calendar"
 import { DateTime } from "luxon"
@@ -9,7 +9,7 @@ import { DateTime } from "luxon"
 type EventsProps = {
     darkBackground: boolean,
     split: BorderType
-    events: Post[]
+    events: FormattedEvent[]
 }
 
 export default class EventsContent extends React.Component<EventsProps> {
@@ -28,9 +28,9 @@ export default class EventsContent extends React.Component<EventsProps> {
                 <div className="flex flex-1 flex-col gap-4">
                     <h3 className="font-heading uppercase text-center text-3xl">Events</h3>
 
-                    {this.props.events.length !== 0 && <div>
-                        <Calendar localizer={luxonLocalizer(DateTime)} events={[]} />
-                    </div>}
+                    <div>
+                        <Calendar localizer={luxonLocalizer(DateTime)} events={this.props.events} />
+                    </div>
 
                     <div
                         className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === BorderType.Right ? "block lg:hidden" : "")}/>

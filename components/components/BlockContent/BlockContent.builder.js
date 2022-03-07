@@ -33,8 +33,18 @@ Builder.registerComponent(BlockContent, {
                 required: false,
                 allowedFileTypes: ["jpeg", "jpg", "png"],
                 friendlyName: "Image",
+            }, {
+                name: "centerText",
+                type: "boolean",
+                required: true,
+                friendlyName: "Center text",
+                defaultValue: false
             }],
-            friendlyName: "Content Blocks"
+            friendlyName: "Content Blocks",
+            defaultValue: [{
+                heading: "Content Block",
+                content: "<p>Paragraph here</p><p>Another paragraph</p>",
+            }]
         },
         {
             name: "button",

@@ -13,7 +13,8 @@ type ContentProps = {
     heading: string,
     content: string,
     image: string,
-    border: BorderType
+    border: BorderType,
+    centerText: boolean
 }
 
 export default class Content extends React.Component<ContentProps> {
@@ -22,7 +23,8 @@ export default class Content extends React.Component<ContentProps> {
         heading: null,
         content: "",
         image: null,
-        border: BorderType.Both
+        border: BorderType.Both,
+        centerText: Boolean
     }
 
     render() {
@@ -44,7 +46,7 @@ export default class Content extends React.Component<ContentProps> {
                                  `}
                              alt=""
                              className={"block rounded-lg shadow-lg self-center w-full max-w-[20rem] " + ((this.props.border !== BorderType.Both && this.props.border !== BorderType.None) ? "" : "lg:hidden")}/>)}
-                    <div className="leading-8 break-words font-content flex flex-col gap-4"
+                    <div className="cms-content leading-8 break-words font-content flex flex-col gap-4"
                          dangerouslySetInnerHTML={{__html: this.props.content}}/>
 
                     <div

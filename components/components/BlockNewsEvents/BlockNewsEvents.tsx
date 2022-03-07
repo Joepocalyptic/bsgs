@@ -23,6 +23,8 @@ export type Post = {
     blurb: string
 }
 
+export type FormattedEvent = any
+
 export default class BlockNewsEvents extends React.Component<NewsEventsProps, NewsEventsState> {
     state: NewsEventsState = {
         news: [],
@@ -46,8 +48,9 @@ export default class BlockNewsEvents extends React.Component<NewsEventsProps, Ne
             limit: 2,
             omit: "data.blocks"
         }).then(posts => {
+            let formattedPosts = posts.map(post => (post.data as FormattedEvent))
             this.setState({
-                news: posts.map(post => (post.data as Post))
+                events: formattedPosts
             })
         })
     }

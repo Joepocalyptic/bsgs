@@ -6,15 +6,16 @@ import Content, {BorderType} from "@components/Content";
 import LinkButton from "@components/LinkButton";
 import {calculateColor} from "@lib/utils";
 
+export type ContentBlock = {
+    heading: string,
+    content: string, // Preformatted HTML
+    image: string,
+    centerText: boolean
+}
+
 type ContentProps = {
     heading: string,
-    blocks: {
-        heading: string,
-        content: string, // Preformatted HTML
-        image: string,
-        leftBorder: boolean,
-        rightBorder: boolean
-    }[],
+    blocks: ContentBlock[],
     button: {
         text: any,
         url: string
@@ -37,6 +38,7 @@ export default class BlockContent extends React.Component<ContentProps, {}> {
                             heading={block.heading}
                             content={block.content}
                             border={BorderType.Both}
+                            centerText={block.centerText}
                         />
                     ))}
                     {(this.props.button && this.props.button !== 5 && this.props.button.text !== "") &&

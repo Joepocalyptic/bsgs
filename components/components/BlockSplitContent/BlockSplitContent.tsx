@@ -4,18 +4,13 @@ import React from "react"
 import LinkButton from "@components/LinkButton";
 import Content, {BorderType} from "@components/Content";
 import {calculateColor} from "@lib/utils";
-
-type SplitContentBlock = {
-    heading: string,
-    content: string, // Preformatted HTML
-    image: string
-}
+import {ContentBlock} from "@components/components/BlockContent/BlockContent";
 
 type SplitContentProps = {
     heading: string,
     blocks: {
-        block1: SplitContentBlock
-        block2: SplitContentBlock
+        block1: ContentBlock
+        block2: ContentBlock
     }[],
     button: {
         text: any,
@@ -40,6 +35,7 @@ export default class BlockSplitContent extends React.Component<SplitContentProps
                                 heading={block.block1.heading}
                                 content={block.block1.content}
                                 border={BorderType.Left}
+                                centerText={block.block1.centerText}
                             />}
                             {block.block2 && <Content
                                 darkBackground={this.props.darkBackground}
@@ -47,6 +43,7 @@ export default class BlockSplitContent extends React.Component<SplitContentProps
                                 heading={block.block2.heading}
                                 content={block.block2.content}
                                 border={BorderType.Right}
+                                centerText={block.block2.centerText}
                             />}
                         </div>
                     ))}

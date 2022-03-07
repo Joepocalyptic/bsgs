@@ -35,6 +35,12 @@ Builder.registerComponent(BlockSplitContent, {
                     required: false,
                     allowedFileTypes: ["jpeg", "jpg", "png"],
                     friendlyName: "Image",
+                }, {
+                    name: "centerText",
+                    type: "boolean",
+                    required: true,
+                    friendlyName: "Center text",
+                    defaultValue: false
                 }],
                 required: true,
                 friendlyName: "Block One"
@@ -59,6 +65,12 @@ Builder.registerComponent(BlockSplitContent, {
                     required: false,
                     allowedFileTypes: ["jpeg", "jpg", "png"],
                     friendlyName: "Image",
+                }, {
+                    name: "centerText",
+                    type: "boolean",
+                    required: true,
+                    friendlyName: "Center text",
+                    defaultValue: false
                 }],
                 required: true,
                 friendlyName: "Block Two"

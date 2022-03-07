@@ -5,3 +5,7 @@
 .twitter-timeline {
     @apply rounded-lg shadow-lg
 }
+
+.cms-content ol {
+    @apply flex flex-col gap-2 list-decimal list-inside
+}
