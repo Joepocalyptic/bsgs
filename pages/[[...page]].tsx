@@ -6,6 +6,7 @@ import '@builder.io/widgets'
 import React from "react"
 import {useRouter} from "next/router";
 import Custom404 from "./404";
+import {Layout} from "@components/Layout";
 
 export async function getStaticProps({params}: GetStaticPropsContext<{ page: string[] }>) {
     const page =
@@ -60,10 +61,11 @@ export default function Page({page}: InferGetStaticPropsType<typeof getStaticPro
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <meta name="description" content={page?.data.description} />
-
                 <title>{page?.data.title} | Bay State Girls Softball</title>
             </Head>
-            <BuilderComponent model="page" content={page}/>
+            <Layout>
+                <BuilderComponent model="page" content={page}/>
+            </Layout>
         </>
     )
 }

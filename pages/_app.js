@@ -1,6 +1,7 @@
 import "styles/globals.css"
 import React from "react"
 import Head from "next/head";
+import {AnimatePresence} from 'framer-motion'
 
 import '@config/builder'
 
@@ -9,16 +10,22 @@ import BSGSFooter from "@components/BSGSFooter";
 
 import 'styles/CalendarStyle.scss';
 
-const MyApp = ({Component, pageProps}) => {
+const App = ({Component, pageProps}) => {
     return <>
         <Head>
             <title>Bay State Girls Softball</title>
         </Head>
 
         <BSGSHeader />
-        <Component {...pageProps} />
+        <AnimatePresence
+            exitBeforeEnter
+            initial={false}
+            onExitComplete={() => window.scrollTo(0, 0)}
+        >
+            <Component {...pageProps} />
+        </AnimatePresence>
         <BSGSFooter />
     </>
 }
 
-export default MyApp
+export default App
