@@ -35,7 +35,7 @@ export default class Content extends React.Component<ContentProps> {
             }>
                 <div className="flex flex-1 flex-col gap-4">
                     {this.props.heading &&
-                        <h3 className={"font-heading uppercase text-center text-3xl " + ((this.props.border !== BorderType.Both && this.props.border !== BorderType.None) ? "" : "lg:text-left")}>{this.props.heading}</h3>}
+                        <h3 className={"font-heading uppercase text-center text-3xl " + ((this.props.border !== BorderType.Both) ? "" : "lg:text-left")}>{this.props.heading}</h3>}
                     {this.props.image && (
                         <img srcSet={`
                                      ${this.props.image}?width=1920 1920w,
