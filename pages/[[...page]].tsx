@@ -1,12 +1,10 @@
 import type {GetStaticPropsContext, InferGetStaticPropsType} from 'next'
 import {BuilderComponent, Builder, builder} from '@builder.io/react'
-import DefaultErrorPage from 'next/error'
 import Head from 'next/head'
 import '@builder.io/widgets'
 import React from "react"
 import {useRouter} from "next/router";
 import Custom404 from "./404";
-import {Layout} from "@components/Layout";
 
 export async function getStaticProps({params}: GetStaticPropsContext<{ page: string[] }>) {
     const page =
@@ -63,9 +61,7 @@ export default function Page({page}: InferGetStaticPropsType<typeof getStaticPro
                 <meta name="description" content={page?.data.description} />
                 <title>{page?.data.title} | Bay State Girls Softball</title>
             </Head>
-            <Layout>
-                <BuilderComponent model="page" content={page}/>
-            </Layout>
+            <BuilderComponent model="page" content={page}/>
         </>
     )
 }

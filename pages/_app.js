@@ -1,7 +1,6 @@
 import "styles/globals.css"
 import React from "react"
 import Head from "next/head";
-import {AnimatePresence} from 'framer-motion'
 
 import '@config/builder'
 
@@ -17,13 +16,7 @@ const App = ({Component, pageProps}) => {
         </Head>
 
         <BSGSHeader />
-        <AnimatePresence
-            exitBeforeEnter
-            initial={false}
-            onExitComplete={() => window.scrollTo(0, 0)}
-        >
-            <Component {...pageProps} />
-        </AnimatePresence>
+        <Component {...pageProps} />
         <BSGSFooter />
     </>
 }
