@@ -10,9 +10,9 @@ import BlockHeader from "@components/components/BlockHeader/BlockHeader";
 export async function getStaticProps({params}: GetStaticPropsContext<{ post: string[] }>) {
     const post =
         (await builder
-            .get('news-post', {
+            .get('event-post', {
                 userAttributes: {
-                    urlPath: '/news/' + (params?.post),
+                    urlPath: '/events/' + (params?.post),
                 },
             })
             .toPromise()) || null
@@ -64,7 +64,7 @@ export default function NewsPost({post}: InferGetStaticPropsType<typeof getStati
                 <title>{post?.data.title} | Bay State Girls Softball</title>
             </Head>
             <BlockHeader title={post?.data.title} image={post?.data.image} />
-            <BuilderComponent model="news-post" content={post}/>
+            <BuilderComponent model="event-post" content={post}/>
         </>
     )
 }

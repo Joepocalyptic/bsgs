@@ -29,7 +29,7 @@ export default class EventsContent extends React.Component<EventsProps> {
                     <h3 className="font-heading uppercase text-center text-3xl">Events</h3>
 
                     {this.props.events.length !== 0 && <div>
-                        <Calendar localizer={luxonLocalizer(DateTime)} />
+                        <Calendar localizer={luxonLocalizer(DateTime)} events={[]} />
                     </div>}
 
                     <div

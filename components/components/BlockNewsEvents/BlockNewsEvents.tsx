@@ -44,9 +44,6 @@ export default class BlockNewsEvents extends React.Component<NewsEventsProps, Ne
         builder.getAll('event-post', {
             options: {noTargeting: true},
             limit: 2,
-            query: {
-                "data.event": false
-            },
             omit: "data.blocks"
         }).then(posts => {
             this.setState({

@@ -159,7 +159,7 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
 
                     <div className="flex-1">
                         <BuilderContent modelName="navigation">
-                            {(data, loading) => (
+                            {(data) => (
                                 <div className="pt-2 flex gap-16 h-24 justify-between xl:justify-start">
                                     {data?.navigationLinks?.filter((item: any) => item.rightSide === true).map((item: any, index: number) => (
                                         <React.Fragment key={index}>
