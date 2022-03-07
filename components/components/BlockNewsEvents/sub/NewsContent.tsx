@@ -63,19 +63,20 @@ export default class NewsContent extends React.Component<NewsProps> {
                 <div className="flex flex-1 flex-col gap-4">
                     <h3 className="font-heading uppercase text-center text-3xl">News</h3>
 
-                    {this.props.news?.length !== 0 ? <ul className="flex-1 flex flex-col gap-4">
-                        {this.props.news.map((post, index) =>
-                            <NewsContentPost post={post} darkBackground={this.props.darkBackground} key={index}/>
-                        )}
-                    </ul> : <p className="font-content text-center">No recent news found.</p>}
+                    {this.props.news?.length !== 0 ? <>
+                        <ul className="flex-1 flex flex-col gap-4">
+                            {this.props.news.map((post, index) =>
+                                <NewsContentPost post={post} darkBackground={this.props.darkBackground} key={index}/>
+                            )}
+                        </ul>
+                        <LinkButton darkBackground={!this.props.darkBackground} text="All News" url="/news"
+                                    nested={true}/>
+                        </> : <p className="font-content text-center">No recent news found.</p>}
 
                     <div
                         className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === BorderType.Right ? "block lg:hidden" : "")}/>
                     <div
                         className={"absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === BorderType.Left ? "block lg:hidden" : "")}/>
-
-                    <LinkButton darkBackground={!this.props.darkBackground} text="All News" url="/news"
-                                nested={true}/>
                 </div>
             </section>
         )
