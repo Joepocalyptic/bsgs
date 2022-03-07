@@ -9,3 +9,11 @@
 .cms-content ol {
     @apply flex flex-col gap-2 list-decimal list-inside
 }
+
+.cms-content ul {
+    @apply flex flex-col gap-2 list-disc list-inside
+}
+
+.cms-content a {
+    @apply underline
+}
