@@ -121,15 +121,18 @@ Builder.registerComponent(BlockTripleContent, {
             defaultValue: [{
                 block1: {
                     heading: "Paragraph 1",
-                    content: "<p>Paragraphs here</p><p>Hello, world!</p>"
+                    content: "<p>Paragraphs here</p><p>Hello, world!</p>",
+                    centerText: false
                 },
                 block2: {
                     heading: "Paragraph 2",
-                    content: "<p>Paragraphs here</p><p>Hello, world!</p>"
+                    content: "<p>Paragraphs here</p><p>Hello, world!</p>",
+                    centerText: false
                 },
                 block3: {
                     heading: "Paragraph 3",
-                    content: "<p>Paragraphs here</p><p>Hello, world!</p>"
+                    content: "<p>Paragraphs here</p><p>Hello, world!</p>",
+                    centerText: false
                 }
             }]
         }, {

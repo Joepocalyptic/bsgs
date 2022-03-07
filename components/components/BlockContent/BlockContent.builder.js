@@ -44,6 +44,7 @@ Builder.registerComponent(BlockContent, {
             defaultValue: [{
                 heading: "Content Block",
                 content: "<p>Paragraph here</p><p>Another paragraph</p>",
+                centerText: false
             }]
         },
         {
