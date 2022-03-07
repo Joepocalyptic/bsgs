@@ -17,3 +17,35 @@
 .cms-content a {
     @apply underline
 }
+
+.rbc-calendar {
+    @apply font-content;
+}
+
+.rbc-toolbar-label {
+    text-align: right !important;
+}
+
+.rbc-month-view {
+    @apply rounded-lg bg-blue-dark overflow-hidden;
+    border: none !important;
+}
+
+.rbc-btn-group {
+    @apply rounded-lg overflow-hidden
+}
+
+.rbc-btn-group button {
+    background-color: #00061F !important;
+    transition: background-color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+}
+
+.rbc-month-header {
+    @apply py-4
+}
+
+.rbc-btn-group button:hover {
+    background-color: #0C387D !important;
+}

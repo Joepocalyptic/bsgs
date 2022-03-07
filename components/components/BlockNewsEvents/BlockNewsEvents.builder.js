@@ -1,4 +1,4 @@
-import {Builder} from '@builder.io/react'
+import {Builder} from '@builder.io/react/lite'
 import BlockNewsEvents from './BlockNewsEvents'
 
 Builder.registerComponent(BlockNewsEvents, {

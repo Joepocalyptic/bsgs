@@ -1,8 +1,8 @@
 import { Builder } from '@builder.io/react/lite'
-import BlockContent from './BlockContent'
+import BlockForm from './BlockForm'
 
-Builder.registerComponent(BlockContent, {
-    name: 'Content',
+Builder.registerComponent(BlockForm, {
+    name: 'Form',
     inputs: [
         {
             name: 'heading',

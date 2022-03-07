@@ -1,8 +1,8 @@
 import { Builder } from '@builder.io/react/lite'
-import BlockContent from './BlockContent'
+import BlockCollapsibleContent from './BlockCollapsibleContent'
 
-Builder.registerComponent(BlockContent, {
-    name: 'Content',
+Builder.registerComponent(BlockCollapsibleContent, {
+    name: 'Collapsible Content',
     inputs: [
         {
             name: 'heading',

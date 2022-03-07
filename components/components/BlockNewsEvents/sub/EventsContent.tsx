@@ -28,10 +28,6 @@ export default class EventsContent extends React.Component<EventsProps> {
                 <div className="flex flex-1 flex-col gap-4">
                     <h3 className="font-heading uppercase text-center text-3xl">Events</h3>
 
-                    <div>
-                        <Calendar localizer={luxonLocalizer(DateTime)} events={this.props.events} />
-                    </div>
-
                     <div
                         className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full " + (this.props.split === BorderType.Right ? "block lg:hidden" : "")}/>
                     <div

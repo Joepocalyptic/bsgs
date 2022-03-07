@@ -6,7 +6,7 @@ import {HiChevronDown} from "@react-icons/all-files/hi/HiChevronDown"
 import {HiPlus} from "@react-icons/all-files/hi/HiPlus"
 import {HiHome} from "@react-icons/all-files/hi/HiHome"
 import {Link} from "@components/Link/Link";
-import {BuilderContent} from "@builder.io/react";
+import {BuilderContent} from "@builder.io/react/lite";
 
 type HeaderState = {
     expanded: boolean,

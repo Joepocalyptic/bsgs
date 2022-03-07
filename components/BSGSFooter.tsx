@@ -6,7 +6,7 @@ import {FaFacebook} from "@react-icons/all-files/fa/FaFacebook";
 import {FaTwitter} from "@react-icons/all-files/fa/FaTwitter";
 import {HiPhone} from "@react-icons/all-files/hi/HiPhone";
 import {HiMail} from "@react-icons/all-files/hi/HiMail";
-import {BuilderContent} from "@builder.io/react";
+import {BuilderContent} from "@builder.io/react/lite";
 
 
 

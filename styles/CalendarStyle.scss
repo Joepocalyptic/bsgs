@@ -1,12 +1,12 @@
 @use "sass:math";
 
-$out-of-range-color: lighten(#333, 40%);
-$out-of-range-bg-color: lighten(#333, 70%);
+$out-of-range-color: white;
+$out-of-range-bg-color: black;
 
-$calendar-border: red;
-$cell-border: red;
+$calendar-border: transparent;
+$cell-border: transparent;
 
-$border-color: none;
+$border-color: transparent;
 
 $segment-width: percentage(math.div(1, 7));
 
@@ -22,14 +22,9 @@ $event-border-radius: 5px;
 $event-padding: 2px 5px;
 $event-zindex: 4;
 
-$btn-color: #373a3c;
-$btn-bg: #fff;
-$btn-border: #ccc;
+$btn-color: white;
+$btn-border: transparent;
 
-$current-time-color: #74ad31 !default;
+$today-highlight-bg: #0C387D;
 
-$rbc-css-prefix: rbc-i !default;
-
-$today-highlight-bg: #eaf6ff !default;
-
-@import 'react-big-calendar/lib/sass/styles';
+@import '~react-big-calendar/lib/sass/styles';

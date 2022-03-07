@@ -8,7 +8,7 @@ export enum BorderType {
     None
 }
 
-type ContentProps = {
+export type ContentProps = {
     darkBackground: boolean,
     heading: string,
     content: string,

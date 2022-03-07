@@ -1,4 +1,4 @@
-import {Builder} from '@builder.io/react'
+import {Builder} from '@builder.io/react/lite'
 import BlockTripleContent from './BlockTripleContent'
 
 Builder.registerComponent(BlockTripleContent, {

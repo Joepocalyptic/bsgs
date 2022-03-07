@@ -1,4 +1,4 @@
-import {Builder} from '@builder.io/react'
+import {Builder} from '@builder.io/react/lite'
 import BlockSplitContent from './BlockSplitContent'
 
 Builder.registerComponent(BlockSplitContent, {

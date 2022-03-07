@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {builder, BuilderComponent} from "@builder.io/react"
+import {builder, BuilderComponent} from "@builder.io/react/lite"
 import '@builder.io/widgets'
 import React from "react"
 import BlockHeader from "@components/components/BlockHeader/BlockHeader";

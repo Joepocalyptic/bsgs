@@ -1,4 +1,4 @@
-import {Builder, builder} from "@builder.io/react";
+import {Builder, builder} from "@builder.io/react/lite"
 
 if (!process.env.BUILDER_PUBLIC_KEY) {
   throw new Error('Missing env variable BUILDER_PUBLIC_KEY')
@@ -11,6 +11,7 @@ Builder.set({customInsertMenu: true})
 import "@components/components/BlockContent/BlockContent.builder"
 import "@components/components/BlockSplitContent/BlockSplitContent.builder"
 import "@components/components/BlockTripleContent/BlockTripleContent.builder"
+import "@components/components/BlockCollapsibleContent/BlockCollapsibleContent.builder"
 
 import "@components/components/BlockHeader/BlockHeader.builder"
 import "@components/components/BlockSlideshow/BlockSlideshow.builder"
@@ -30,7 +31,8 @@ Builder.register('insertMenu', {
   items: [
     { name: "Content" },
     { name: "Split Content" },
-    { name: "Triple Content" }
+    { name: "Triple Content" },
+    { name: "Collapsible Content" }
   ]
 })
 
