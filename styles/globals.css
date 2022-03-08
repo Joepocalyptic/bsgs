@@ -24,6 +24,11 @@
 
 .rbc-toolbar-label {
     text-align: right !important;
+    padding: 0 !important;
+}
+
+.rbc-toolbar {
+    margin-bottom: 1rem !important;
 }
 
 .rbc-date-cell {
@@ -56,4 +61,8 @@
 
 .rbc-btn-group button:hover {
     background-color: #0C387D !important;
+}
+
+* {
+    @apply decoration-yellow
 }
