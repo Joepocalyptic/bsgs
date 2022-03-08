@@ -19,7 +19,8 @@ type ContentProps = {
     blocks: ContentBlock[],
     button: {
         text: any,
-        url: string
+        url: string,
+        newTab: boolean
     },
     darkBackground: boolean
 }
@@ -43,7 +44,7 @@ export default class BlockCollapsibleContent extends React.Component<ContentProp
                         />
                     ))}
                     {(this.props.button && this.props.button !== 5 && this.props.button.text !== "") &&
-                    <LinkButton text={this.props.button.text} url={this.props.button.url} darkBackground={this.props.darkBackground}/>}
+                    <LinkButton text={this.props.button.text} url={this.props.button.url} newTab={this.props.button.newTab} darkBackground={this.props.darkBackground}/>}
                 </section>
             </div>
 

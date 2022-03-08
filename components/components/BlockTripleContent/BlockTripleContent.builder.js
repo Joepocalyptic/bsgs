@@ -151,6 +151,12 @@ Builder.registerComponent(BlockTripleContent, {
                 defaultValue: "/home",
                 required: false,
                 friendlyName: "URL/link"
+            }, {
+                name: "newTab",
+                type: "boolean",
+                defaultValue: false,
+                required: true,
+                friendlyName: "Open link in new tab"
             }],
             friendlyName: "Button",
             defaultValue: 5

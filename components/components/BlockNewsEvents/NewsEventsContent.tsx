@@ -77,6 +77,7 @@ export default class NewsEventsContent extends React.Component<NewsEventProps> {
 
                     <LinkButton darkBackground={!this.props.darkBackground} text={this.props.buttonText}
                                 url={this.props.buttonUrl}
+                                newTab={false}
                                 nested={true}/>
 
                     <div
