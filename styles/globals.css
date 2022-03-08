@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:focus-visible {
+    @apply outline outline-0 outline-yellow focus-visible:outline-2
+}
+
 .twitter-timeline {
     @apply rounded-lg shadow-lg
 }

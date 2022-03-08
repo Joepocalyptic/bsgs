@@ -5,6 +5,7 @@ import '@builder.io/widgets'
 import React from "react"
 import {useRouter} from "next/router";
 import Custom404 from "./404";
+import BlockContactForm from "@components/components/BlockContactForm/BlockContactForm";
 
 export async function getStaticProps({params}: GetStaticPropsContext<{ page: string[] }>) {
     const page =
@@ -62,6 +63,7 @@ export default function Page({page}: InferGetStaticPropsType<typeof getStaticPro
                 <title>{page?.data.title} | Bay State Girls Softball</title>
             </Head>
             <BuilderComponent model="page" content={page}/>
+            <BlockContactForm formcakeKey="" darkBackground />
         </>
     )
 }
