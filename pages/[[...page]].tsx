@@ -63,7 +63,6 @@ export default function Page({page}: InferGetStaticPropsType<typeof getStaticPro
                 <title>{page?.data.title} | Bay State Girls Softball</title>
             </Head>
             <BuilderComponent model="page" content={page}/>
-            <BlockContactForm formcakeKey="" darkBackground />
         </>
     )
 }
