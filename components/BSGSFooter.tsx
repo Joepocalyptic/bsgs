@@ -8,8 +8,6 @@ import {HiPhone} from "@react-icons/all-files/hi/HiPhone";
 import {HiMail} from "@react-icons/all-files/hi/HiMail";
 import {BuilderContent} from "@builder.io/react/lite";
 
-
-
 export default class BSGSFooter extends React.Component<any, any> {
     render() {
         return (
@@ -82,8 +80,8 @@ export default class BSGSFooter extends React.Component<any, any> {
                         </div>
                     )}
                 </BuilderContent>
-                <div className="bg-blue-dark font-content text-center">
-                    <div className="flex flex-col p-4 gap-4 text-sm  lg:flex-row-reverse lg:justify-between lg:text-lg container mx-auto">
+                <div className="bg-black font-content text-center">
+                    <div className="flex flex-col p-4 gap-4 text-sm lg:flex-row-reverse lg:justify-between lg:text-lg container mx-auto">
                         <p>&copy; Copyright {new Date().getFullYear()} Bay State Girls Softball</p>
                         <Link href="https://www.dimanregional.org/domain/1202" target="_blank">Developed by Diman PW | Class B of 2024</Link>
                     </div>

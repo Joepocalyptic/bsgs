@@ -2,7 +2,7 @@ import {Builder} from '@builder.io/react/lite'
 import BlockSocialMedia from './BlockSocialMedia'
 
 Builder.registerComponent(BlockSocialMedia, {
-    name: 'Social media',
+    name: 'Social Media',
     inputs: [
         {
             name: "darkBackground",
@@ -32,14 +32,14 @@ Builder.registerComponent(BlockSocialMedia, {
             type: "object",
             required: true,
             subFields: [{
-                name: "screenName",
+                name: "url",
                 type: "text",
                 required: true,
-                defaultValue: "google",
-                friendlyName: "Screen Name"
+                defaultValue: "https://facebook.com/facebook",
+                friendlyName: "Facebook page URL"
             }],
             defaultValue: {
-                screenName: "google"
+                url: "https://facebook.com/facebook"
             },
             friendlyName: "Facebook Settings"
         }

@@ -26,24 +26,32 @@
     text-align: right !important;
 }
 
+.rbc-date-cell {
+    @apply py-2;
+}
+
 .rbc-month-view {
     @apply rounded-lg bg-blue-dark overflow-hidden;
     border: none !important;
 }
 
 .rbc-btn-group {
-    @apply rounded-lg overflow-hidden
+    @apply rounded-lg overflow-hidden shadow-lg
 }
 
 .rbc-btn-group button {
-    background-color: #00061F !important;
+    background-color: #061435 !important;
     transition: background-color;
     transition-duration: 200ms;
     transition-timing-function: ease-in-out;
 }
 
-.rbc-month-header {
-    @apply py-4
+.rbc-month-header .rbc-header {
+    @apply py-2
+}
+
+.rbc-event:hover {
+    @apply underline;
 }
 
 .rbc-btn-group button:hover {

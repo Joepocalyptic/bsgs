@@ -1,7 +1,5 @@
 import React from "react"
 import {BorderType} from "@components/Content"
-import NewsContent from "./sub/NewsContent"
-import EventsContent from "./sub/EventsContent"
 import {builder} from "@builder.io/react/lite"
 import {calculateColor} from "@lib/utils"
 import NewsEventsContent from "@components/components/BlockNewsEvents/NewsEventsContent";
@@ -23,8 +21,6 @@ export type Post = {
     date: string
     blurb: string
 }
-
-export type FormattedEvent = any
 
 export default class BlockNewsEvents extends React.Component<NewsEventsProps, NewsEventsState> {
     state: NewsEventsState = {
@@ -49,9 +45,8 @@ export default class BlockNewsEvents extends React.Component<NewsEventsProps, Ne
             limit: 2,
             omit: "data.blocks"
         }).then(posts => {
-            let formattedPosts = posts.map(post => (post.data as FormattedEvent))
             this.setState({
-                events: formattedPosts
+                events: posts.map(post => (post.data as Post))
             })
         })
     }
@@ -60,6 +55,7 @@ export default class BlockNewsEvents extends React.Component<NewsEventsProps, Ne
         return (
             <div className={calculateColor(this.props.darkBackground)}>
                 <section className={"container mx-auto px-4 py-8 flex flex-col gap-8"}>
+                    <h2 className="text-4xl font-heading uppercase text-center text-white">Keep Up-To-Date</h2>
                     <div className="flex gap-8 justify-stretch flex-col lg:flex-row">
                         <NewsEventsContent
                             darkBackground={this.props.darkBackground}

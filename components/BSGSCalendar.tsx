@@ -1,21 +1,35 @@
-import {Calendar, luxonLocalizer} from "react-big-calendar";
+import {Calendar, luxonLocalizer, Event} from "react-big-calendar";
 import {DateTime} from "luxon";
 import React from "react";
+import {NextRouter, withRouter} from "next/router";
 
-export default function BSGSCalendar() {
-    return <div className="h-[400px]">
-        <Calendar
-            localizer={luxonLocalizer(DateTime)}
-            events={[
-                {
-                    'title': 'My event',
-                    'allDay': false,
-                    'start': new Date(2018, 0, 1, 10, 0), // 10.00 AM
-                    'end': new Date(2018, 0, 1, 14, 0), // 2.00 PM
-                }
-            ]}
-            view="month"
-            views={['month']}
-        />
-    </div>
+type CalendarProps = {
+    height: number,
+    events: Event[],
+    router: NextRouter
 }
+
+class BSGSCalendar extends React.Component<CalendarProps, any> {
+
+    static defaultProps  = {
+        height: 0
+    }
+
+    render() {
+        return <div className="root">
+            <style jsx>{`
+              .root {
+                height: ${this.props.height}px
+              }
+            `}</style>
+            <Calendar
+                localizer={luxonLocalizer(DateTime)}
+                events={this.props.events}
+                views={['month']}
+                onSelectEvent={event => this.props.router.push(event.resource)}
+            />
+        </div>
+    }
+}
+
+export default withRouter(BSGSCalendar)
