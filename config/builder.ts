@@ -21,6 +21,7 @@ import "@components/components/BlockCollapsibleContent/BlockCollapsibleContent.b
 // Special
 import "@components/components/BlockNewsEvents/BlockNewsEvents.builder"
 import "@components/components/BlockSocialMedia/BlockSocialMedia.builder"
+import "@components/components/BlockCalendar/BlockCalendar.builder"
 
 Builder.register('insertMenu', {
     name: "Headers",
@@ -44,6 +45,7 @@ Builder.register('insertMenu', {
     name: "Special",
     items: [
         {name: "News & Events"},
-        {name: "Social Media"}
+        {name: "Social Media"},
+        {name: "Events Calendar"}
     ]
 })

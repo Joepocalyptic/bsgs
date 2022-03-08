@@ -12,11 +12,12 @@ type CalendarProps = {
 class BSGSCalendar extends React.Component<CalendarProps, any> {
 
     static defaultProps  = {
-        height: 0
+        height: 0,
+        events: []
     }
 
     render() {
-        return <div className="root">
+        return <div className="root w-full">
             <style jsx>{`
               .root {
                 height: ${this.props.height}px

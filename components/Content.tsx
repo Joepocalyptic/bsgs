@@ -14,7 +14,8 @@ export type ContentProps = {
     content: string,
     image: string,
     border: BorderType,
-    centerText: boolean
+    centerText: boolean,
+    children?: React.ReactNode
 }
 
 export default class Content extends React.Component<ContentProps> {
@@ -28,6 +29,14 @@ export default class Content extends React.Component<ContentProps> {
     }
 
     render() {
+        const options = {}
+        if(this.props.children) {
+            // @ts-ignore
+            options.children = this.props.children
+        } else {
+            // @ts-ignore
+            options.dangerouslySetInnerHTML = {__html: this.props.content}
+        }
         return (
             <section className={
                 "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl"
@@ -46,6 +55,9 @@ export default class Content extends React.Component<ContentProps> {
                                  `}
                              alt=""
                              className={"block rounded-lg shadow-lg self-center w-full max-w-[20rem] " + ((this.props.border !== BorderType.Both && this.props.border !== BorderType.None) ? "" : "lg:hidden")}/>)}
+                    {
+                        <div></div>
+                    }
                     <div className={"cms-content leading-8 break-words font-content flex flex-col gap-4" + (this.props.centerText ? " text-center" : "")}
                          dangerouslySetInnerHTML={{__html: this.props.content}}/>
 
