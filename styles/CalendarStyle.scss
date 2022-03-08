@@ -4,15 +4,11 @@ $out-of-range-color: white;
 $out-of-range-bg-color: black;
 
 $calendar-border: transparent;
-$cell-border: #061435;
+$cell-border: #00061F;
 
 $border-color: transparent;
 
 $segment-width: percentage(math.div(1, 7));
-
-$time-selection-color: white;
-$time-selection-bg-color: rgba(0, 0, 0, 0.5);
-$date-selection-bg-color: rgba(0, 0, 0, 0.1);
 
 $event-bg: #0C387D;
 $event-border: darken(#0C387D, 20%);

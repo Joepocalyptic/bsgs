@@ -31,7 +31,7 @@
 }
 
 .rbc-month-view {
-    @apply rounded-lg bg-blue-dark overflow-hidden;
+    @apply rounded-lg bg-blue-normal overflow-hidden;
     border: none !important;
 }
 

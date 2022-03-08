@@ -55,9 +55,9 @@ export default function NewsPost({events}: InferGetStaticPropsType<typeof getSta
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <meta name="description" content="Events calendar" />
-                <title>Calendar | Bay State Girls Softball</title>
+                <title>Events Calendar | Bay State Girls Softball</title>
             </Head>
-            <BlockHeader title="Calendar" />
+            <BlockHeader title="Events Calendar" />
             <div className={calculateColor(false)}>
                 <section className={"container mx-auto px-4 py-8 flex flex-col gap-8"}>
                     <div className="flex gap-8 justify-stretch flex-col lg:flex-row">
