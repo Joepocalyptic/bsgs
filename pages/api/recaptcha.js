@@ -1,9 +1,9 @@
-import fetch from "node-fetch";
+import fetch from "node-fetch"
 
 export default async function handler(req, res) {
-    const { body, method } = req;
+    const { body, method } = req
 
-    const { captcha } = body;
+    const { captcha } = body
 
     if (method === "POST") {
         if (!captcha) {
@@ -22,19 +22,19 @@ export default async function handler(req, res) {
                     method: "POST",
                 }
             );
-            const captchaValidation = await response.json();
+            const captchaValidation = await response.json()
 
             if (captchaValidation.success) {
-                return res.status(200).send("OK");
+                return res.status(200).send("OK")
             }
 
             return res.status(422).json({
                 message: "Unprocessable request; invalid CAPTCHA code or failed token",
             });
         } catch (error) {
-            console.log(error);
-            return res.status(422).json({ message: "Something went wrong" });
+            console.log(error)
+            return res.status(422).json({ message: "Something went wrong" })
         }
     }
-    return res.status(404).send("Not found");
+    return res.status(404).send("Not found")
 }

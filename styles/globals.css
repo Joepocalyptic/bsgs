@@ -69,3 +69,7 @@
 * {
     @apply decoration-yellow
 }
+
+.grecaptcha-badge {
+    display: none !important;
+}

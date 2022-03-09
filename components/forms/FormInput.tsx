@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEventHandler} from "react";
 import {calculateColor} from "@lib/utils";
 
 type FormInputProps = {
@@ -9,6 +9,8 @@ type FormInputProps = {
     placeholder: string
     id: string
     className?: string
+    value: string
+    onChange: ChangeEventHandler<HTMLInputElement>
 }
 
 export default class FormInput extends React.Component<FormInputProps, any> {
@@ -19,6 +21,8 @@ export default class FormInput extends React.Component<FormInputProps, any> {
                 {this.props.label + (this.props.required ? " *" : "")}
             </label>
             <input type={this.props.type}
+                   value={this.props.value}
+                   onChange={this.props.onChange}
                    required={this.props.required}
                    placeholder={this.props.placeholder}
                    id={this.props.id}

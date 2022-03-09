@@ -1,8 +1,10 @@
-import React from "react";
+import React, {ChangeEventHandler} from "react";
 import {calculateColor} from "@lib/utils";
 
 type FormTextAreaProps = {
     darkBackground: boolean
+    value: string
+    onChange: ChangeEventHandler<HTMLTextAreaElement>
     label: string
     required: boolean
     placeholder: string
@@ -20,6 +22,8 @@ export default class FormTextArea extends React.Component<FormTextAreaProps, any
             <textarea placeholder={this.props.placeholder}
                       id={this.props.id}
                       required={this.props.required}
+                      value={this.props.value}
+                      onChange={this.props.onChange}
                       name={this.props.id}
                       className={"p-4 rounded-lg shadow-lg overflow-hidden min-h-[10rem]"
                           + calculateColor(this.props.darkBackground)}

@@ -1,4 +1,4 @@
-import React from "react"
+import React, {ChangeEvent} from "react"
 import {calculateColor} from "@lib/utils"
 import FormInput from "@components/forms/FormInput"
 import FormTextArea from "@components/forms/FormTextArea"
@@ -19,12 +19,34 @@ type FormProps = IWithGoogleReCaptchaProps & {
     formcakeKey: string
 }
 
-class BlockContactForm extends React.Component<FormProps> {
+type FormState = {
+    data: {
+        name: string
+        email: string
+        phone: string
+        subject: string
+        message: string
+        content: string
+    }
+}
+
+class BlockContactForm extends React.Component<FormProps, FormState> {
+    state: FormState = {
+        data: {
+            name: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+            content: ""
+        }
+    }
+
     handleVerifyRecaptcha = async () => {
-        const { executeRecaptcha } = (this.props as IWithGoogleReCaptchaProps).googleReCaptchaProps
+        const {executeRecaptcha} = (this.props as IWithGoogleReCaptchaProps).googleReCaptchaProps
 
 
-        if(!executeRecaptcha) {
+        if (!executeRecaptcha) {
             return
         }
 
@@ -33,26 +55,91 @@ class BlockContactForm extends React.Component<FormProps> {
         try {
             const response = await fetch("/api/recaptcha", {
                 method: "POST",
-                body: JSON.stringify({ captcha: token }),
+                body: JSON.stringify({captcha: token}),
                 headers: {
                     "Content-Type": "application/json",
                 },
             })
 
-            if(response.ok) {
-                // Submit form
-                console.log("Request ok")
+            if (response.ok) {
+                await fetch(this.props.formcakeKey, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(this.state.data),
+                });
             } else {
                 const error = await response.json()
                 throw new Error(error.message)
             }
-        } catch(error: any) {
+        } catch (error: any) {
             location.reload()
         }
     }
 
     submitForm = async () => {
-         await this.handleVerifyRecaptcha()
+        await this.handleVerifyRecaptcha()
+    }
+
+    updateName(event: ChangeEvent<HTMLInputElement>) {
+        event.persist()
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                name: event.target.value
+            }
+        }))
+    }
+
+    updateEmail(event: ChangeEvent<HTMLInputElement>) {
+        event.persist()
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                email: event.target.value
+            }
+        }))
+    }
+
+    updatePhone(event: ChangeEvent<HTMLInputElement>) {
+        event.persist()
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                phone: event.target.value
+            }
+        }))
+    }
+
+    updateSubject(event: ChangeEvent<HTMLInputElement>) {
+        event.persist()
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                subject: event.target.value
+            }
+        }))
+    }
+
+    updateMessage(event: ChangeEvent<HTMLTextAreaElement>) {
+        event.persist()
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                message: event.target.value
+            }
+        }))
+    }
+
+    updateContent(event: ChangeEvent<HTMLInputElement>) {
+        event.persist()
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                content: event.target.value
+            }
+        }))
     }
 
     render() {
@@ -64,33 +151,54 @@ class BlockContactForm extends React.Component<FormProps> {
                         + calculateColor(this.props.darkBackground, true)
                     }>
                         <div className="w-full flex flex-col gap-8"
-                              id="contact-form">
+                             id="contact-form">
                             <div className="flex flex-col lg:flex-row gap-8">
                                 <FormInput id="name" label="Name" placeholder="John Doe"
                                            className="flex-1 min-w-0" type="text" required={true}
-                                           darkBackground={this.props.darkBackground} />
+                                           darkBackground={this.props.darkBackground}
+                                           value={this.state.data.name}
+                                           onChange={this.updateName.bind(this)}/>
                                 <FormInput id="email" label="Email" placeholder="contact@example.com"
                                            className="flex-1 min-w-0" type="email" required={true}
-                                           darkBackground={this.props.darkBackground} />
+                                           darkBackground={this.props.darkBackground}
+                                           value={this.state.data.email}
+                                           onChange={this.updateEmail.bind(this)}/>
                             </div>
 
                             <div className="flex flex-col lg:flex-row gap-8">
                                 <FormInput id="phone" label="Phone Number" placeholder="(555) 555-5555"
                                            className="flex-1 min-w-0" type="tel" required={false}
-                                           darkBackground={this.props.darkBackground} />
+                                           darkBackground={this.props.darkBackground}
+                                           value={this.state.data.phone}
+                                           onChange={this.updatePhone.bind(this)}/>
                                 <FormInput id="subject" label="Subject" placeholder="I have some concerns..."
                                            className="flex-1 min-w-0" type="text" required={true}
-                                           darkBackground={this.props.darkBackground} />
+                                           darkBackground={this.props.darkBackground}
+                                           value={this.state.data.subject}
+                                           onChange={this.updateSubject.bind(this)}/>
                             </div>
 
                             <FormTextArea id="message" label="Message" placeholder="Enter your message here..."
-                                       className="flex-1 min-w-0" required={true}
-                                       darkBackground={this.props.darkBackground} />
+                                          className="flex-1 min-w-0" required={true}
+                                          darkBackground={this.props.darkBackground}
+                                          value={this.state.data.message}
+                                          onChange={this.updateMessage.bind(this)}/>
 
-                            <FormSubmit darkBackground={this.props.darkBackground} text="Submit" action={this.submitForm}/>
+                            <FormSubmit darkBackground={this.props.darkBackground} text="Submit"
+                                        action={this.submitForm}/>
 
                             <label htmlFor="content" className="hidden">Content</label>
-                            <input type="text" name="content" id="content" className="hidden" />
+                            <input type="text" name="content" id="content" className="hidden"
+                                   value={this.state.data.content}
+                                   onChange={this.updateContent.bind(this)}/>
+                            <small className="text-center text-xsm font-content text-gray-500">
+                                This form is protected by reCAPTCHA. The Google <a
+                                href="https://policies.google.com/privacy" target="_blank"
+                                className="underline decoration-gray-400">
+                                Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank"
+                                                          className="underline decoration-gray-400">Terms of
+                                Service</a> apply.
+                            </small>
                         </div>
 
                         <div
