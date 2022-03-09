@@ -59,6 +59,7 @@
     "react-big-calendar": "^0.39.0",
     "react-dom": "^16.14.0",
     "react-google-recaptcha-v3": "^1.9.7",
+    "react-hot-toast": "^2.2.0",
     "react-merge-refs": "^1.1.0",
     "react-responsive-carousel": "^3.2.22",
     "react-twitter-widgets": "^1.10.0",

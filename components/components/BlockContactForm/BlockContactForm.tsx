@@ -4,6 +4,7 @@ import FormInput from "@components/forms/FormInput"
 import FormTextArea from "@components/forms/FormTextArea"
 import FormSubmit from "@components/forms/FormSubmit"
 import {IWithGoogleReCaptchaProps, withGoogleReCaptcha} from "react-google-recaptcha-v3";
+import {toast, Toaster} from "react-hot-toast";
 
 type UnformattedEvent = {
     title: string
@@ -62,24 +63,49 @@ class BlockContactForm extends React.Component<FormProps, FormState> {
             })
 
             if (response.ok) {
-                await fetch(this.props.formcakeKey, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(this.state.data),
-                });
+                return true
             } else {
-                const error = await response.json()
-                throw new Error(error.message)
+                throw new Error()
             }
         } catch (error: any) {
-            location.reload()
+            toast.error("An error occurred while sending your form!", {
+                style: {
+                    color: "white",
+                    background: "black",
+                    borderRadius: ".5rem"
+                }
+            })
         }
+        toast.error("An error occurred while sending your form!", {
+            style: {
+                color: "white",
+                background: "black",
+                borderRadius: ".5rem"
+            }
+        })
+        return false
     }
 
     submitForm = async () => {
-        await this.handleVerifyRecaptcha()
+        const success = await this.handleVerifyRecaptcha()
+
+        if(success) {
+            await fetch(this.props.formcakeKey, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(this.state.data),
+            })
+
+            toast.success("Your message has been received!", {
+                style: {
+                    color: "white",
+                    background: "black",
+                    borderRadius: ".5rem"
+                }
+            })
+        }
     }
 
     updateName(event: ChangeEvent<HTMLInputElement>) {
@@ -144,6 +170,7 @@ class BlockContactForm extends React.Component<FormProps, FormState> {
 
     render() {
         return <div className={calculateColor(this.props.darkBackground)}>
+            <Toaster position="bottom-right" />
             <section className={"container mx-auto px-4 py-8 flex flex-col gap-8"}>
                 <div className="flex gap-8 justify-stretch flex-col lg:flex-row">
                     <section className={
