@@ -6,15 +6,6 @@ import FormSubmit from "@components/forms/FormSubmit"
 import {IWithGoogleReCaptchaProps, withGoogleReCaptcha} from "react-google-recaptcha-v3";
 import {toast, Toaster} from "react-hot-toast";
 
-type UnformattedEvent = {
-    title: string
-    url: string
-    image?: string
-    date: string
-    endDate: string
-    blurb: string
-}
-
 type FormProps = IWithGoogleReCaptchaProps & {
     darkBackground: boolean
     formcakeKey: string
@@ -28,7 +19,8 @@ type FormState = {
         subject: string
         message: string
         content: string
-    }
+    },
+    buttonDisabled: boolean
 }
 
 class BlockContactForm extends React.Component<FormProps, FormState> {
@@ -40,7 +32,13 @@ class BlockContactForm extends React.Component<FormProps, FormState> {
             subject: "",
             message: "",
             content: ""
-        }
+        },
+        buttonDisabled: false
+    }
+
+    validateEmail(){
+        const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+        return regex.test(this.state.data.email);
     }
 
     handleVerifyRecaptcha = async () => {
@@ -48,7 +46,7 @@ class BlockContactForm extends React.Component<FormProps, FormState> {
 
 
         if (!executeRecaptcha) {
-            return
+            return false
         }
 
         const token = await executeRecaptcha('contactform')
@@ -68,6 +66,71 @@ class BlockContactForm extends React.Component<FormProps, FormState> {
                 throw new Error()
             }
         } catch (error: any) {
+            return false
+        }
+    }
+
+    submitForm = async () => {
+        if( this.state.data.name == "" ||
+            this.state.data.email == "" ||
+            this.state.data.subject == "" ||
+            this.state.data.message == "") {
+            toast.error("Please fill out all fields!", {
+                style: {
+                    color: "white",
+                    background: "black",
+                    borderRadius: ".5rem"
+                }
+            })
+            return
+        }
+
+        if(!this.validateEmail()) {
+            toast.error("Invalid email!", {
+                style: {
+                    color: "white",
+                    background: "black",
+                    borderRadius: ".5rem"
+                }
+            })
+            return
+        }
+
+        this.setState({
+            buttonDisabled: true
+        })
+
+        const success = await this.handleVerifyRecaptcha()
+
+        if(success) {
+            toast.success("Your message has been received!", {
+                style: {
+                    color: "white",
+                    background: "black",
+                    borderRadius: ".5rem"
+                }
+            })
+
+            const data = this.state.data
+            this.setState({
+                data: {
+                    name: "",
+                    email: "",
+                    phone: "",
+                    subject: "",
+                    message: "",
+                    content: ""
+                }
+            })
+
+            await fetch(this.props.formcakeKey, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data),
+            })
+        } else {
             toast.error("An error occurred while sending your form!", {
                 style: {
                     color: "white",
@@ -76,36 +139,11 @@ class BlockContactForm extends React.Component<FormProps, FormState> {
                 }
             })
         }
-        toast.error("An error occurred while sending your form!", {
-            style: {
-                color: "white",
-                background: "black",
-                borderRadius: ".5rem"
-            }
-        })
-        return false
-    }
-
-    submitForm = async () => {
-        const success = await this.handleVerifyRecaptcha()
-
-        if(success) {
-            await fetch(this.props.formcakeKey, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(this.state.data),
+        setTimeout(() => {
+            this.setState({
+                buttonDisabled: false
             })
-
-            toast.success("Your message has been received!", {
-                style: {
-                    color: "white",
-                    background: "black",
-                    borderRadius: ".5rem"
-                }
-            })
-        }
+        }, 1000)
     }
 
     updateName(event: ChangeEvent<HTMLInputElement>) {
@@ -212,14 +250,17 @@ class BlockContactForm extends React.Component<FormProps, FormState> {
                                           onChange={this.updateMessage.bind(this)}/>
 
                             <FormSubmit darkBackground={this.props.darkBackground} text="Submit"
+                                        disabled={this.state.buttonDisabled}
                                         action={this.submitForm}/>
 
+                            {/* Honeypot */}
                             <label htmlFor="content" className="hidden">Content</label>
                             <input type="text" name="content" id="content" className="hidden"
                                    value={this.state.data.content}
                                    onChange={this.updateContent.bind(this)}/>
+
                             <small className="text-center text-xsm font-content text-gray-500">
-                                This form is protected by reCAPTCHA. The Google <a
+                                This form is protected by Google reCAPTCHA v3. The Google <a
                                 href="https://policies.google.com/privacy" target="_blank"
                                 className="underline decoration-gray-400">
                                 Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank"

@@ -25,7 +25,7 @@ export default class FormTextArea extends React.Component<FormTextAreaProps, any
                       value={this.props.value}
                       onChange={this.props.onChange}
                       name={this.props.id}
-                      className={"p-4 rounded-lg shadow-lg overflow-hidden min-h-[10rem]"
+                      className={"p-4 rounded-lg shadow-lg overflow-hidden min-h-[10rem] font-content"
                           + calculateColor(this.props.darkBackground)}
             />
         </div>
