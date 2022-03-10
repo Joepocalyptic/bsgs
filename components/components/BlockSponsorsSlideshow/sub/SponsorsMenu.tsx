@@ -4,13 +4,12 @@ import {
     ScrollMenu,
     VisibilityContext,
     getItemsPos,
-    slidingWindow
 } from "react-horizontal-scrolling-menu";
 import {LeftArrow, RightArrow} from "@components/components/BlockSponsorsSlideshow/sub/Arrows";
 import {calculateColor} from "@lib/utils";
-import {BorderType} from "@components/Content";
 
 type SponsorsMenuProps = {
+    aos: string
     darkBackground: boolean,
     sponsors: Sponsor[]
 }
@@ -38,13 +37,14 @@ const SponsorCard = ({sponsor, itemId, onClick, darkBackground}: SponsorCardProp
             "overflow-hidden flex flex-col gap-4 items-center"
             + calculateColor(darkBackground, true)}
         onClick={() => onClick(visibility)}>
+
         <h3 className="text-3xl font-heading uppercase">{sponsor.name}</h3>
-        <img src={"https://www.joeypereira.dev/img/logo-classic.png"} alt={sponsor.name}
+        <img src={`${sponsor.logo}?width=320`} alt={sponsor.name}
              className="rounded-lg max-w-[5rem] lg:max-w-[15rem] max-h-[20rem]"/>
-        <div
-            className="absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full"/>
-        <div
-            className="absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full"/>
+        <p>{sponsor.blurb}</p>
+
+        <div className="absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full"/>
+        <div className="absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full"/>
     </button>
 }
 
@@ -85,6 +85,7 @@ const SponsorsMenu = ({darkBackground, sponsors}: SponsorsMenuProps) => {
             options={{throttle: 0}} // NOTE: for center items
             onMouseMove={handleDrag}
             wrapperClassName="gap-8"
+            data-aos="fade"
             scrollContainerClassName="gap-8 rounded-2xl"
         >
             {sponsors.map(sponsor => (
@@ -134,7 +135,7 @@ function useDrag() {
             position.current = ev.clientX;
             cb(newDiff);
         }
-    };
+    }
 
     return {
         dragStart,
@@ -143,8 +144,7 @@ function useDrag() {
         dragging,
         position,
         setDragging
-    };
+    }
 }
-
 
 export default SponsorsMenu
