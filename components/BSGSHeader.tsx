@@ -7,13 +7,15 @@ import {HiPlus} from "@react-icons/all-files/hi/HiPlus"
 import {HiHome} from "@react-icons/all-files/hi/HiHome"
 import {Link} from "@components/Link/Link"
 import {BuilderContent} from "@builder.io/react/lite"
+import {withRouter} from "next/router";
+import {WithRouterProps} from "next/dist/client/with-router";
 
 type HeaderState = {
     expanded: boolean,
     submenusExpanded: number[]
 }
 
-export default class BSGSHeader extends React.Component<any, HeaderState> {
+class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
     state = {
         expanded: false,
         submenusExpanded: [] as number[]
@@ -22,6 +24,14 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
     toggleExpanded = () => this.setState((state) => ({
         expanded: !state.expanded
     }))
+
+    componentDidMount() {
+        this.props.router.events.on('routeChangeStart', () => {
+            this.setState({
+                expanded: false
+            })
+        })
+    }
 
 
     toggleExpandedSubmenu = (index: number) => {
@@ -203,3 +213,5 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
         )
     }
 }
+
+export default withRouter(BSGSHeader)
