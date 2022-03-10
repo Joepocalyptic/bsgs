@@ -67,7 +67,7 @@
 }
 
 * {
-    @apply decoration-yellow
+    @apply decoration-yellow font-content
 }
 
 .grecaptcha-badge {

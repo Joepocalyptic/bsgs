@@ -56,7 +56,7 @@ export default class CollapsibleContent extends React.Component<ContentProps, Co
                                          alt=""
                                          className={"block rounded-lg shadow-lg self-center w-full max-w-[20rem] " + ((this.props.border !== BorderType.Both && this.props.border !== BorderType.None) ? "" : "lg:hidden")}/>)}
                                 <div
-                                    className={"cms-content leading-8 break-words font-content flex flex-col gap-4" + (this.props.centerText ? " text-center" : "")}
+                                    className={"cms-content leading-8 break-words  flex flex-col gap-4" + (this.props.centerText ? " text-center" : "")}
                                     dangerouslySetInnerHTML={{__html: this.props.content}}/>
                             </div>}
                             <div

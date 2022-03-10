@@ -11,8 +11,8 @@ export default function Custom404() {
         <div className="h-[29.374rem] grid items-center text-white text-center">
             <div className="flex flex-col gap-2 items-center">
                 <h1 className="text-7xl font-heading">404</h1>
-                <small className="text-lg font-content">Page not found.</small>
-                <Link href="/" className="text-lg font-content underline">
+                <small className="text-lg ">Page not found.</small>
+                <Link href="/" className="text-lg  underline">
                     Back to home
                 </Link>
             </div>

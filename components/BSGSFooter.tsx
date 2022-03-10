@@ -15,7 +15,7 @@ export default class BSGSFooter extends React.Component<any, any> {
                 <BuilderContent modelName="footer">
                     {(data) => (
                         <div
-                            className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-0 mx-auto px-4 py-8 font-content container mx-auto">
+                            className="flex flex-col lg:flex-row lg:justify-between gap-4 lg:gap-0 mx-auto px-4 py-8  container mx-auto">
                             <div
                                 className="flex flex-col items-center lg:order-2 lg:justify-center lg:w-1/4 gap-4 bg-blue-normal rounded-2xl p-4 shadow-xl">
                                 <Link href="/home">
@@ -91,7 +91,7 @@ export default class BSGSFooter extends React.Component<any, any> {
                         </div>
                     )}
                 </BuilderContent>
-                <div className="bg-black font-content text-center">
+                <div className="bg-black  text-center">
                     <div
                         className="flex flex-col p-4 gap-4 text-sm lg:flex-row-reverse lg:justify-between lg:text-lg container mx-auto">
                         <p>&copy; Copyright {new Date().getFullYear()} Bay State Girls Softball</p>

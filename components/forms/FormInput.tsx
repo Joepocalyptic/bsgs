@@ -27,7 +27,7 @@ export default class FormInput extends React.Component<FormInputProps, any> {
                    placeholder={this.props.placeholder}
                    id={this.props.id}
                    name={this.props.id}
-                   className={"p-4 rounded-lg shadow-lg font-content"
+                   className={"p-4 rounded-lg shadow-lg "
                        + calculateColor(this.props.darkBackground)}
             />
         </div>

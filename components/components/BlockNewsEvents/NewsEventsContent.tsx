@@ -32,9 +32,9 @@ class NewsEventPost extends React.Component<NewsEventPostProps> {
                     </div>}
                     <div className="flex-1 p-4 flex flex-col gap-2">
                         <h4 className="group-hover:underline font-heading uppercase text-xl">{this.props.post.title}</h4>
-                        <p className="font-content">{this.props.post.blurb}</p>
+                        <p className="">{this.props.post.blurb}</p>
                         <div
-                            className="font-content uppercase text-[0.7rem] lg:text-right">
+                            className=" uppercase text-[0.7rem] lg:text-right">
                             <div className="hidden lg:inline">
                                 <span className="group-hover:underline inline">Click to read
                                     more</span>
@@ -74,7 +74,7 @@ export default class NewsEventsContent extends React.Component<NewsEventProps> {
                                 <NewsEventPost post={post} darkBackground={this.props.darkBackground} key={index}/>
                             )}
                         </ul>
-                        : <p className="font-content text-center">No recent {this.props.title.toLowerCase()} found.</p>}
+                        : <p className=" text-center">No recent {this.props.title.toLowerCase()} found.</p>}
 
                     <LinkButton darkBackground={!this.props.darkBackground} text={this.props.buttonText}
                                 url={this.props.buttonUrl}

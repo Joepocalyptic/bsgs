@@ -60,7 +60,7 @@ export default class Content extends React.Component<ContentProps> {
                     {
                         <div></div>
                     }
-                    <div className={"cms-content leading-8 break-words font-content flex flex-col gap-4" + (this.props.centerText ? " text-center" : "")}
+                    <div className={"cms-content leading-8 break-words  flex flex-col gap-4" + (this.props.centerText ? " text-center" : "")}
                          dangerouslySetInnerHTML={{__html: this.props.content}}/>
 
                     <div

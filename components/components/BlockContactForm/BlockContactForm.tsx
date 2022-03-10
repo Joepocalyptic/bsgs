@@ -259,7 +259,7 @@ class BlockContactForm extends React.Component<FormProps, FormState> {
                                    value={this.state.data.content}
                                    onChange={this.updateContent.bind(this)}/>
 
-                            <small className="text-center text-xsm font-content text-gray-500">
+                            <small className="text-center text-xsm  text-gray-500">
                                 This form is protected by Google reCAPTCHA v3. The Google <a
                                 href="https://policies.google.com/privacy" target="_blank"
                                 className="underline decoration-gray-400">
