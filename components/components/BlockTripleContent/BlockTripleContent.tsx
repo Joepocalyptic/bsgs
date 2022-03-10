@@ -39,7 +39,7 @@ export default class BlockTripleContent extends React.Component<SplitContentProp
                                 content={block.block1.content}
                                 border={BorderType.Left}
                                 centerText={block.block1.centerText}
-                                aos="fade-right"
+                                aos="fade"
                             />}
                             {block.block2 && <Content
                                 darkBackground={this.props.darkBackground}
@@ -57,7 +57,7 @@ export default class BlockTripleContent extends React.Component<SplitContentProp
                                 content={block.block3.content}
                                 border={BorderType.Right}
                                 centerText={block.block3.centerText}
-                                aos="fade-left"
+                                aos="fade"
                             />}
                         </div>
                     ))}

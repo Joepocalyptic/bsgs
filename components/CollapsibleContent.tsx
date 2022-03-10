@@ -4,11 +4,13 @@ import {BorderType, ContentProps} from "@components/Content";
 import {HiChevronDown} from "@react-icons/all-files/hi/HiChevronDown";
 import {HiChevronUp} from "@react-icons/all-files/hi/HiChevronUp";
 
+
+
 type CollapsibleContentState = {
     collapsed: boolean
 }
 
-export default class Content extends React.Component<ContentProps, CollapsibleContentState> {
+export default class CollapsibleContent extends React.Component<ContentProps, CollapsibleContentState> {
     state = {
         collapsed: true
     }
@@ -30,7 +32,7 @@ export default class Content extends React.Component<ContentProps, CollapsibleCo
 
     render() {
         return (
-            <section className={
+            <section data-aos={this.props.aos} className={
                 "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl"
                 + calculateColor(this.props.darkBackground, true)
             }>

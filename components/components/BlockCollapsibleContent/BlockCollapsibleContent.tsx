@@ -34,6 +34,7 @@ export default class BlockCollapsibleContent extends React.Component<ContentProp
                     <h2 className="text-4xl font-heading uppercase text-center text-white">{this.props.heading}</h2>}
                     {this.props.blocks?.map((block: any, index: number) => (
                         <CollapsibleContent
+                            aos="fade"
                             darkBackground={this.props.darkBackground}
                             key={index}
                             image={block.image}
@@ -44,7 +45,7 @@ export default class BlockCollapsibleContent extends React.Component<ContentProp
                         />
                     ))}
                     {(this.props.button && this.props.button !== 5 && this.props.button.text !== "") &&
-                    <LinkButton text={this.props.button.text} url={this.props.button.url} newTab={this.props.button.newTab} darkBackground={this.props.darkBackground}/>}
+                    <LinkButton aos="fade" text={this.props.button.text} url={this.props.button.url} newTab={this.props.button.newTab} darkBackground={this.props.darkBackground}/>}
                 </section>
             </div>
 

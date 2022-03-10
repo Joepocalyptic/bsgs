@@ -63,7 +63,7 @@ export default class BlockNewsEvents extends React.Component<NewsEventsProps, Ne
                             title="News"
                             buttonText="All News"
                             buttonUrl="/news"
-                            aos="fade-right"
+                            aos="fade"
                         />
                         <NewsEventsContent
                             darkBackground={this.props.darkBackground}
@@ -72,7 +72,7 @@ export default class BlockNewsEvents extends React.Component<NewsEventsProps, Ne
                             title="Events"
                             buttonText="Calendar"
                             buttonUrl="/calendar"
-                            aos="fade-left"
+                            aos="fade"
                         />
                     </div>
                 </section>

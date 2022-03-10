@@ -37,7 +37,7 @@ export default class BlockSplitContent extends React.Component<SplitContentProps
                                 content={block.block1.content}
                                 border={BorderType.Left}
                                 centerText={block.block1.centerText}
-                                aos="fade-right"
+                                aos="fade"
                             />}
                             {block.block2 && <Content
                                 darkBackground={this.props.darkBackground}
@@ -46,7 +46,7 @@ export default class BlockSplitContent extends React.Component<SplitContentProps
                                 content={block.block2.content}
                                 border={BorderType.Right}
                                 centerText={block.block2.centerText}
-                                aos="fade-left"
+                                aos="fade"
                             />}
                         </div>
                     ))}

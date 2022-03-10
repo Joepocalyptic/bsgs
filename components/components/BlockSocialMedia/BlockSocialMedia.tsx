@@ -31,8 +31,8 @@ export default class BlockSocialMedia extends React.Component<SocialMediaProps, 
                 <section className={"container mx-auto px-4 py-8 flex flex-col gap-8"}>
                     <h2 className="text-4xl font-heading uppercase text-center text-white">Social Media</h2>
                     <div className="flex gap-8 justify-stretch flex-col lg:flex-row">
-                        <TwitterContent aos="fade-right" screenName={this.props.twitter.screenName} darkBackground={this.props.darkBackground} split={BorderType.Left} />
-                        <FacebookContent aos="fade-left" url={this.props.facebook.url} darkBackground={this.props.darkBackground} split={BorderType.Right} />
+                        <TwitterContent aos="fade" screenName={this.props.twitter.screenName} darkBackground={this.props.darkBackground} split={BorderType.Left} />
+                        <FacebookContent aos="fade" url={this.props.facebook.url} darkBackground={this.props.darkBackground} split={BorderType.Right} />
                     </div>
                 </section>
             </div>

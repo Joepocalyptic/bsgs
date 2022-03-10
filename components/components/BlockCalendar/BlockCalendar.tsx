@@ -77,7 +77,7 @@ export default class BlockCalendar extends React.Component<CalendarProps, Calend
             `}</style>}
             <section className={"container mx-auto px-4 py-8 flex flex-col gap-8"}>
                 <div className="flex gap-8 justify-stretch flex-col lg:flex-row">
-                    <section className={
+                    <section data-aos="fade" className={
                         "relative flex flex-1 gap-24 justify-stretch overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl"
                         + calculateColor(this.props.darkBackground, true)
                     }>
