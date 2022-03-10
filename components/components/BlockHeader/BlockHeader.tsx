@@ -14,7 +14,7 @@ export default class BlockHeader extends React.Component<HeaderProps> {
     render() {
         return (
             <section className="px-4 grid place-items-center h-64 bg-blue-dark
-            text-white font-heading uppercase text-7xl text-center relative">
+            text-white uppercase text-7xl text-center relative">
                 {(this.props.image && this.props.image !== 5 && this.props.image.text !== "") &&
                 <img className="absolute top-0 left-0 z-0 h-full w-full object-cover select-none filter brightness-[60%] select-none"
                 srcSet={`
@@ -25,7 +25,7 @@ export default class BlockHeader extends React.Component<HeaderProps> {
                     ${this.props.image}?width=100 100w
                 `}
                 alt="" />}
-                <h1 className="z-[1]">{this.props.title}</h1>
+                <h1 className="font-heading z-[1]">{this.props.title}</h1>
             </section>
         )
     }

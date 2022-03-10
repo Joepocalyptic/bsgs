@@ -50,7 +50,7 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
 
     render() {
         return (
-            <header className="bg-blue-light font-heading uppercase whitespace-nowrap
+            <header className="bg-blue-light uppercase whitespace-nowrap
                                lg:h-24 w-full text-white border-b-2 border-yellow shadow-2xl">
                 {/* Mobile header */}
                 <nav
@@ -66,8 +66,8 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                         </Link>
                     </div>
                     <div className={"flex-col pt-2 hidden" + (this.state.expanded ? "flex" : "")}>
-                        <Link href="/home" className="border-t-2 border-yellow flex gap-4 py-4">
-                            <HiHome className="w-16 grid place-items-center"/>
+                        <Link href="/home" className="border-t-2 font-heading border-yellow flex gap-4 py-4">
+                            <HiHome className="font-heading w-16 grid place-items-center"/>
                             Home
                         </Link>
                         <BuilderContent modelName="navigation">
@@ -79,10 +79,10 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                                                 return item.singleLink === "" ? (
                                                     <>
                                                         <button onClick={() => this.toggleExpandedSubmenu(index)}
-                                                                className={"rounded-2xl w-full flex gap-4 py-4 uppercase transition-all duration-400 ease-in-out" +
+                                                                className={"rounded-2xl w-full flex gap-4 py-4 uppercase transition-all font-heading duration-400 ease-in-out" +
                                                                     (this.state.submenusExpanded.includes(index) ? " bg-blue-normal shadow-lg" : "")}>
                                                             <HiPlus
-                                                                className={"w-16 place-items-center transition-colors duration-400 ease-in-out" +
+                                                                className={"w-16 place-items-center transition-colors duration-400 font-heading ease-in-out" +
                                                                     (this.state.submenusExpanded.includes(index) ? " text-yellow" : "")}/>
                                                             {item.displayName}
                                                         </button>
@@ -91,7 +91,7 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                                                                 return <>
                                                                     {item.multipleLinks.map((link: any, index_: number) => (
                                                                         <Link href={link.url} key={index_}
-                                                                              className="p-4 flex gap-4">
+                                                                              className="p-4 font-heading flex gap-4">
                                                                             <HiChevronRight
                                                                                 className="w-16 grid place-items-center"/>
                                                                             {link.displayName}
@@ -103,7 +103,7 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                                                         })()}
                                                     </>
                                                 ) : (
-                                                    <Link href={item.singleLink} className="flex gap-4 py-4">
+                                                    <Link href={item.singleLink} className="flex font-heading gap-4 py-4">
                                                         <HiChevronRight
                                                             className="w-16 grid place-items-center text-3xl"/>
                                                         {item.displayName}
@@ -131,7 +131,7 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                                                 return item.singleLink === "" ? (
                                                     <>
                                                         <div
-                                                            className="group relative cursor-pointer flex items-center">
+                                                            className="group relative cursor-pointer flex font-heading items-center">
                                                             {item.displayName}
                                                             <HiChevronDown
                                                                 className="group-hover:text-yellow transition-colors duration-300 ease-in-out absolute left-1/2 right-1/2 transform -translate-x-1/2 bottom-1"/>
@@ -141,7 +141,7 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                                                                 {item.multipleLinks.map((link: any, index_: number) => (
                                                                     <li key={index_}
                                                                         className="w-full hover:bg-blue-dark transition-colors duration-300 ease-in-out">
-                                                                        <Link href={link.url} className="group-hover:py-2 block h-full w-full">
+                                                                        <Link href={link.url} className="group-hover:py-2 block font-heading h-full w-full">
                                                                             {link.displayName}
                                                                         </Link>
                                                                     </li>
@@ -151,7 +151,7 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                                                     </>
                                                 ) : (
                                                     <Link href={item.singleLink}
-                                                          className="cursor-pointer flex items-center">
+                                                          className="cursor-pointer flex font-heading items-center">
                                                         {item.displayName}
                                                     </Link>
                                                 )
@@ -177,7 +177,7 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                                                 return item.singleLink === "" ? (
                                                     <>
                                                         <div
-                                                            className="group relative cursor-pointer flex items-center">
+                                                            className="group relative cursor-pointer font-heading flex items-center">
                                                             {item.displayName}
                                                             <HiChevronDown
                                                                 className="group-hover:text-yellow transition-colors duration-300 ease-in-out absolute left-1/2 right-1/2 transform -translate-x-1/2 bottom-1"/>
@@ -187,7 +187,7 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                                                                 {item.multipleLinks.map((link: any, index_: number) => (
                                                                     <li key={index_}
                                                                         className="w-full hover:bg-blue-dark transition-colors duration-300 ease-in-out">
-                                                                        <Link href={link.url} className="group-hover:py-2 block h-full w-full">
+                                                                        <Link href={link.url} className="group-hover:py-2 font-heading block h-full w-full">
                                                                             {link.displayName}
                                                                         </Link>
                                                                     </li>
@@ -197,7 +197,7 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                                                     </>
                                                 ) : (
                                                     <Link href={item.singleLink}
-                                                          className="cursor-pointer flex items-center">
+                                                          className="cursor-pointer flex font-heading items-center">
                                                         {item.displayName}
                                                     </Link>
                                                 )
