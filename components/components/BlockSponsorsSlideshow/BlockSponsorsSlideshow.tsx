@@ -3,10 +3,12 @@ import React from "react"
 import LinkButton from "@components/LinkButton";
 import {calculateColor} from "@lib/utils";
 import {builder} from "@builder.io/react/lite";
-import {Post} from "@components/components/BlockNewsEvents/BlockNewsEvents";
+import SponsorsMenu from "@components/components/BlockSponsorsSlideshow/sub/SponsorsMenu";
 
-type Sponsor = {
-
+export type Sponsor = {
+    logo: string,
+    name: string,
+    blurb: string,
 }
 
 type SponsorsSlideshowProps = {
@@ -23,14 +25,25 @@ export default class BlockSponsorsSlideshow extends React.Component<SponsorsSlid
     }
 
     componentDidMount() {
-        builder.getAll('news-post', {
+        /*builder.getAll('sponsor', {
             options: {noTargeting: true},
-            limit: 2,
-            omit: "data.blocks"
+            limit: 2
         }).then(posts => {
             this.setState({
-                sponsors: posts.map(post => (post.data as Post))
+                sponsors: posts.map(post => (post.data as Sponsor))
             })
+        })*/
+        this.setState({
+            sponsors: [
+                {name: "Test 1", blurb: "", logo: ""},
+                {name: "Test 2", blurb: "", logo: ""},
+                {name: "Test 3", blurb: "", logo: ""},
+                {name: "Test 3", blurb: "", logo: ""},
+                {name: "Test 3", blurb: "", logo: ""},
+                {name: "Test 3", blurb: "", logo: ""},
+                {name: "Test 3", blurb: "", logo: ""},
+
+            ]
         })
     }
 
@@ -40,7 +53,7 @@ export default class BlockSponsorsSlideshow extends React.Component<SponsorsSlid
                 <section className={"container mx-auto px-4 py-8 flex flex-col gap-8"}>
                     <h2 className="text-4xl font-heading uppercase text-center text-white">Sponsors</h2>
 
-
+                    <SponsorsMenu darkBackground={this.props.darkBackground} sponsors={this.state.sponsors} />
 
                     <LinkButton text="All Sponsors" url="/sponsors" newTab={false} darkBackground={this.props.darkBackground} />
                 </section>

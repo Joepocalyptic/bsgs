@@ -60,7 +60,7 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                                 className="w-16 h-16 bg-blue-normal text-5xl grid place-items-center rounded-2xl shadow-lg">
                             <HiMenu/>
                         </button>
-                        <span className="block flex-1 lg:hidden text-center whitespace-normal">BSGS</span>
+                        <span className="block flex-1 lg:hidden text-center whitespace-normal font-heading text-4xl">BSGS</span>
                         <Link href="/home">
                             <img className="w-16" src="/img/bsgs_logo.webp" alt="BSGS Logo"/>
                         </Link>

@@ -63,6 +63,7 @@
     "react-horizontal-scrolling-menu": "^2.7.1",
     "react-hot-toast": "^2.2.0",
     "react-merge-refs": "^1.1.0",
+    "react-modal": "^3.14.4",
     "react-responsive-carousel": "^3.2.22",
     "react-twitter-widgets": "^1.10.0",
     "sass": "^1.49.9",
