@@ -33,20 +33,18 @@ export default class CollapsibleContent extends React.Component<ContentProps, Co
     render() {
         return (
             <section data-aos={this.props.aos} className={
-                "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl"
+                "flex flex-1 gap-24 relative overflow-hidden text-white shadow-xl rounded-2xl"
                 + calculateColor(this.props.darkBackground, true)
             }>
                 {
                     <>
-                        <div className="flex flex-1 flex-col gap-4">
-                            <div className="flex items-center">
+                        <div className="flex flex-1 flex-col">
+                            <button onClick={() => this.setCollapsed()} className="group flex items-center py-8 px-4 lg:px-8">
                                 {(this.props.heading &&
-                                    <h3 className={"flex-1 font-heading uppercase text-center text-3xl " + ((this.props.border !== BorderType.Both) ? "" : "lg:text-left")}>{this.props.heading}</h3>)}
-                                <button className="text-4xl" onClick={() => this.setCollapsed()}>
-                                    {this.state.collapsed ? <HiChevronDown /> : <HiChevronUp />}
-                                </button>
-                            </div>
-                            {!this.state.collapsed && <>
+                                    <h3 className={"flex-1 font-heading uppercase text-3xl text-left "}>{this.props.heading}</h3>)}
+                                {this.state.collapsed ? <HiChevronDown className="group-hover:text-yellow transition ease-in-out text-4xl" /> : <HiChevronUp className="text-4xl text-yellow" />}
+                            </button>
+                            {!this.state.collapsed && <div className="pb-8 px-4 lg:px-8">
                                 {this.props.image && (
                                     <img srcSet={`
                                      ${this.props.image}?width=1920 1920w,
@@ -60,7 +58,7 @@ export default class CollapsibleContent extends React.Component<ContentProps, Co
                                 <div
                                     className={"cms-content leading-8 break-words font-content flex flex-col gap-4" + (this.props.centerText ? " text-center" : "")}
                                     dangerouslySetInnerHTML={{__html: this.props.content}}/>
-                            </>}
+                            </div>}
                             <div
                                 className={"absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full "
                                     + (this.props.border === BorderType.Right || this.props.border === BorderType.None ? "block lg:hidden" : "")}/>
