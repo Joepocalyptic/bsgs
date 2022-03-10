@@ -33,14 +33,14 @@ export default class BSGSFooter extends React.Component<any, any> {
                                 <ul className="flex flex-col gap-4">
                                     <li>
                                         <Link href={`mailto:${data?.email}`}
-                                              className="group underline-yellow underline-offset-4 hover:underline inline-flex items-center gap-2">
+                                              className="group underline-offset-4 hover:underline inline-flex items-center gap-2">
                                             <HiMail className="text-3xl group-hover:text-yellow transition ease-in-out"/>
                                             {data?.email}
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href={`tel:${data?.phoneNumber.match(/\d+/g).join('')}`}
-                                              className="group underline-yellow underline-offset-4 hover:underline inline-flex items-center gap-2">
+                                              className="group underline-offset-4 hover:underline inline-flex items-center gap-2">
                                             <HiPhone className="text-3xl group-hover:text-yellow transition ease-in-out"/>
                                             {data?.phoneNumber}
                                         </Link>

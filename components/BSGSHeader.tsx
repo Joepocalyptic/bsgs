@@ -130,8 +130,8 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
                                                                        absolute left-1/2 right-1/2 transform -translate-x-1/2 top-[5.4rem] min-w-[12rem] leading-[0] group-hover:leading-normal opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
                                                                 {item.multipleLinks.map((link: any, index_: number) => (
                                                                     <li key={index_}
-                                                                        className="group-hover:py-2 w-full hover:bg-blue-dark transition-colors duration-300 ease-in-out">
-                                                                        <Link href={link.url}>
+                                                                        className="w-full hover:bg-blue-dark transition-colors duration-300 ease-in-out">
+                                                                        <Link href={link.url} className="group-hover:py-2 block h-full w-full">
                                                                             {link.displayName}
                                                                         </Link>
                                                                     </li>
@@ -176,8 +176,8 @@ export default class BSGSHeader extends React.Component<any, HeaderState> {
                                                                        absolute left-1/2 right-1/2 transform -translate-x-1/2 top-[5.4rem] min-w-[12rem] leading-[0] group-hover:leading-normal opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
                                                                 {item.multipleLinks.map((link: any, index_: number) => (
                                                                     <li key={index_}
-                                                                        className="group-hover:py-2 w-full hover:bg-blue-dark transition-colors duration-300 ease-in-out">
-                                                                        <Link href={link.url}>
+                                                                        className="w-full hover:bg-blue-dark transition-colors duration-300 ease-in-out">
+                                                                        <Link href={link.url} className="group-hover:py-2 block h-full w-full">
                                                                             {link.displayName}
                                                                         </Link>
                                                                     </li>

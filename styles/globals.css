@@ -19,7 +19,7 @@
 }
 
 .cms-content a {
-    @apply underline
+    @apply underline underline-offset-4
 }
 
 .rbc-calendar {
