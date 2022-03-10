@@ -20,7 +20,10 @@ const App = ({Component, pageProps}) => {
             duration: 300,
             easing: "ease-in-out",
             delay: 0,
-            once: true
+            once: true,
+            disable: function() {
+                return window.innerWidth < 1024;
+            }
         })
     })
 
