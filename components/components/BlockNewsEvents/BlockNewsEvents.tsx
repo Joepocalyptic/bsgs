@@ -28,8 +28,7 @@ export default class BlockNewsEvents extends React.Component<NewsEventsProps, Ne
         events: []
     }
 
-    constructor(props: NewsEventsProps) {
-        super(props)
+    componentDidMount() {
         builder.getAll('news-post', {
             options: {noTargeting: true},
             limit: 2,
@@ -64,6 +63,7 @@ export default class BlockNewsEvents extends React.Component<NewsEventsProps, Ne
                             title="News"
                             buttonText="All News"
                             buttonUrl="/news"
+                            aos="fade-right"
                         />
                         <NewsEventsContent
                             darkBackground={this.props.darkBackground}
@@ -72,6 +72,7 @@ export default class BlockNewsEvents extends React.Component<NewsEventsProps, Ne
                             title="Events"
                             buttonText="Calendar"
                             buttonUrl="/calendar"
+                            aos="fade-left"
                         />
                     </div>
                 </section>

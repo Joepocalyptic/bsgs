@@ -6,7 +6,8 @@ import {calculateColor} from "@lib/utils";
 type TwitterProps = {
     darkBackground: boolean,
     screenName: string,
-    split: BorderType
+    split: BorderType,
+    aos: string
 }
 
 export default class TwitterContent extends React.Component<TwitterProps> {
@@ -18,7 +19,7 @@ export default class TwitterContent extends React.Component<TwitterProps> {
 
     render() {
         return (
-            <section className={
+            <section data-aos={this.props.aos} className={
                 "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl "
                 + calculateColor(this.props.darkBackground, true)
             }>

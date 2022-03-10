@@ -16,6 +16,7 @@ export type ContentProps = {
     border: BorderType,
     centerText: boolean,
     children?: React.ReactNode
+    aos: string
 }
 
 export default class Content extends React.Component<ContentProps> {
@@ -25,7 +26,8 @@ export default class Content extends React.Component<ContentProps> {
         content: "",
         image: null,
         border: BorderType.Both,
-        centerText: Boolean
+        centerText: Boolean,
+        aos: ""
     }
 
     render() {
@@ -38,7 +40,7 @@ export default class Content extends React.Component<ContentProps> {
             options.dangerouslySetInnerHTML = {__html: this.props.content}
         }
         return (
-            <section className={
+            <section data-aos={this.props.aos} className={
                 "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl"
                 + calculateColor(this.props.darkBackground, true)
             }>

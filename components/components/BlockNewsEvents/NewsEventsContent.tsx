@@ -17,6 +17,7 @@ type NewsEventProps = {
     title: string
     buttonText: string,
     buttonUrl: string
+    aos: string
 }
 
 class NewsEventPost extends React.Component<NewsEventPostProps> {
@@ -60,7 +61,7 @@ export default class NewsEventsContent extends React.Component<NewsEventProps> {
 
     render() {
         return (
-            <section className={
+            <section data-aos={this.props.aos} className={
                 "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl"
                 + calculateColor(this.props.darkBackground, true)
             }>

@@ -1,6 +1,6 @@
 import React from "react"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-import { Carousel } from "react-responsive-carousel"
+import {Carousel} from "react-responsive-carousel"
 
 type SlideshowProps = {
     title: string,
@@ -16,7 +16,7 @@ export default class BlockSlideshow extends React.Component<SlideshowProps, {}> 
             <section className="relative">
                 <Carousel className="relative h-[50vw] max-h-[30rem]"
                           autoPlay={true}
-                          interval={this.props.imageDuration*1000}
+                          interval={this.props.imageDuration * 1000}
                           stopOnHover={false}
                           showThumbs={false}
                           showStatus={false}

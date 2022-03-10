@@ -40,10 +40,11 @@ export default class BlockContent extends React.Component<ContentProps, {}> {
                             content={block.content}
                             border={BorderType.Both}
                             centerText={block.centerText}
+                            aos="fade"
                         />
                     ))}
                     {(this.props.button && this.props.button !== 5 && this.props.button.text !== "") &&
-                    <LinkButton text={this.props.button.text} url={this.props.button.url} newTab={this.props.button.newTab} darkBackground={this.props.darkBackground}/>}
+                    <LinkButton aos="fade" text={this.props.button.text} url={this.props.button.url} newTab={this.props.button.newTab} darkBackground={this.props.darkBackground}/>}
                 </section>
             </div>
 

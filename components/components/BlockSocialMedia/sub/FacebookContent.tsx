@@ -6,7 +6,8 @@ import {calculateColor} from "@lib/utils";
 type FacebookProps = {
     darkBackground: boolean,
     url: string,
-    split: BorderType
+    split: BorderType,
+    aos: string
 }
 
 type FacebookState = {
@@ -34,7 +35,7 @@ export default class FacebookContent extends React.Component<FacebookProps, Face
 
     render() {
         return (
-            <section className={
+            <section data-aos={this.props.aos} className={
                 "flex flex-1 gap-24 relative overflow-hidden text-white py-8 px-4 lg:px-8 shadow-xl rounded-2xl "
                 + calculateColor(this.props.darkBackground, true)
             }>
