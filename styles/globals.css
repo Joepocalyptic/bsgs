@@ -86,3 +86,8 @@
 .swiper-pagination-bullet {
     @apply border-2 border-blue-normal
 }
+
+.contained-swiper {
+    @apply rounded-2xl;
+    position: static !important;
+}

@@ -3,14 +3,14 @@ import React from "react"
 import LinkButton from "@components/LinkButton";
 import { calculateColor } from "@lib/utils";
 import { builder } from "@builder.io/react/lite";
-import SponsorsMenu from "@components/components/BlockSponsorsSlideshow/sub/SponsorsMenu";
+import Slideshow, {SlideshowBlock} from "@components/Slideshow";
 import { Link } from "@components/Link/Link";
 import { HiArrowRight } from "@react-icons/all-files/hi/HiArrowRight";
 
-export type Sponsor = {
-    logo: string,
+type Sponsor = {
     name: string,
-    blurb: string,
+    logo: string
+    blurb: string
 }
 
 type SponsorsSlideshowProps = {
@@ -18,7 +18,7 @@ type SponsorsSlideshowProps = {
 }
 
 type SponsorsSlideshowState = {
-    sponsors: Sponsor[]
+    sponsors: SlideshowBlock[]
 }
 
 export default class BlockSponsorsSlideshow extends React.Component<SponsorsSlideshowProps, SponsorsSlideshowState> {
@@ -28,11 +28,14 @@ export default class BlockSponsorsSlideshow extends React.Component<SponsorsSlid
 
     componentDidMount() {
         builder.getAll('sponsor', {
-            options: { noTargeting: true },
-            limit: 2
+            options: { noTargeting: true }
         }).then(posts => {
             this.setState({
-                sponsors: posts.map(post => (post.data as Sponsor))
+                sponsors: posts.map(post => (post.data as Sponsor)).map(sponsor => ({
+                    title: sponsor.name,
+                    image: sponsor.logo,
+                    blurb: sponsor.blurb
+                } as SlideshowBlock))
             })
         })
     }
@@ -40,10 +43,12 @@ export default class BlockSponsorsSlideshow extends React.Component<SponsorsSlid
     render() {
         return (
             <div className={calculateColor(this.props.darkBackground)}>
-                <section className="container mx-auto px-4 py-8 flex flex-col gap-8">
-                    <h2 className="text-4xl font-heading uppercase text-center text-white">Sponsors</h2>
+                <section className="container mx-auto py-8 flex flex-col gap-8">
+                    <h2 className="text-4xl px-4 font-heading uppercase text-center text-white">Sponsors</h2>
 
-                    <SponsorsMenu aos="fade" darkBackground={this.props.darkBackground} sponsors={this.state.sponsors} />
+                    <div className="relative px-4 lg:px-24">
+                        <Slideshow aos="fade" darkBackground={this.props.darkBackground} blocks={this.state.sponsors} />
+                    </div>
 
                     <Link
                         data-aos={"fade"}

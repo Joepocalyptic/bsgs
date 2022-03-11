@@ -1,7 +1,7 @@
 import "styles/globals.css"
 import React, {useEffect} from "react"
-import Head from "next/head";
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3"
+import {Builder} from "@builder.io/react/lite"
+import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3"
 import "aos/dist/aos.css"
 import AOS from "aos"
 
@@ -21,23 +21,19 @@ const App = ({Component, pageProps}) => {
             easing: "ease-in-out",
             delay: 0,
             once: true,
-            disable: function() {
-                return window.innerWidth < 1024;
+            disable: function () {
+                return window.innerWidth < 1024 || Builder.isPreviewing || Builder.isEditing;
             }
         })
     })
 
     return <>
-        <Head>
-            <title>Bay State Girls Softball</title>
-        </Head>
-
-        <BSGSHeader />
+        <BSGSHeader/>
         <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
             <Component {...pageProps} />
         </GoogleReCaptchaProvider>
 
-        <BSGSFooter />
+        <BSGSFooter/>
     </>
 }
 

@@ -1,11 +1,13 @@
 import React from "react"
 
 import {Swiper, SwiperSlide, useSwiper} from "swiper/react"
-import {Pagination, Autoplay } from "swiper"
+import {Pagination, Autoplay, EffectFade} from "swiper"
 
 import "swiper/css"
 import "swiper/css/pagination"
 import "swiper/css/autoplay"
+import "swiper/css/effect-fade"
+
 import {HiChevronLeft} from "@react-icons/all-files/hi/HiChevronLeft";
 import {HiChevronRight} from "@react-icons/all-files/hi/HiChevronRight";
 
@@ -45,8 +47,9 @@ export default class BlockSlideshow extends React.Component<SlideshowProps, {}> 
                 <Swiper
                     className="h-full relative"
                     pagination={{clickable: true}}
+                    effect="fade"
                     autoplay={{delay: this.props.imageDuration*1000}}
-                    modules={[Pagination, Autoplay]}
+                    modules={[Pagination, Autoplay, EffectFade]}
                     loop
                 >
 
