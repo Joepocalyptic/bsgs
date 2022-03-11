@@ -65,6 +65,7 @@
     "react-merge-refs": "^1.1.0",
     "react-modal": "^3.14.4",
     "react-responsive-carousel": "^3.2.22",
+    "react-slidy": "^4.3.3",
     "react-twitter-widgets": "^1.10.0",
     "sass": "^1.49.9",
     "styled-jsx-plugin-postcss": "^4.0.1"

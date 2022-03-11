@@ -1,6 +1,12 @@
 import React from "react"
-import "react-responsive-carousel/lib/styles/carousel.min.css"
-import {Carousel} from "react-responsive-carousel"
+
+import {Swiper, SwiperSlide, useSwiper} from "swiper/react"
+import {Pagination} from "swiper"
+
+import "swiper/css"
+import "swiper/css/pagination"
+import {HiChevronLeft} from "@react-icons/all-files/hi/HiChevronLeft";
+import {HiChevronRight} from "@react-icons/all-files/hi/HiChevronRight";
 
 type SlideshowProps = {
     title: string,
@@ -10,45 +16,46 @@ type SlideshowProps = {
     imageDuration: number
 }
 
+function SlidePrevButton() {
+    const swiper = useSwiper()
+
+    return (
+        <button className="text-7xl text-white pointer-events-auto" onClick={() => swiper.slidePrev()}>
+            <HiChevronLeft className="transition ease-in-out hover:text-yellow" />
+        </button>
+    )
+}
+
+function SlideNextButton() {
+    const swiper = useSwiper()
+
+    return (
+        <button className="text-7xl text-white pointer-events-auto" onClick={() => swiper.slideNext()}>
+            <HiChevronRight className="transition ease-in-out hover:text-yellow" />
+        </button>
+    )
+}
+
 export default class BlockSlideshow extends React.Component<SlideshowProps, {}> {
+
     render() {
         return (
-            <section className="relative">
-                <Carousel className="relative h-[50vw] max-h-[30rem]"
-                          autoPlay={true}
-                          interval={this.props.imageDuration * 1000}
-                          stopOnHover={false}
-                          showThumbs={false}
-                          showStatus={false}
-                          showArrows={false}
-                          renderIndicator={(onClickHandler, isSelected, index, label) => {
-                              if (isSelected) {
-                                  return (
-                                      <li
-                                          className="bg-yellow rounded-full border-2 border-blue-normal h-4 w-4 mx-2 inline-block"
-                                          aria-label={`Selected: ${label} ${index + 1}`}
-                                          title={`Selected: ${label} ${index + 1}`}
-                                      />
-                                  );
-                              }
-                              return (
-                                  <li
-                                      onClick={onClickHandler}
-                                      onKeyDown={onClickHandler}
-                                      value={index}
-                                      key={index}
-                                      role="button"
-                                      className="bg-white rounded-full border-2 border-blue-normal h-4 w-4 mx-2 inline-block"
-                                      tabIndex={0}
-                                      title={`${label} ${index + 1}`}
-                                      aria-label={`${label} ${index + 1}`}
-                                  />
-                              );
-                          }}
-                          infiniteLoop={true}>
+            <section className="relative h-[50vw] max-h-[30rem]">
+                <Swiper
+                    className="h-full relative"
+                    pagination={{clickable: true}}
+                    modules={[Pagination]}
+                    loop
+                >
+                    <div slot="container-start" className="hidden lg:flex absolute left-0 top-[50%] justify-start -translate-y-1/2 left-[50%] -translate-x-1/2 container z-[2] pointer-events-none">
+                        <SlidePrevButton />
+                    </div>
+                    <div slot="container-end" className="hidden lg:flex absolute left-0 top-[50%] justify-end -translate-y-1/2 left-[50%] -translate-x-1/2 container z-[2] pointer-events-none">
+                        <SlideNextButton />
+                    </div>
                     {this.props.images?.map((image: any, index: number) => (
-                        <div key={index} className="h-[50vw] max-h-[30rem]">
-                            <img className="h-full object-cover select-none filter brightness-[70%]"
+                        <SwiperSlide key={index}>
+                            <img className="w-full h-full object-cover select-none filter brightness-[70%]"
                                  srcSet={`
                                      ${image.image}?width=1920 1920w,
                                      ${image.image}?width=720 720w,
@@ -57,14 +64,14 @@ export default class BlockSlideshow extends React.Component<SlideshowProps, {}> 
                                      ${image.image}?width=100 100w
                                  `}
                                  alt=""/>
-                        </div>
+                        </SwiperSlide>
                     ))}
-                </Carousel>
-                <div className="grid absolute px-4 top-0 left-0 h-full w-full place-items-center">
-                    <h1 className="text-white font-heading uppercase text-4xl sm:text-6xl lg:text-7xl text-center">{this.props.title}</h1>
-                </div>
+                </Swiper>
+                <h1 className="z-[2] text-white font-heading px-4 uppercase text-4xl sm:text-6xl w-full lg:text-7xl text-center absolute
+                               transform -translate-x-1/2 -translate-y-1/2 left-[50%] top-[50%] pointer-events-none">
+                    {this.props.title}
+                </h1>
             </section>
         )
     }
-
 }

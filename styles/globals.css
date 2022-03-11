@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --swiper-theme-color: theme('colors.yellow') !important;
+
+    --swiper-pagination-bullet-size: 1rem;
+    --swiper-pagination-bullet-horizontal-gap: .5rem;
+    --swiper-pagination-bullet-inactive-color: white;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+}
+
 :focus-visible {
     @apply outline outline-0 outline-yellow focus-visible:outline-2
 }
@@ -55,7 +64,7 @@
 }
 
 .rbc-month-header .rbc-header {
-    @apply py-2
+    @apply py-2;
 }
 
 .rbc-event:hover {
@@ -67,18 +76,13 @@
 }
 
 * {
-    @apply decoration-yellow font-content
+    @apply decoration-yellow font-content;
 }
 
 .grecaptcha-badge {
     display: none !important;
 }
 
-.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
-    display: none;
-}
-
-.react-horizontal-scrolling-menu--scroll-container {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+.swiper-pagination-bullet {
+    @apply border-2 border-blue-normal
 }
