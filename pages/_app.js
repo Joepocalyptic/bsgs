@@ -13,6 +13,7 @@ import BSGSFooter from "@components/BSGSFooter";
 
 
 import 'styles/CalendarStyle.scss';
+import Head from "next/head";
 
 const App = ({Component, pageProps}) => {
     useEffect(() => {
@@ -28,12 +29,14 @@ const App = ({Component, pageProps}) => {
     })
 
     return <>
-        <BSGSHeader/>
+        <Head>
+            <title>Bay State Girls Softball</title>
+        </Head>
+        <BSGSHeader />
         <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
             <Component {...pageProps} />
         </GoogleReCaptchaProvider>
-
-        <BSGSFooter/>
+        <BSGSFooter />
     </>
 }
 

@@ -53,13 +53,13 @@ const SlideshowCard = ({block, index, darkBackground}: SlideshowCardProps) => {
     return <div
         role="button"
         className={"relative text-white flex rounded-2xl py-8 px-4 lg:px-8 " +
-            "overflow-hidden flex flex-col gap-4 items-center"
+            "overflow-hidden flex flex-col gap-4 items-center justify-center min-h-[18rem]"
             + calculateColor(darkBackground, true)}
         onClick={() => swiper.slideTo(index)}>
 
         <h3 className="text-3xl text-center font-heading uppercase">{block.title}</h3>
         {block.image && <img src={`${block.image}?width=320`} alt={block.title}
-             className="rounded-lg max-w-[5rem] lg:max-w-[5rem] max-h-[10rem]"/>}
+                             className="rounded-lg max-h-[5rem]"/>}
         <div className="cms-content leading-8 break-words flex flex-col gap-4 text-center"
              dangerouslySetInnerHTML={{__html: block.blurb}}/>
 

@@ -1,5 +1,15 @@
 import React from "react";
 import {Link} from "@components/Link/Link";
+import BSGSHeader from "@components/BSGSHeader";
+
+export async function getStaticProps() {
+
+    return {
+        props: {
+
+        }
+    }
+}
 
 export default function Custom404() {
     return <>
