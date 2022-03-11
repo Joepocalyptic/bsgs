@@ -41,7 +41,7 @@ const SponsorCard = ({ sponsor, itemId, onClick, darkBackground }: SponsorCardPr
         <h3 className="text-3xl font-heading uppercase">{sponsor.name}</h3>
         <img src={`${sponsor.logo}?width=320`} alt={sponsor.name}
             className="rounded-lg max-w-[5rem] lg:max-w-[5rem] max-h-[10rem]" />
-        <p className="cms-content leading-8 break-words flex flex-col gap-4 text-center"
+        <div className="cms-content leading-8 break-words flex flex-col gap-4 text-center"
             dangerouslySetInnerHTML={{ __html: sponsor.blurb }} />
 
         <div className="absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full" />
