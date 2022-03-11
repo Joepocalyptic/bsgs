@@ -1,16 +1,15 @@
 import React from "react";
-import {Sponsor} from "@components/components/BlockSponsorsSlideshow/BlockSponsorsSlideshow";
+import { Sponsor } from "@components/components/BlockSponsorsSlideshow/BlockSponsorsSlideshow";
 import {
     ScrollMenu,
     VisibilityContext,
     getItemsPos,
-    slidingWindow
 } from "react-horizontal-scrolling-menu";
-import {LeftArrow, RightArrow} from "@components/components/BlockSponsorsSlideshow/sub/Arrows";
-import {calculateColor} from "@lib/utils";
-import {BorderType} from "@components/Content";
+import { LeftArrow, RightArrow } from "@components/components/BlockSponsorsSlideshow/sub/Arrows";
+import { calculateColor } from "@lib/utils";
 
 type SponsorsMenuProps = {
+    aos: string
     darkBackground: boolean,
     sponsors: Sponsor[]
 }
@@ -28,30 +27,32 @@ type SponsorCardProps = {
 
 type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
 
-const SponsorCard = ({sponsor, itemId, onClick, darkBackground}: SponsorCardProps) => {
+const SponsorCard = ({ sponsor, itemId, onClick, darkBackground }: SponsorCardProps) => {
     const visibility = React.useContext(VisibilityContext)
 
     const visible = visibility.isItemVisible(itemId)
 
     return <button
-        className={"relative text-white w-[35vw] lg:w-[30vw] rounded-2xl py-8 px-4 lg:px-8 " +
+        className={"relative text-white w-[40vw] lg:w-[30vw] rounded-2xl py-8 px-4 lg:px-8 " +
             "overflow-hidden flex flex-col gap-4 items-center"
             + calculateColor(darkBackground, true)}
         onClick={() => onClick(visibility)}>
+
         <h3 className="text-3xl font-heading uppercase">{sponsor.name}</h3>
-        <img src={"https://www.joeypereira.dev/img/logo-classic.png"} alt={sponsor.name}
-             className="rounded-lg max-w-[5rem] lg:max-w-[15rem] max-h-[20rem]"/>
-        <div
-            className="absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full"/>
-        <div
-            className="absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full"/>
+        <img src={`${sponsor.logo}?width=320`} alt={sponsor.name}
+            className="rounded-lg max-w-[5rem] lg:max-w-[5rem] max-h-[10rem]" />
+        <p className="cms-content leading-8 break-words flex flex-col gap-4 text-center"
+            dangerouslySetInnerHTML={{ __html: sponsor.blurb }} />
+
+        <div className="absolute left-0 top-0 bg-yellow w-0.5 lg:w-1 h-full" />
+        <div className="absolute right-0 top-0 bg-yellow w-0.5 lg:w-1 h-full" />
     </button>
 }
 
-const SponsorsMenu = ({darkBackground, sponsors}: SponsorsMenuProps) => {
-    const {dragStart, dragStop, dragMove, dragging} = useDrag()
+const SponsorsMenu = ({ darkBackground, sponsors }: SponsorsMenuProps) => {
+    const { dragStart, dragStop, dragMove, dragging } = useDrag()
 
-    const handleDrag = ({scrollContainer}: scrollVisibilityApiType) => (ev: React.MouseEvent) =>
+    const handleDrag = ({ scrollContainer }: scrollVisibilityApiType) => (ev: React.MouseEvent) =>
         dragMove(ev, (posDiff) => {
             if (scrollContainer.current) {
                 scrollContainer.current.scrollLeft += posDiff;
@@ -60,7 +61,7 @@ const SponsorsMenu = ({darkBackground, sponsors}: SponsorsMenuProps) => {
 
     const [selected, setSelected] = React.useState<string>("");
 
-    const handleItemClick = (itemId: string) => ({getItemById, scrollToItem}: scrollVisibilityApiType) => {
+    const handleItemClick = (itemId: string) => ({ getItemById, scrollToItem }: scrollVisibilityApiType) => {
         if (dragging) return false
         setSelected(selected !== itemId ? itemId : "");
         // NOTE: for center items
@@ -73,18 +74,19 @@ const SponsorsMenu = ({darkBackground, sponsors}: SponsorsMenuProps) => {
             RightArrow={<RightArrow darkBackground={darkBackground} />}
             onMouseDown={() => dragStart}
             onMouseUp={({
-                            getItemById,
-                            scrollToItem,
-                            visibleItems
-                        }: scrollVisibilityApiType) => () => {
+                getItemById,
+                scrollToItem,
+                visibleItems
+            }: scrollVisibilityApiType) => () => {
                 // NOTE: for center items
                 dragStop()
-                const {center} = getItemsPos(visibleItems)
+                const { center } = getItemsPos(visibleItems)
                 scrollToItem(getItemById(center), "smooth", "center")
             }}
-            options={{throttle: 0}} // NOTE: for center items
+            options={{ throttle: 0 }} // NOTE: for center items
             onMouseMove={handleDrag}
             wrapperClassName="gap-8"
+            data-aos="fade"
             scrollContainerClassName="gap-8 rounded-2xl"
         >
             {sponsors.map(sponsor => (
@@ -134,7 +136,7 @@ function useDrag() {
             position.current = ev.clientX;
             cb(newDiff);
         }
-    };
+    }
 
     return {
         dragStart,
@@ -143,8 +145,7 @@ function useDrag() {
         dragging,
         position,
         setDragging
-    };
+    }
 }
-
 
 export default SponsorsMenu

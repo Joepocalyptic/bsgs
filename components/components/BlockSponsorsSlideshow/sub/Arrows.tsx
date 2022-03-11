@@ -19,7 +19,7 @@ function Arrow({children, disabled, onClick, darkBackground, left}: {
         <button
             disabled={disabled}
             onClick={onClick}
-            className={"flex items-center text-white flex cursor-pointer text-7xl " + (left ? "-ml-5" : "-mr-5")}>
+            className={"hover:text-yellow transition ease-in-out flex items-center text-white flex cursor-pointer text-7xl " + (left ? "-ml-5" : "-mr-5")}>
             {children}
         </button>
     );

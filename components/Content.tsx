@@ -57,7 +57,10 @@ export default class Content extends React.Component<ContentProps> {
                                  `}
                              alt=""
                              className={"block rounded-lg shadow-lg self-center w-full max-w-[20rem] " + ((this.props.border !== BorderType.Both && this.props.border !== BorderType.None) ? "" : "lg:hidden")}/>)}
-                    <div className={"cms-content leading-8 break-words  flex flex-col gap-4" + (this.props.centerText ? " text-center" : "")}
+                    {
+                        <div></div>
+                    }
+                    <p className={"cms-content leading-8 break-words flex flex-col gap-4" + (this.props.centerText ? " text-center" : "")}
                          dangerouslySetInnerHTML={{__html: this.props.content}}/>
 
                     <div
