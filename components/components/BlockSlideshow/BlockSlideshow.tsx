@@ -1,10 +1,11 @@
 import React from "react"
 
 import {Swiper, SwiperSlide, useSwiper} from "swiper/react"
-import {Pagination} from "swiper"
+import {Pagination, Autoplay } from "swiper"
 
 import "swiper/css"
 import "swiper/css/pagination"
+import "swiper/css/autoplay"
 import {HiChevronLeft} from "@react-icons/all-files/hi/HiChevronLeft";
 import {HiChevronRight} from "@react-icons/all-files/hi/HiChevronRight";
 
@@ -44,9 +45,11 @@ export default class BlockSlideshow extends React.Component<SlideshowProps, {}> 
                 <Swiper
                     className="h-full relative"
                     pagination={{clickable: true}}
-                    modules={[Pagination]}
+                    autoplay={{delay: this.props.imageDuration*1000}}
+                    modules={[Pagination, Autoplay]}
                     loop
                 >
+
                     <div slot="container-start" className="hidden lg:flex absolute left-0 top-[50%] justify-start -translate-y-1/2 left-[50%] -translate-x-1/2 container z-[2] pointer-events-none">
                         <SlidePrevButton />
                     </div>
