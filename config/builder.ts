@@ -22,8 +22,9 @@ import "@components/components/BlockCollapsibleContent/BlockCollapsibleContent.b
 import "@components/components/BlockNewsEvents/BlockNewsEvents.builder"
 import "@components/components/BlockSocialMedia/BlockSocialMedia.builder"
 import "@components/components/BlockCalendar/BlockCalendar.builder"
-import "@components/components/BlockContactForm/BlockContactForm.builder"
 import "@components/components/BlockSponsorsSlideshow/BlockSponsorsSlideshow.builder"
+import "@components/components/BlockContactForm/BlockContactForm.builder"
+import "@components/components/BlockRegisterForm/BlockRegisterForm.builder"
 
 Builder.register('insertMenu', {
     name: "Headers",
@@ -49,7 +50,7 @@ Builder.register('insertMenu', {
         {name: "News & Events"},
         {name: "Social Media"},
         {name: "Events Calendar"},
-        {name: "Contact Form"},
         {name: "Sponsors Slideshow"},
+        {name: "Register Form"},
     ]
 })

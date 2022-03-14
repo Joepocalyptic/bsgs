@@ -3,42 +3,42 @@ import {calculateColor} from "@lib/utils"
 import FormInput from "@components/forms/FormInput"
 import FormTextArea from "@components/forms/FormTextArea"
 import FormSubmit from "@components/forms/FormSubmit"
-import {IWithGoogleReCaptchaProps, withGoogleReCaptcha} from "react-google-recaptcha-v3";
-import {toast, Toaster} from "react-hot-toast";
+import {IWithGoogleReCaptchaProps, withGoogleReCaptcha} from "react-google-recaptcha-v3"
+import {toast, Toaster} from "react-hot-toast"
+import {FormProps} from "@components/components/BlockContactForm/BlockContactForm";
 
-export type FormProps = IWithGoogleReCaptchaProps & {
-    darkBackground: boolean
-    formcakeKey: string
-}
-
-type ContactFormState = {
+type RegisterFormState = {
     data: {
-        name: string
-        email: string
-        phone: string
+        childName: string
+        childDOB: string
+        parentName: string
+        parentEmail: string
+        address: string
+        sisterInLeague: string
+        previousTeam: string
         subject: string
-        message: string
-        content: string
     },
     buttonDisabled: boolean
 }
 
-class BlockContactForm extends React.Component<FormProps, ContactFormState> {
-    state: ContactFormState = {
+class BlockRegisterForm extends React.Component<FormProps, RegisterFormState> {
+    state: RegisterFormState = {
         data: {
-            name: "",
-            email: "",
-            phone: "",
-            subject: "",
-            message: "",
-            content: ""
+            childName: "",
+            childDOB: "",
+            parentName: "",
+            parentEmail: "",
+            address: "",
+            sisterInLeague: "",
+            previousTeam: "",
+            subject: ""
         },
         buttonDisabled: false
     }
 
-    validateEmail(){
+    validateParentEmail(){
         const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-        return regex.test(this.state.data.email);
+        return regex.test(this.state.data.parentEmail);
     }
 
     handleVerifyRecaptcha = async () => {
@@ -71,10 +71,12 @@ class BlockContactForm extends React.Component<FormProps, ContactFormState> {
     }
 
     submitForm = async () => {
-        if( this.state.data.name == "" ||
-            this.state.data.email == "" ||
-            this.state.data.subject == "" ||
-            this.state.data.message == "") {
+        if( this.state.data.childName == "" ||
+            this.state.data.childDOB == "" ||
+            this.state.data.parentName == "" ||
+            this.state.data.parentEmail == "" ||
+            this.state.data.address == ""
+        ) {
             toast.error("Please fill out all required fields!", {
                 style: {
                     color: "white",
@@ -85,7 +87,7 @@ class BlockContactForm extends React.Component<FormProps, ContactFormState> {
             return
         }
 
-        if(!this.validateEmail()) {
+        if(!this.validateParentEmail()) {
             toast.error("Invalid email!", {
                 style: {
                     color: "white",
@@ -114,13 +116,15 @@ class BlockContactForm extends React.Component<FormProps, ContactFormState> {
             const data = this.state.data
             this.setState({
                 data: {
-                    name: "",
-                    email: "",
-                    phone: "",
-                    subject: "",
-                    message: "",
-                    content: ""
-                }
+                    childName: "",
+                    childDOB: "",
+                    parentName: "",
+                    parentEmail: "",
+                    address: "",
+                    sisterInLeague: "",
+                    previousTeam: "",
+                    subject: ""
+                },
             })
 
             await fetch(this.props.formcakeKey, {
@@ -146,32 +150,72 @@ class BlockContactForm extends React.Component<FormProps, ContactFormState> {
         }, 1000)
     }
 
-    updateName(event: ChangeEvent<HTMLInputElement>) {
+    updateChildName(event: ChangeEvent<HTMLInputElement>) {
         event.persist()
         this.setState(prevState => ({
             data: {
                 ...prevState.data,
-                name: event.target.value
+                childName: event.target.value
             }
         }))
     }
 
-    updateEmail(event: ChangeEvent<HTMLInputElement>) {
+    updateChildDOB(event: ChangeEvent<HTMLInputElement>) {
         event.persist()
         this.setState(prevState => ({
             data: {
                 ...prevState.data,
-                email: event.target.value
+                childDOB: event.target.value
             }
         }))
     }
 
-    updatePhone(event: ChangeEvent<HTMLInputElement>) {
+    updateParentName(event: ChangeEvent<HTMLInputElement>) {
         event.persist()
         this.setState(prevState => ({
             data: {
                 ...prevState.data,
-                phone: event.target.value
+                parentName: event.target.value
+            }
+        }))
+    }
+
+    updateParentEmail(event: ChangeEvent<HTMLInputElement>) {
+        event.persist()
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                parentEmail: event.target.value
+            }
+        }))
+    }
+
+    updateAddress(event: ChangeEvent<HTMLTextAreaElement>) {
+        event.persist()
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                address: event.target.value
+            }
+        }))
+    }
+
+    updateSisterInLeague(event: ChangeEvent<HTMLInputElement>) {
+        event.persist()
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                sisterInLeague: event.target.value
+            }
+        }))
+    }
+
+    updatePreviousTeam(event: ChangeEvent<HTMLInputElement>) {
+        event.persist()
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                previousTeam: event.target.value
             }
         }))
     }
@@ -182,26 +226,6 @@ class BlockContactForm extends React.Component<FormProps, ContactFormState> {
             data: {
                 ...prevState.data,
                 subject: event.target.value
-            }
-        }))
-    }
-
-    updateMessage(event: ChangeEvent<HTMLTextAreaElement>) {
-        event.persist()
-        this.setState(prevState => ({
-            data: {
-                ...prevState.data,
-                message: event.target.value
-            }
-        }))
-    }
-
-    updateContent(event: ChangeEvent<HTMLInputElement>) {
-        event.persist()
-        this.setState(prevState => ({
-            data: {
-                ...prevState.data,
-                content: event.target.value
             }
         }))
     }
@@ -218,46 +242,59 @@ class BlockContactForm extends React.Component<FormProps, ContactFormState> {
                         <div className="w-full flex flex-col gap-8"
                              id="contact-form">
                             <div className="flex flex-col lg:flex-row gap-8">
-                                <FormInput id="name" label="Name" placeholder="John Doe"
+                                <FormInput id="childName" label="Child's Name" placeholder="John Doe"
                                            className="flex-1 min-w-0" type="text" required={true}
                                            darkBackground={this.props.darkBackground}
-                                           value={this.state.data.name}
-                                           onChange={this.updateName.bind(this)}/>
-                                <FormInput id="email" label="Email" placeholder="contact@example.com"
-                                           className="flex-1 min-w-0" type="email" required={true}
+                                           value={this.state.data.childName}
+                                           onChange={this.updateChildName.bind(this)}/>
+                                <FormInput id="childDOB" label="Child's Date of Birth" placeholder="07/24/2002"
+                                           className="flex-1 min-w-0" type="date" required={true}
                                            darkBackground={this.props.darkBackground}
-                                           value={this.state.data.email}
-                                           onChange={this.updateEmail.bind(this)}/>
+                                           value={this.state.data.childDOB}
+                                           onChange={this.updateChildDOB.bind(this)}/>
                             </div>
 
                             <div className="flex flex-col lg:flex-row gap-8">
-                                <FormInput id="phone" label="Phone Number" placeholder="(555) 555-5555"
-                                           className="flex-1 min-w-0" type="tel" required={false}
-                                           darkBackground={this.props.darkBackground}
-                                           value={this.state.data.phone}
-                                           onChange={this.updatePhone.bind(this)}/>
-                                <FormInput id="subject" label="Subject" placeholder="I have some concerns..."
+                                <FormInput id="parentName" label="Parent's Name" placeholder="John Doe"
                                            className="flex-1 min-w-0" type="text" required={true}
                                            darkBackground={this.props.darkBackground}
-                                           value={this.state.data.subject}
-                                           onChange={this.updateSubject.bind(this)}/>
+                                           value={this.state.data.parentName}
+                                           onChange={this.updateParentName.bind(this)}/>
+                                <FormInput id="parentEmail" label="Parent's Email" placeholder="contact@example.com"
+                                           className="flex-1 min-w-0" type="email" required={true}
+                                           darkBackground={this.props.darkBackground}
+                                           value={this.state.data.parentEmail}
+                                           onChange={this.updateParentEmail.bind(this)}/>
                             </div>
 
-                            <FormTextArea id="message" label="Message" placeholder="Enter your message here..."
+                            <FormTextArea id="address" label="Address" placeholder="555 Some Rd..."
                                           className="flex-1 min-w-0" required={true}
                                           darkBackground={this.props.darkBackground}
-                                          value={this.state.data.message}
-                                          onChange={this.updateMessage.bind(this)}/>
+                                          value={this.state.data.address}
+                                          onChange={this.updateAddress.bind(this)}/>
+
+                            <div className="flex flex-col lg:flex-row gap-8">
+                                <FormInput id="sisterInLeague" label="Sister in league (blank if none)" placeholder="Jane Doe"
+                                           className="flex-1 min-w-0" type="text" required={false}
+                                           darkBackground={this.props.darkBackground}
+                                           value={this.state.data.sisterInLeague}
+                                           onChange={this.updateSisterInLeague.bind(this)}/>
+                                <FormInput id="previousTeam" label="Previous team (blank if none)" placeholder="Team here..."
+                                           className="flex-1 min-w-0" type="text" required={false}
+                                           darkBackground={this.props.darkBackground}
+                                           value={this.state.data.sisterInLeague}
+                                           onChange={this.updatePreviousTeam.bind(this)}/>
+                            </div>
 
                             <FormSubmit darkBackground={this.props.darkBackground} text="Submit"
                                         disabled={this.state.buttonDisabled}
                                         action={this.submitForm}/>
 
                             {/* Honeypot */}
-                            <label htmlFor="content" className="hidden">Content</label>
-                            <input type="text" name="content" id="content" className="hidden"
-                                   value={this.state.data.content}
-                                   onChange={this.updateContent.bind(this)}/>
+                            <label htmlFor="subject" className="hidden">Content</label>
+                            <input type="text" name="subject" id="subject" className="hidden"
+                                   value={this.state.data.subject}
+                                   onChange={this.updateSubject.bind(this)}/>
 
                             <small className="text-center text-xsm  text-gray-500">
                                 This form is protected by Google reCAPTCHA v3. The Google <a
@@ -280,4 +317,4 @@ class BlockContactForm extends React.Component<FormProps, ContactFormState> {
     }
 }
 
-export default withGoogleReCaptcha(BlockContactForm)
+export default withGoogleReCaptcha(BlockRegisterForm)

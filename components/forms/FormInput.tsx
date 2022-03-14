@@ -1,4 +1,4 @@
-import React, {ChangeEventHandler} from "react";
+import React, {ChangeEventHandler, FocusEventHandler} from "react";
 import {calculateColor} from "@lib/utils";
 
 type FormInputProps = {
@@ -11,6 +11,7 @@ type FormInputProps = {
     className?: string
     value: string
     onChange: ChangeEventHandler<HTMLInputElement>
+    onFocus?: FocusEventHandler<HTMLInputElement>
 }
 
 export default class FormInput extends React.Component<FormInputProps, any> {
