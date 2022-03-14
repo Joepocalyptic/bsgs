@@ -1,7 +1,7 @@
 import { Builder } from '@builder.io/react/lite'
-import BlockContactForm from './BlockRegisterForm'
+import BlockRegisterForm from './BlockRegisterForm'
 
-Builder.registerComponent(BlockContactForm, {
+Builder.registerComponent(BlockRegisterForm, {
     name: 'Register Form',
     inputs: [
         {

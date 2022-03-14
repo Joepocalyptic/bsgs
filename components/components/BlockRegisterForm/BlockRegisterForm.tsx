@@ -282,7 +282,7 @@ class BlockRegisterForm extends React.Component<FormProps, RegisterFormState> {
                                 <FormInput id="previousTeam" label="Previous team (blank if none)" placeholder="Team here..."
                                            className="flex-1 min-w-0" type="text" required={false}
                                            darkBackground={this.props.darkBackground}
-                                           value={this.state.data.sisterInLeague}
+                                           value={this.state.data.previousTeam}
                                            onChange={this.updatePreviousTeam.bind(this)}/>
                             </div>
 
