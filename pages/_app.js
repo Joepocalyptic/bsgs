@@ -33,7 +33,12 @@ const App = ({Component, pageProps}) => {
             <title>Bay State Girls Softball</title>
         </Head>
         <BSGSHeader />
-        <GoogleReCaptchaProvider reCaptchaKey={recaptchaSiteKey}>
+        <GoogleReCaptchaProvider
+            reCaptchaKey={recaptchaSiteKey}
+            scriptProps={{
+                async: true,
+                defer: true
+            }}>
             <Component {...pageProps} />
         </GoogleReCaptchaProvider>
         <BSGSFooter />
