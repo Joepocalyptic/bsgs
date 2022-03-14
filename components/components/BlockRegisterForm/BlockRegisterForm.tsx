@@ -49,7 +49,7 @@ class BlockRegisterForm extends React.Component<FormProps, RegisterFormState> {
             return false
         }
 
-        const token = await executeRecaptcha('contactform')
+        const token = await executeRecaptcha('registerform')
 
         try {
             const response = await fetch("/api/recaptcha", {

@@ -1,7 +1,15 @@
 import fetch from "node-fetch"
+import type { VercelRequest, VercelResponse } from "@vercel/node"
 
-export default async function handler(req, res) {
-    const { body, method } = req
+type CaptchaResponse = {
+    success: boolean,
+    score: number,
+    action: string,
+    challenge_ts: string,
+}
+
+export default async (request: VercelRequest, res: VercelResponse) => {
+    const { body, method } = request
 
     const { captcha } = body
 
@@ -21,16 +29,19 @@ export default async function handler(req, res) {
                     },
                     method: "POST",
                 }
-            );
-            const captchaValidation = await response.json()
+            )
+
+            const captchaValidation: CaptchaResponse = await response.json()
 
             if (captchaValidation.success) {
-                return res.status(200).send("OK")
+                if(captchaValidation.score >= 0.5) {
+                    return res.status(200).send("OK")
+                }
             }
 
             return res.status(422).json({
                 message: "Unprocessable request; invalid CAPTCHA code or failed token",
-            });
+            })
         } catch (error) {
             console.log(error)
             return res.status(422).json({ message: "Something went wrong" })
