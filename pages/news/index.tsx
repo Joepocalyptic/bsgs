@@ -20,8 +20,6 @@ export async function getStaticProps() {
         omit: 'data.components',
     }))
 
-    console.log(posts)
-
     return {
         props: {
             posts,
