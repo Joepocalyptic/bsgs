@@ -1,5 +1,5 @@
 import fetch from "node-fetch"
-import type { VercelRequest, VercelResponse } from "@vercel/node"
+import type {VercelRequest, VercelResponse} from "@vercel/node"
 
 type CaptchaResponse = {
     success: boolean,

@@ -1,6 +1,5 @@
 import type {GetStaticPropsContext, InferGetStaticPropsType} from 'next'
-import {BuilderComponent, Builder, builder} from '@builder.io/react/lite'
-import DefaultErrorPage from 'next/error'
+import {Builder, builder, BuilderComponent} from '@builder.io/react/lite'
 import Head from 'next/head'
 import '@builder.io/widgets'
 import React from "react"

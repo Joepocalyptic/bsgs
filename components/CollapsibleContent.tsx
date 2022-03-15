@@ -5,7 +5,6 @@ import {HiChevronDown} from "@react-icons/all-files/hi/HiChevronDown";
 import {HiChevronUp} from "@react-icons/all-files/hi/HiChevronUp";
 
 
-
 type CollapsibleContentState = {
     collapsed: boolean
 }

@@ -1,4 +1,4 @@
-import { Builder } from '@builder.io/react/lite'
+import {Builder} from '@builder.io/react/lite'
 import BlockRegisterForm from './BlockRegisterForm'
 
 Builder.registerComponent(BlockRegisterForm, {

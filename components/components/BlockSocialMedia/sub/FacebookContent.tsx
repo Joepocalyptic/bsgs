@@ -1,6 +1,5 @@
 import {BorderType} from "@components/Content";
 import React from "react";
-import {Timeline} from "react-twitter-widgets"
 import {calculateColor} from "@lib/utils";
 
 type FacebookProps = {

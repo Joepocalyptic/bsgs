@@ -4,7 +4,6 @@ import React from "react"
 import LinkButton from "@components/LinkButton";
 import Content, {BorderType} from "@components/Content";
 import {calculateColor} from "@lib/utils";
-import {SplitContentBlock} from "@components/components/BlockSplitContent/BlockSplitContent";
 import {ContentBlock} from "@components/components/BlockContent/BlockContent";
 
 type SplitContentProps = {

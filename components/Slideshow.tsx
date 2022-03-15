@@ -5,7 +5,7 @@ import {HiChevronRight} from "@react-icons/all-files/hi/HiChevronRight";
 
 import {Swiper, SwiperSlide, useSwiper} from "swiper/react";
 
-import { Mousewheel } from "swiper"
+import {Mousewheel} from "swiper"
 
 import "swiper/css"
 

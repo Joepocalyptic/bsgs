@@ -1,4 +1,4 @@
-import {Calendar, luxonLocalizer, Event} from "react-big-calendar";
+import {Calendar, Event, luxonLocalizer} from "react-big-calendar";
 import {DateTime} from "luxon";
 import React from "react";
 import {NextRouter, withRouter} from "next/router";

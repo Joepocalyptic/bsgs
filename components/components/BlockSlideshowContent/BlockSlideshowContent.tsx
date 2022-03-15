@@ -1,6 +1,6 @@
 import React from "react"
 
-import { calculateColor } from "@lib/utils"
+import {calculateColor} from "@lib/utils"
 import Slideshow, {SlideshowBlock} from "@components/Slideshow"
 
 type Sponsor = {

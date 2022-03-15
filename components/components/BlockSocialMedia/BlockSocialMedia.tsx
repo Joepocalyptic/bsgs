@@ -1,5 +1,5 @@
 import React from "react"
-import { BorderType } from "@components/Content";
+import {BorderType} from "@components/Content";
 import TwitterContent from "./sub/TwitterContent";
 import FacebookContent from "./sub/FacebookContent";
 import {calculateColor} from "@lib/utils";

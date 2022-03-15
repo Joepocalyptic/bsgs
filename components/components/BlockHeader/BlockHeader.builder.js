@@ -1,4 +1,4 @@
-import { Builder } from '@builder.io/react/lite'
+import {Builder} from '@builder.io/react/lite'
 import BlockHeader from './BlockHeader'
 
 Builder.registerComponent(BlockHeader, {

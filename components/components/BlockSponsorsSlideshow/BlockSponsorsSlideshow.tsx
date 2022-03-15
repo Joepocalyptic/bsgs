@@ -1,11 +1,7 @@
 import React from "react"
-
-import LinkButton from "@components/LinkButton";
-import { calculateColor } from "@lib/utils";
-import { builder } from "@builder.io/react/lite";
+import {calculateColor} from "@lib/utils";
+import {builder} from "@builder.io/react/lite";
 import Slideshow, {SlideshowBlock} from "@components/Slideshow";
-import { Link } from "@components/Link/Link";
-import { HiArrowRight } from "@react-icons/all-files/hi/HiArrowRight";
 
 type Sponsor = {
     name: string,

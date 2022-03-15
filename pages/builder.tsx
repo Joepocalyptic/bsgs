@@ -1,10 +1,8 @@
 import type {GetStaticPropsContext, InferGetStaticPropsType} from 'next'
-import {BuilderComponent, Builder, builder} from '@builder.io/react/lite'
+import {builder, BuilderComponent} from '@builder.io/react/lite'
 import Head from 'next/head'
 import '@builder.io/widgets'
 import React from "react"
-import {useRouter} from "next/router";
-import Custom404 from "./404";
 
 export async function getStaticProps({params}: GetStaticPropsContext<{ page: string[] }>) {
     const page =

@@ -1,18 +1,13 @@
-import type {GetStaticPropsContext, InferGetStaticPropsType} from 'next'
-import {BuilderComponent, Builder, builder, BuilderContent} from '@builder.io/react/lite'
+import type {InferGetStaticPropsType} from 'next'
+import {builder} from '@builder.io/react/lite'
 import Head from 'next/head'
 import '@builder.io/widgets'
 import React from "react"
-import {useRouter} from "next/router";
 import BlockHeader from "@components/components/BlockHeader/BlockHeader";
-import Custom404 from "../404";
-import Content, {BorderType} from "@components/Content";
 import {calculateColor, formatDateFromConstructorString} from "@lib/utils";
 import {Post} from "@components/components/BlockNewsEvents/BlockNewsEvents";
-import LinkButton from "@components/LinkButton";
 import {HiArrowRight} from "@react-icons/all-files/hi/HiArrowRight";
 import {Link} from "@components/Link/Link";
-import {DateTime} from "luxon";
 
 export async function getStaticProps() {
     const posts = (await builder.getAll('news-post', {
