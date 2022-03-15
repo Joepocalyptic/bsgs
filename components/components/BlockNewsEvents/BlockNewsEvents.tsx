@@ -19,6 +19,7 @@ export type Post = {
     url: string
     image?: string
     date: string
+    endDate?: string
     blurb: string
 }
 
@@ -67,6 +68,7 @@ export default class BlockNewsEvents extends React.Component<NewsEventsProps, Ne
                         />
                         <NewsEventsContent
                             darkBackground={this.props.darkBackground}
+                            events={true}
                             split={BorderType.Right}
                             posts={this.state.events}
                             title="Events"

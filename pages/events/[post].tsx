@@ -30,7 +30,7 @@ export async function getStaticProps({params}: GetStaticPropsContext<{ post: str
 }
 
 export async function getStaticPaths() {
-    const posts = await builder.getAll('news-post', {
+    const posts = await builder.getAll('event-post', {
         options: {noTargeting: true},
         omit: 'data.components',
     })

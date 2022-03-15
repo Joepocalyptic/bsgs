@@ -50,7 +50,7 @@ export default class BlockSponsorsSlideshow extends React.Component<SponsorsSlid
                         <Slideshow aos="fade" darkBackground={this.props.darkBackground} blocks={this.state.sponsors} />
                     </div>
 
-                    <Link
+                    {/*<Link
                         data-aos={"fade"}
                         href="/sponsors"
                         className={
@@ -61,7 +61,7 @@ export default class BlockSponsorsSlideshow extends React.Component<SponsorsSlid
                     >
                         Sponsors Page
                         <HiArrowRight className="group-hover:text-yellow transition ease-in-out" />
-                    </Link>
+                    </Link>*/}
                 </section>
             </div>
 

@@ -17,6 +17,7 @@ import "@components/components/BlockContent/BlockContent.builder"
 import "@components/components/BlockSplitContent/BlockSplitContent.builder"
 import "@components/components/BlockTripleContent/BlockTripleContent.builder"
 import "@components/components/BlockCollapsibleContent/BlockCollapsibleContent.builder"
+import "@components/components/BlockSlideshowContent/BlockSlideshowContent.builder"
 
 // Special
 import "@components/components/BlockNewsEvents/BlockNewsEvents.builder"
@@ -40,7 +41,8 @@ Builder.register('insertMenu', {
         {name: "Content"},
         {name: "Split Content"},
         {name: "Triple Content"},
-        {name: "Collapsible Content"}
+        {name: "Collapsible Content"},
+        {name: "Slideshow Content"}
     ]
 })
 

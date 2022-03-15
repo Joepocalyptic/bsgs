@@ -14,8 +14,11 @@ import BSGSFooter from "@components/BSGSFooter";
 
 import 'styles/CalendarStyle.scss';
 import Head from "next/head";
+import {useRouter} from "next/router";
 
 const App = ({Component, pageProps}) => {
+    const router = useRouter()
+
     useEffect(() => {
         AOS.init({
             duration: 300,
@@ -23,7 +26,7 @@ const App = ({Component, pageProps}) => {
             delay: 0,
             once: true,
             disable: function () {
-                return window.innerWidth < 1024 || Builder.isPreviewing || Builder.isEditing;
+                return window.innerWidth < 1024 || Builder.isPreviewing || Builder.isEditing || router.isFallback;
             }
         })
     })

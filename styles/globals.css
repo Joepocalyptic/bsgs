@@ -92,3 +92,6 @@
     position: static !important;
 }
 
+.contained-swiper .swiper-wrapper {
+    @apply items-center;
+}

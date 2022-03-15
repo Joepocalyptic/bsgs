@@ -53,7 +53,7 @@ const SlideshowCard = ({block, index, darkBackground}: SlideshowCardProps) => {
     return <div
         role="button"
         className={"relative text-white flex rounded-2xl py-8 px-4 lg:px-8 " +
-            "overflow-hidden flex flex-col gap-4 items-center justify-center min-h-[18rem]"
+            "overflow-hidden flex flex-col gap-4 items-center justify-center"
             + calculateColor(darkBackground, true)}
         onClick={() => swiper.slideTo(index)}>
 

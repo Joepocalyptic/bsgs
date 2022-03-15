@@ -10,9 +10,9 @@ export enum BorderType {
 
 export type ContentProps = {
     darkBackground: boolean,
-    heading: string,
+    heading?: string,
     content: string,
-    image: string,
+    image?: string,
     border: BorderType,
     centerText: boolean,
     children?: React.ReactNode
@@ -22,9 +22,7 @@ export type ContentProps = {
 export default class Content extends React.Component<ContentProps> {
     static defaultProps = {
         darkBackground: false,
-        heading: null,
         content: "",
-        image: null,
         border: BorderType.Both,
         centerText: Boolean,
         aos: ""

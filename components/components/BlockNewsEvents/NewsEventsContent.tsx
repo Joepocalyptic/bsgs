@@ -7,6 +7,7 @@ import {calculateColor, formatDateFromConstructorString} from "@lib/utils";
 
 type NewsEventPostProps = {
     darkBackground: boolean
+    event: boolean
     post: Post
 }
 
@@ -14,6 +15,7 @@ type NewsEventProps = {
     darkBackground: boolean,
     split: BorderType
     posts: Post[],
+    events?: boolean
     title: string
     buttonText: string,
     buttonUrl: string
@@ -42,6 +44,7 @@ class NewsEventPost extends React.Component<NewsEventPostProps> {
                             </div>
                             <span className="block text-right lg:inline lg:text-left">
                                 {formatDateFromConstructorString(this.props.post.date)}
+                                {this.props.event && ` - ${formatDateFromConstructorString(this.props.post.endDate!!)}`}
                             </span>
                         </div>
                     </div>
@@ -55,6 +58,7 @@ export default class NewsEventsContent extends React.Component<NewsEventProps> {
     static defaultProps = {
         darkBackground: false,
         posts: [],
+        events: false,
         split: BorderType.Left,
         title: "Title"
     }
@@ -71,7 +75,7 @@ export default class NewsEventsContent extends React.Component<NewsEventProps> {
                     {this.props.posts?.length !== 0 ?
                         <ul className="flex-1 flex flex-col gap-4">
                             {this.props.posts.map((post, index) =>
-                                <NewsEventPost post={post} darkBackground={this.props.darkBackground} key={index}/>
+                                <NewsEventPost event={this.props.events!!} post={post} darkBackground={this.props.darkBackground} key={index}/>
                             )}
                         </ul>
                         : <p className=" text-center">No recent {this.props.title.toLowerCase()} found.</p>}

@@ -25,7 +25,7 @@ export default class BlockHeader extends React.Component<HeaderProps> {
                     ${this.props.image}?width=100 100w
                 `}
                 alt="" />}
-                <h1 className="font-heading z-[1]">{this.props.title}</h1>
+                <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl z-[1]">{this.props.title}</h1>
             </section>
         )
     }
