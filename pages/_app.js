@@ -15,7 +15,7 @@ import {useRouter} from "next/router";
 import {Toaster} from "react-hot-toast";
 
 const App = ({Component, pageProps}) => {
-    const router = useRouter()
+    // const router = useRouter()
 
     useEffect(() => {
         /*

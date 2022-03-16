@@ -163,7 +163,7 @@ class BSGSHeader extends React.Component<WithRouterProps, HeaderState> {
                         </BuilderContent>
                     </div>
 
-                    <Link href="/home" className="z-[2] py-2 mx-16 w-40">
+                    <Link href="/home" className="z-[2] py-2 mx-16 mt-2 w-40">
                         <img className="w-full z-[2]" src="/img/bsgs_logo_border.webp" alt="BSGS Logo"/>
                     </Link>
 
