@@ -1,7 +1,6 @@
 import "styles/globals.css"
 import React, {useEffect} from "react"
 import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3"
-import "aos/dist/aos.css"
 
 import '@config/builder'
 import {recaptchaSiteKey} from "@config/recaptcha";
