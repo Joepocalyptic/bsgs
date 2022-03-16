@@ -33,5 +33,9 @@ module.exports = bundleAnalyzer({
   env: {
     // expose env to the browser
     BUILDER_PUBLIC_KEY: process.env.BUILDER_PUBLIC_KEY,
+    NEXT_PUBLIC_CHEC_PUBLIC_KEY: process.env.NEXT_PUBLIC_CHEC_PUBLIC_KEY
   },
+  images: {
+    domains: ["cdn.chec.io"]
+  }
 })
