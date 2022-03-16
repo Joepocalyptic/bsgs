@@ -4,8 +4,8 @@ import FormInput from "@components/forms/FormInput"
 import FormTextArea from "@components/forms/FormTextArea"
 import FormSubmit from "@components/forms/FormSubmit"
 import {IWithGoogleReCaptchaProps, withGoogleReCaptcha} from "react-google-recaptcha-v3"
-import {toast, Toaster} from "react-hot-toast"
 import {FormProps} from "@components/components/BlockContactForm/BlockContactForm";
+import {toast} from "react-hot-toast";
 
 type RegisterFormState = {
     data: {
@@ -232,7 +232,6 @@ class BlockRegisterForm extends React.Component<FormProps, RegisterFormState> {
 
     render() {
         return <div className={calculateColor(this.props.darkBackground)}>
-            <Toaster position="bottom-right" />
             <section className={"container mx-auto px-4 py-8 flex flex-col gap-8"}>
                 <div className="flex gap-8 justify-stretch flex-col lg:flex-row">
                     <section className={

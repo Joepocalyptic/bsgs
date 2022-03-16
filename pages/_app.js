@@ -15,6 +15,7 @@ import BSGSFooter from "@components/BSGSFooter";
 import 'styles/CalendarStyle.scss';
 import Head from "next/head";
 import {useRouter} from "next/router";
+import {Toaster} from "react-hot-toast";
 
 const App = ({Component, pageProps}) => {
     const router = useRouter()
@@ -45,6 +46,7 @@ const App = ({Component, pageProps}) => {
             <Component {...pageProps} />
         </GoogleReCaptchaProvider>
         <BSGSFooter />
+        <Toaster position="top-center" />
     </>
 }
 
