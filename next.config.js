@@ -12,9 +12,6 @@ module.exports = bundleAnalyzer({
       },
     ]
   },
-  images: {
-    domains: ['cdn.builder.io'],
-  },
 
   async headers() {
     return [
@@ -36,6 +33,6 @@ module.exports = bundleAnalyzer({
     NEXT_PUBLIC_CHEC_PUBLIC_KEY: process.env.NEXT_PUBLIC_CHEC_PUBLIC_KEY
   },
   images: {
-    domains: ["cdn.chec.io"]
+    domains: ['cdn.builder.io', 'cdn.chec.io'],
   }
 })

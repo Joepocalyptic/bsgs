@@ -1,9 +1,7 @@
 import "styles/globals.css"
 import React, {useEffect} from "react"
-import {Builder} from "@builder.io/react/lite"
 import {GoogleReCaptchaProvider} from "react-google-recaptcha-v3"
 import "aos/dist/aos.css"
-import AOS from "aos"
 
 import '@config/builder'
 import {recaptchaSiteKey} from "@config/recaptcha";
@@ -21,6 +19,7 @@ const App = ({Component, pageProps}) => {
     const router = useRouter()
 
     useEffect(() => {
+        /*
         AOS.init({
             duration: 300,
             easing: "ease-in-out",
@@ -30,6 +29,7 @@ const App = ({Component, pageProps}) => {
                 return window.innerWidth < 1024 || Builder.isPreviewing || Builder.isEditing || router.isFallback;
             }
         })
+        */
     })
 
     return <>
