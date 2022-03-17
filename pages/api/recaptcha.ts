@@ -12,7 +12,6 @@ export default async (request: VercelRequest, res: VercelResponse) => {
     const { body, method } = request
 
     const { captcha } = body
-
     if (method === "POST") {
         if (!captcha) {
             return res.status(422).json({
