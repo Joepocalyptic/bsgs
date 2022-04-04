@@ -38,26 +38,13 @@ export default class BlockSponsorsSlideshow extends React.Component<SponsorsSlid
 
     render() {
         return (
-            <div className={calculateColor(this.props.darkBackground)}>
+            <div className={calculateColor(this.props.darkBackground)} id="sponsors">
                 <section className="container mx-auto py-8 flex flex-col gap-8">
                     <h2 className="text-4xl px-4 font-heading uppercase text-center text-white">Sponsors</h2>
 
                     <div className="relative px-4 lg:px-24">
                         <Slideshow aos="fade" darkBackground={this.props.darkBackground} blocks={this.state.sponsors} />
                     </div>
-
-                    {/*<Link
-                        data-aos={"fade"}
-                        href="/sponsors"
-                        className={
-                            "mx-auto self-start flex gap-2 transition-all ease-in-out hover:gap-4 relative group " +
-                            "overflow-hidden font-heading text-white uppercase text-3xl rounded-2xl py-2 px-8 shadow-xl rounded-2xl"
-                            + calculateColor(this.props.darkBackground, true)
-                        }
-                    >
-                        Sponsors Page
-                        <HiArrowRight className="group-hover:text-yellow transition ease-in-out" />
-                    </Link>*/}
                 </section>
             </div>
 

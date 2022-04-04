@@ -14,23 +14,21 @@ import {HiShoppingCart} from "@react-icons/all-files/hi/HiShoppingCart";
 
 export async function getStaticProps() {
     const merchant = await commerce.merchants.about();
-    const {data: categories} = await commerce.categories.list();
     const {data: products} = await commerce.products.list();
 
     return {
         props: {
             merchant,
-            categories,
             products
         },
         // Next.js will attempt to re-generate the page:
         // - When a request comes in
         // - At most once every 60 seconds
-        revalidate: 60,
+        revalidate: 2,
     }
 }
 
-export default function Store({merchant, categories, products}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Store({merchant, products}: InferGetStaticPropsType<typeof getStaticProps>) {
     const [currentProduct, setCurrentProduct] = useState<Product | undefined>(undefined)
     const [itemModalIsOpen, setItemModalIsOpen] = React.useState(false)
     const [cartModalIsOpen, setCartModalIsOpen] = React.useState(false)
